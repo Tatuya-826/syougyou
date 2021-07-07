@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//カメラが主人公に追従するためのプログラム
 public class CameraScript : MonoBehaviour
 {
     [SerializeField] private GameObject player;   //プレイヤー情報格納用

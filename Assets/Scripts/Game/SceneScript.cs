@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//主にシーン関係のスクリプト
 public class SceneScript : MonoBehaviour
 {
 

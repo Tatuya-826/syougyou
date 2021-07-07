@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//ナビメッシュの機能を学ぶためのプログラム
 public class NavScript : MonoBehaviour
 {
     public GameObject TargetObject; /// 向かう先
