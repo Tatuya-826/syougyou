@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    bool attackFrag= false;
+
     GameObject clickGameObject;     //クリックしたゲームオブジェクトを格納する
     MoveScript moveScript;          //移動スクリプト
     Animator animator;              //自分のアニメーター
     public GameObject bukiObject;   //武器オブジェクトの格納するもの
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,13 +39,27 @@ public class PlayerController : MonoBehaviour
         {
             clickGameObject = hit.collider.gameObject;
         }
+
         if (clickGameObject.gameObject.tag == "Enemy")
         {
-            animator.SetTrigger("Attack");
+            attackFrag = true;
+            moveScript.ClickGround();
         }
+
         else
         {
+            attackFrag = false;
             moveScript.ClickGround();
+        }
+    }
+
+    public void Attack()
+    {
+        if (attackFrag)
+        {
+            animator.SetTrigger("Attack");
+            moveScript.NavStop();
+            attackFrag = false;
         }
     }
 }

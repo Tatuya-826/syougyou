@@ -22,7 +22,6 @@ public class MoveScript : MonoBehaviour
     //クリックされたものが敵ではない
     public void ClickGround()
     {
-
         //クリックした座標を取得
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 100f))
@@ -31,9 +30,17 @@ public class MoveScript : MonoBehaviour
         }
     }
 
+    //ナビメッシュで動かす
     void NavMove(Vector3 Zahyou)
     {
+        agent.isStopped = false;
         //NavMeshAgentに座標を渡す
         agent.SetDestination(Zahyou);
+    }
+
+    //ナビメッシュを止める
+   public void NavStop()
+    {
+        agent.isStopped=true;
     }
 }
