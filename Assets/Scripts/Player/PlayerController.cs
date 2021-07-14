@@ -9,13 +9,14 @@ public class PlayerController : MonoBehaviour
     GameObject clickGameObject;     //クリックしたゲームオブジェクトを格納する
     MoveScript moveScript;          //移動スクリプト
     Animator animator;              //自分のアニメーター
-    public GameObject bukiObject;   //武器オブジェクトの格納するもの
+   // public GameObject bukiObject;   //武器オブジェクトの格納するもの
 
     // Start is called before the first frame update
     void Start()
     {
         moveScript = this.gameObject.GetComponent<MoveScript>();
-        animator = bukiObject.GetComponent<Animator>();
+        // animator = bukiObject.GetComponent<Animator>();
+        animator = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,12 +43,14 @@ public class PlayerController : MonoBehaviour
 
         if (clickGameObject.gameObject.tag == "Enemy")
         {
+            animator.SetTrigger("walk");
             attackFrag = true;
             moveScript.ClickGround();
         }
 
         else
         {
+            animator.SetTrigger("walk");
             attackFrag = false;
             moveScript.ClickGround();
         }

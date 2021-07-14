@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 //主人公の移動プログラム
 public class MoveScript : MonoBehaviour
 {
@@ -15,10 +16,6 @@ public class MoveScript : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
-    void Update()
-    {
-
-    }
     //クリックされたものが敵ではない
     public void ClickGround()
     {

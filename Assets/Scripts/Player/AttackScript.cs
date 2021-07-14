@@ -11,15 +11,11 @@ public class AttackScript : MonoBehaviour
     void Start()
     {
         oyaObject = transform.parent.gameObject;
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        
     }
 
     void OnTriggerStay(Collider col)
