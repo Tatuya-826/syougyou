@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    bool attackFrag= false;
+    [SerializeField]bool attackFrag= false;
 
-    GameObject clickGameObject;     //クリックしたゲームオブジェクトを格納する
+    [SerializeField] GameObject clickGameObject;     //クリックしたゲームオブジェクトを格納する
+    [SerializeField] GameObject AttackHaniObject;
     MoveScript moveScript;          //移動スクリプト
     Animator animator;              //自分のアニメーター
-   // public GameObject bukiObject;   //武器オブジェクトの格納するもの
-
+                                    // public GameObject bukiObject;   //武器オブジェクトの格納するもの
     // Start is called before the first frame update
     void Start()
     {
@@ -22,16 +22,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("Speed", moveScript.NavMagnitude() );
         if (Input.GetMouseButton(1))
         {
-
             MouseClick();
         }
     }
 
     void MouseClick()
     {
-        clickGameObject = null;
+        
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit = new RaycastHit();
@@ -39,28 +39,31 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             clickGameObject = hit.collider.gameObject;
-        }
+            if (clickGameObject.gameObject.tag == "Enemy")
+            {
+                //Debug.Log("teki");
+                attackFrag = true;
+                AttackHaniObject.SetActive(true);
+                moveScript.ClickGround();
+            }
 
-        if (clickGameObject.gameObject.tag == "Enemy")
-        {
-            animator.SetTrigger("walk");
-            attackFrag = true;
-            moveScript.ClickGround();
+            else if(clickGameObject.gameObject.tag == "Ground")
+            {
+                //Debug.Log("yuka");
+                attackFrag = false;
+                AttackHaniObject.SetActive(false);
+                moveScript.ClickGround();
+            }
         }
+        clickGameObject = null;
 
-        else
-        {
-            animator.SetTrigger("walk");
-            attackFrag = false;
-            moveScript.ClickGround();
-        }
     }
 
     public void Attack()
     {
         if (attackFrag)
         {
-            animator.SetTrigger("Attack");
+            animator.SetTrigger("AttackMotion");
             moveScript.NavStop();
             attackFrag = false;
         }

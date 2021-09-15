@@ -40,4 +40,9 @@ public class MoveScript : MonoBehaviour
     {
         agent.isStopped=true;
     }
+
+    public float NavMagnitude()
+    {
+        return agent.velocity.sqrMagnitude;
+    }
 }
