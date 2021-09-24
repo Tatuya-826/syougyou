@@ -11,12 +11,12 @@ public class VisionScript : MonoBehaviour
     }
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log(col.gameObject.tag);
+        //Debug.Log(col.gameObject.tag);
 
 
         if (col.gameObject.tag == "Player" )
         {
-            Debug.Log("tekihakken");
+            //Debug.Log("tekihakken");
             oyaObject.GetComponent<SimplePatarn>().Tuibi = true;   //
         }
 

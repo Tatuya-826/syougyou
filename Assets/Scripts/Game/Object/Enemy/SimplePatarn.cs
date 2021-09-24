@@ -35,15 +35,7 @@ public class SimplePatarn : MonoBehaviour
     void Attack()
     {
         Instantiate(Effect, new Vector3(1.0f, 0.0f, 0.0f), Quaternion.identity);
-        GameObject Bullet = Instantiate(bulletObject) as GameObject;
-        Bullet.transform.position = this.transform.position;
-
-        //発射ベクトル
-        Vector3 force;
-        //発射の向きと速度を決定
-        force = this.transform.forward * bulletSpeed;
-        // Rigidbodyに力を加えて発射
-        Bullet.GetComponent<Rigidbody>().AddForce(force);
+        var Bullet = Instantiate(bulletObject,this.transform.position, this.transform.rotation);
 
         attackFrag = false;
     }
