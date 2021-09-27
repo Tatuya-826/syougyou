@@ -17,7 +17,6 @@ public class NetMoveScript : MonoBehaviourPunCallbacks
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
-        /*
         // 自身が管理者かどうかを判定する
         if (photonView.IsMine)
         {
@@ -26,8 +25,6 @@ public class NetMoveScript : MonoBehaviourPunCallbacks
             // 所有者のプレイヤー名とIDをコンソールに出力する
             Debug.Log($"{owner.NickName}({photonView.OwnerActorNr})");
         }
-        */
-    }
 
     void Update()
     {
