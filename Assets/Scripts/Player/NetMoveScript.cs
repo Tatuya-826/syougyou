@@ -25,6 +25,7 @@ public class NetMoveScript : MonoBehaviourPunCallbacks
             // 所有者のプレイヤー名とIDをコンソールに出力する
             Debug.Log($"{owner.NickName}({photonView.OwnerActorNr})");
         }
+    }
 
     void Update()
     {
