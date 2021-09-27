@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("AttackMotion");
             moveScript.NavStop();
             attackFrag = false;
+            AttackHaniObject.SetActive(false);
         }
     }
 }
