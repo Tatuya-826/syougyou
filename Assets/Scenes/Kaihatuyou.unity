@@ -207,10 +207,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effect: {fileID: 197656, guid: b7f59664cacc27e4f8ad6a18d0d6ccad, type: 3}
   AttackType: 0
+  DelayTime: 0
   attackFrag: 0
   Tuibi: 0
-  bulletObject: {fileID: 567612729}
-  bulletSpeed: 1
 --- !u!1 &183426924
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,10 +369,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 365364732}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dcab91d92b8ea458cbe444580e2eef, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c4f8977e6ab1bf4992427436b346915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Effect: {fileID: 197656, guid: b7f59664cacc27e4f8ad6a18d0d6ccad, type: 3}
+  Effect: {fileID: 0}
   AttackType: 0
   attackFrag: 0
   Tuibi: 0
