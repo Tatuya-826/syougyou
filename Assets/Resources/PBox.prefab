@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6767802162977447167}
   - component: {fileID: 5874920588551167947}
   - component: {fileID: -7784697360130699942}
-  - component: {fileID: 9013751249386686056}
-  - component: {fileID: 898140753314862122}
+  - component: {fileID: 2072714646872365711}
+  - component: {fileID: 232752135482117780}
   m_Layer: 0
   m_Name: PBox
   m_TagString: Untagged
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &9013751249386686056
+--- !u!114 &2072714646872365711
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbec4581f229e044d8e44446b0ad7b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &898140753314862122
+--- !u!114 &232752135482117780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
