@@ -13,9 +13,13 @@ GameObject:
   - component: {fileID: 6767802162977447165}
   - component: {fileID: 6767802162977447166}
   - component: {fileID: 6767802162977447167}
-  - component: {fileID: 6767802162977447154}
   - component: {fileID: 5874920588551167947}
   - component: {fileID: -7784697360130699942}
+<<<<<<< HEAD
+=======
+  - component: {fileID: 9013751249386686056}
+  - component: {fileID: 898140753314862122}
+>>>>>>> 00550cf6802d8dce42642d08fda9f1330a76f025
   m_Layer: 0
   m_Name: PBox
   m_TagString: Untagged
@@ -122,19 +126,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6767802162977447154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6767802162977447161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 148cbdde34f542f4b9f9305ff742ec12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bukiObject: {fileID: 0}
 --- !u!114 &5874920588551167947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +165,34 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+<<<<<<< HEAD
+=======
+--- !u!114 &9013751249386686056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767802162977447161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbec4581f229e044d8e44446b0ad7b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &898140753314862122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767802162977447161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50430f58c833b341a7135a503668b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bukiObject: {fileID: 0}
+>>>>>>> 00550cf6802d8dce42642d08fda9f1330a76f025
 --- !u!1 &6767802163409482516
 GameObject:
   m_ObjectHideFlags: 0
