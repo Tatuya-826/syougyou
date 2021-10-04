@@ -35,7 +35,7 @@ public class NetMoveScript : MonoBehaviourPunCallbacks, IPunObservable
     //クリックされたものが敵ではない
     public void ClickGround()
     {
-        //イズマインがトゥルーであった場合
+        //所有者であった場合
         if (photonView.IsMine)
         {
             //クリックした座標を取得
@@ -45,8 +45,6 @@ public class NetMoveScript : MonoBehaviourPunCallbacks, IPunObservable
                 NavMove(hit.point);
             }
         }
-
-
     }
 
     void NavMove(Vector3 Zahyou)
@@ -74,6 +72,4 @@ public class NetMoveScript : MonoBehaviourPunCallbacks, IPunObservable
             transform.localScale = (Vector3)stream.ReceiveNext();
         }
     }
-
-
 }
