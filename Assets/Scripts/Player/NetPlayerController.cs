@@ -4,7 +4,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-public class NetPlayerController : MonoBehaviourPunCallbacks
+public class NetPlayerController : MonoBehaviourPunCallbacks, IPunObservable
 {
     GameObject clickGameObject;     //クリックしたゲームオブジェクトを格納する
     NetMoveScript moveScript;          //移動スクリプト
@@ -55,6 +55,27 @@ public class NetPlayerController : MonoBehaviourPunCallbacks
         else
         {
             moveScript.ClickGround();
+        }
+    }
+
+    //-----
+    //座標の同期
+    //---
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            // Transformの値をストリームに書き込んで送信する
+            stream.SendNext(transform.localPosition);
+            stream.SendNext(transform.localRotation);
+            stream.SendNext(transform.localScale);
+        }
+        else
+        {
+            // 受信したストリームを読み込んでTransformの値を更新する
+            transform.localPosition = (Vector3)stream.ReceiveNext();
+            transform.localRotation = (Quaternion)stream.ReceiveNext();
+            transform.localScale = (Vector3)stream.ReceiveNext();
         }
     }
 }

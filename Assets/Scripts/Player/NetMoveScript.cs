@@ -5,7 +5,7 @@ using Photon.Realtime;
 using UnityEngine;
 
 //主人公の移動プログラム
-public class NetMoveScript : MonoBehaviourPunCallbacks
+public class NetMoveScript : MonoBehaviourPunCallbacks, IPunObservable
 {
 
     private UnityEngine.AI.NavMeshAgent agent;
@@ -46,5 +46,16 @@ public class NetMoveScript : MonoBehaviourPunCallbacks
     {
         //NavMeshAgentに座標を渡す
         agent.SetDestination(Zahyou);
+        
+    }
+
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+        }
+        else
+        {
+        }
     }
 }
