@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class EnemyHitScript : MonoBehaviour
 {
+    
+    public const int MAXHP = 10;
+    public int HP;
     //‚Ä‚«‚Ì“–‚½‚è”»’èˆ—
+    void Start()
+    {
+        HP = MAXHP;
+    }
 
     void OnTriggerEnter(Collider col)
     {

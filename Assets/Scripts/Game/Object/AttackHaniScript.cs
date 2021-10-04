@@ -24,7 +24,7 @@ public class AttackHaniScript : MonoBehaviour
         if (col.gameObject.tag == "Player" && thisTokusei == 1)
         {
             //Debug.Log("tekihakken");
-            oyaObject.GetComponent<SimplePatarn>().attackFrag = true;   //
+            oyaObject.GetComponent<EnemyAction>().attackFrag = true;   //
         }
 
     }
@@ -35,7 +35,7 @@ public class AttackHaniScript : MonoBehaviour
         if (col.gameObject.tag == "Player" && thisTokusei == 1)
         {
             //Debug.Log("tekihakken");
-            oyaObject.GetComponent<SimplePatarn>().attackFrag = false;   //
+            oyaObject.GetComponent<EnemyAction>().attackFrag = false;   //
         }
     }
 }
