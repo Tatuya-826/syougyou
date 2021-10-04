@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9dcab91d92b8ea458cbe444580e2eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackHaniObject: {fileID: 0}
+  AttackHaniObject: {fileID: 1113211881}
   Effect: {fileID: 197656, guid: b7f59664cacc27e4f8ad6a18d0d6ccad, type: 3}
   AttackType: 0
   DelayTime: 0
@@ -2382,6 +2382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b4272024cc9574bbf0f05b2ca326b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Patern: 1
 --- !u!135 &2061650647
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2510,6 +2511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b4272024cc9574bbf0f05b2ca326b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Patern: 0
 --- !u!1001 &47569695620842690
 PrefabInstance:
   m_ObjectHideFlags: 0
