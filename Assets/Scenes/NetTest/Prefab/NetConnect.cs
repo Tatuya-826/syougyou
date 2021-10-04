@@ -24,7 +24,7 @@ public class NetConnect : MonoBehaviourPunCallbacks
     {
         // ランダムな座標に自身のアバター（ネットワークオブジェクト）を生成する
         var position = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
-        PhotonNetwork.Instantiate("PBox", position, Quaternion.identity);
+        PhotonNetwork.Instantiate("NetArthur_01", position, Quaternion.identity);
         print("ネットワークに接続し、オブジェクトを生成");
     }
 }
