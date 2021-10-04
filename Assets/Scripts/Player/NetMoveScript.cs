@@ -5,7 +5,7 @@ using Photon.Realtime;
 using UnityEngine;
 
 //主人公の移動プログラム
-public class NetMoveScript : MonoBehaviourPunCallbacks
+public class NetMoveScript : MonoBehaviourPunCallbacks, IPunObservable
 {
 
     private UnityEngine.AI.NavMeshAgent agent;
@@ -23,7 +23,6 @@ public class NetMoveScript : MonoBehaviourPunCallbacks
             // 所有者を取得する
             Player owner = photonView.Owner;
             // 所有者のプレイヤー名とIDをコンソールに出力する
-            Debug.Log($"{owner.NickName}({photonView.OwnerActorNr})");
         }
     }
 
@@ -31,15 +30,20 @@ public class NetMoveScript : MonoBehaviourPunCallbacks
     {
 
     }
+
+    
     //クリックされたものが敵ではない
     public void ClickGround()
     {
-
-        //クリックした座標を取得
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 100f))
+        //所有者であった場合
+        if (photonView.IsMine)
         {
-            NavMove(hit.point);
+            //クリックした座標を取得
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 100f))
+            {
+                NavMove(hit.point);
+            }
         }
     }
 
@@ -47,5 +51,25 @@ public class NetMoveScript : MonoBehaviourPunCallbacks
     {
         //NavMeshAgentに座標を渡す
         agent.SetDestination(Zahyou);
+        
+    }
+
+    //座標を同期する
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            // Transformの値をストリームに書き込んで送信する
+            stream.SendNext(transform.localPosition);
+            stream.SendNext(transform.localRotation);
+            stream.SendNext(transform.localScale);
+        }
+        else
+        {
+            // 受信したストリームを読み込んでTransformの値を更新する
+            transform.localPosition = (Vector3)stream.ReceiveNext();
+            transform.localRotation = (Quaternion)stream.ReceiveNext();
+            transform.localScale = (Vector3)stream.ReceiveNext();
+        }
     }
 }
