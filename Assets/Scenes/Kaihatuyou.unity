@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9dcab91d92b8ea458cbe444580e2eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackHaniObject: {fileID: 0}
   Effect: {fileID: 197656, guid: b7f59664cacc27e4f8ad6a18d0d6ccad, type: 3}
   AttackType: 0
   DelayTime: 0

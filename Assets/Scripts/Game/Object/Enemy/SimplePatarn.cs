@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SimplePatarn : MonoBehaviour
 {
+    [SerializeField] GameObject AttackHaniObject;
     public GameObject Effect;
     public int AttackType;
     public const float AttackDelay = 1.0f;
@@ -17,6 +18,7 @@ public class SimplePatarn : MonoBehaviour
     {
         moveScript = this.gameObject.GetComponent<PlayerGoScript>();
         DelayTime = 0f;
+        AttackHaniObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,12 +27,18 @@ public class SimplePatarn : MonoBehaviour
 
         switch (attackFrag) {
             case false:
-                if(Tuibi)
+                if (Tuibi)
+                {
+                    AttackHaniObject.SetActive(true);
                     moveScript.PlayerTuibi();
+                }
                 break;
             case true:
-                if(DelayTime<0)
-                Attack();
+                if (DelayTime < 0)
+                {
+                    AttackHaniObject.SetActive(true);
+                    Attack();
+                }
                 break;
         }
         if (DelayTime > 0)
@@ -42,5 +50,6 @@ public class SimplePatarn : MonoBehaviour
         
         Instantiate(Effect, this.transform.position, Quaternion.identity);
         DelayTime = AttackDelay;
+        AttackHaniObject.SetActive(false);
     }
 }
