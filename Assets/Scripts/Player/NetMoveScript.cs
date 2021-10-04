@@ -23,7 +23,6 @@ public class NetMoveScript : MonoBehaviourPunCallbacks, IPunObservable
             // 所有者を取得する
             Player owner = photonView.Owner;
             // 所有者のプレイヤー名とIDをコンソールに出力する
-            Debug.Log($"{owner.NickName}({photonView.OwnerActorNr})");
         }
     }
 
@@ -31,6 +30,8 @@ public class NetMoveScript : MonoBehaviourPunCallbacks, IPunObservable
     {
 
     }
+
+    
     //クリックされたものが敵ではない
     public void ClickGround()
     {
@@ -40,6 +41,8 @@ public class NetMoveScript : MonoBehaviourPunCallbacks, IPunObservable
             {
                 NavMove(hit.point);
             }
+
+
     }
 
     void NavMove(Vector3 Zahyou)
@@ -49,13 +52,24 @@ public class NetMoveScript : MonoBehaviourPunCallbacks, IPunObservable
         
     }
 
+    //座標を同期する
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
+            // Transformの値をストリームに書き込んで送信する
+            stream.SendNext(transform.localPosition);
+            stream.SendNext(transform.localRotation);
+            stream.SendNext(transform.localScale);
         }
         else
         {
+            // 受信したストリームを読み込んでTransformの値を更新する
+            transform.localPosition = (Vector3)stream.ReceiveNext();
+            transform.localRotation = (Quaternion)stream.ReceiveNext();
+            transform.localScale = (Vector3)stream.ReceiveNext();
         }
     }
+
+
 }
