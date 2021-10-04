@@ -35,12 +35,16 @@ public class NetMoveScript : MonoBehaviourPunCallbacks, IPunObservable
     //クリックされたものが敵ではない
     public void ClickGround()
     {
+        //イズマインがトゥルーであった場合
+        if (photonView.IsMine)
+        {
             //クリックした座標を取得
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100f))
             {
                 NavMove(hit.point);
             }
+        }
 
 
     }
