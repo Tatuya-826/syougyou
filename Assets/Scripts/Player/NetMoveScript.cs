@@ -34,13 +34,12 @@ public class NetMoveScript : MonoBehaviourPunCallbacks
     //クリックされたものが敵ではない
     public void ClickGround()
     {
-
-        //クリックした座標を取得
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 100f))
-        {
-            NavMove(hit.point);
-        }
+            //クリックした座標を取得
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 100f))
+            {
+                NavMove(hit.point);
+            }
     }
 
     void NavMove(Vector3 Zahyou)
