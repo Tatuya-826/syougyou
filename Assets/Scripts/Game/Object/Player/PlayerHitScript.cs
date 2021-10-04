@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHitScript : MonoBehaviour
 {
-    public const int MAXHP = 1;
+    public const int MAXHP = 10000000;
     public int HP ;
     GameObject oyaObject;
     //ƒvƒŒƒCƒ„[‚Ì“–‚½‚è”»’èˆ—
