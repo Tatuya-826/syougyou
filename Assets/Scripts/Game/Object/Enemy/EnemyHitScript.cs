@@ -5,14 +5,14 @@ using UnityEngine;
 public class EnemyHitScript : MonoBehaviour
 {
     //‚Ä‚«‚Ì“–‚½‚è”»’èˆ—
-    public const int MAXHP = 10;
     public int HP;
     GameObject oyaObject;
+    EnemyStatus enemyStatus;
 
     void Start()
     {
-        HP = MAXHP;
         oyaObject = transform.parent.gameObject;
+        enemyStatus= oyaObject.GetComponent<EnemyStatus>();
     }
 
     void OnTriggerEnter(Collider col)
@@ -20,7 +20,11 @@ public class EnemyHitScript : MonoBehaviour
         //Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "PlayerAttack")
         {
-            HP--;
+            
+
+            HP = enemyStatus.gethp();
+            HP-=col.GetComponent<AttackPower > ().AtkPower;
+            enemyStatus.sethp(HP);
             Debug.Log(HP);
             if (HP <= 0)
                 Destroy(oyaObject);

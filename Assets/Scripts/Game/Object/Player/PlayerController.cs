@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     MoveScript moveScript;          //移動スクリプト
     Animator animator;              //自分のアニメーター
-                                    // public GameObject bukiObject;   //武器オブジェクトの格納するもの
+    //public GameObject bukiObject;   //武器オブジェクトの格納するもの
     // Start is called before the first frame update
     void Start()
     {

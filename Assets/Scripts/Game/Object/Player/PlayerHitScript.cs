@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerHitScript : MonoBehaviour
 {
-    public const int MAXHP = 10000000;
     public int HP ;
     GameObject oyaObject;
+    PlayerStatus playerStatus;
     //ƒvƒŒƒCƒ„[‚Ì“–‚½‚è”»’èˆ—
     void Start()
     {
-        HP = MAXHP;
         oyaObject = transform.parent.gameObject;
+        playerStatus = oyaObject.GetComponent<PlayerStatus>();
     }
 
     void OnTriggerEnter(Collider col)
@@ -19,8 +19,10 @@ public class PlayerHitScript : MonoBehaviour
         //Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "EnemyAttack" )
         {
-
+            HP=playerStatus.gethp();
             HP--;
+            playerStatus.sethp(HP);
+
             Debug.Log(HP);
             if (HP <= 0)
                 Destroy(oyaObject);
