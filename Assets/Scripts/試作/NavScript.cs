@@ -21,4 +21,5 @@ public class NavScript : MonoBehaviour
             m_navMeshAgent.SetDestination(TargetObject.transform.position);
         }
     }
+    
 }
