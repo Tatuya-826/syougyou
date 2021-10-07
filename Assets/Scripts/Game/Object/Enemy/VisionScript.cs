@@ -7,7 +7,6 @@ public class VisionScript : MonoBehaviour
     GameObject oyaObject;
     void Start()
     {
-        Debug.Log("tekihakken");
         oyaObject = transform.parent.gameObject;
     }
     void OnTriggerEnter(Collider col)
@@ -17,7 +16,7 @@ public class VisionScript : MonoBehaviour
 
         if (col.gameObject.tag == "Player" )
         {
-            Debug.Log("tekihakken");
+            //Debug.Log("tekihakken");
             oyaObject.GetComponent<EnemyAction>().Tuibi = true;
         }
 
