@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStatus : MonoBehaviour
 {
 
-    const int MAXHP = 100;
+    const int MAXHP = 10;
     int HP;
     const int BasicAtk=5;
     const int BasicDef=1;

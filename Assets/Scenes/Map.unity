@@ -211,16 +211,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapWidth: 150
   MapHeight: 150
-  wall: 0
+  wall: 9
   road: 0
   WallObject: {fileID: 4601012562071096444, guid: c42c603faa119f149a4ac024a833e903, type: 3}
-  roomMinHeight: 0
-  roomMaxHeight: 0
-  roomMinWidth: 0
-  roomMaxWidth: 0
-  RoomCountMin: 0
-  RoomCountMax: 0
-  roadWidth: 0
+  roomMinHeight: 13
+  roomMaxHeight: 20
+  roomMinWidth: 13
+  roomMaxWidth: 20
+  RoomCountMin: 28
+  RoomCountMax: 28
+  roadWidth: 3
 --- !u!4 &127525488
 Transform:
   m_ObjectHideFlags: 0
