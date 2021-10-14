@@ -4235,9 +4235,10 @@ GameObject:
   - component: {fileID: 60126166580268365}
   - component: {fileID: 3892180502132059067}
   - component: {fileID: -4093109590711567024}
+  - component: {fileID: 1183344310701972673}
   m_Layer: 0
-  m_Name: NetArthur_02
-  m_TagString: Untagged
+  m_Name: NetArthur
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4257,6 +4258,7 @@ Transform:
   - {fileID: 335879758959810570}
   - {fileID: 6261305712585652601}
   - {fileID: 6261305712063272926}
+  - {fileID: 6565211484614101039}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -4343,7 +4345,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackFrag: 0
   clickGameObject: {fileID: 0}
-  AttackHaniObject: {fileID: 7170622697906169555, guid: b247c2abd2cac8d45b4f82d11ccdb073, type: 3}
+  AttackHaniObject: {fileID: 6261305712585652602}
+  AttackHanteiObject: {fileID: 6274218454076652873}
+  AttackZizokuTime: 0
+  AttackTime: 0
 --- !u!114 &-4093109590711567024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4369,6 +4374,18 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1183344310701972673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335879758959904244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f41215f5695fa47adbcdff3eef433a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &335879758959904246
 GameObject:
   m_ObjectHideFlags: 0
@@ -4611,7 +4628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6261305712585652601}
   - component: {fileID: 6261305712585652607}
-  - component: {fileID: 6261305712585652600}
+  - component: {fileID: 1273932587684961709}
   m_Layer: 0
   m_Name: bukihanni
   m_TagString: Untagged
@@ -4646,7 +4663,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 3.4079773, z: 2.0184283}
   m_Center: {x: 0, y: -1.2039887, z: -0.5092142}
---- !u!114 &6261305712585652600
+--- !u!114 &1273932587684961709
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4655,7 +4672,65 @@ MonoBehaviour:
   m_GameObject: {fileID: 6261305712585652602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac8bf8a28c06f6848b30546e0feb15f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 0db7bf43d31e51c44896d9b505f650ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thisTokusei: 0
+--- !u!1 &6274218454076652873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6565211484614101039}
+  - component: {fileID: 7813468972231206480}
+  - component: {fileID: 4633364376361271308}
+  m_Layer: 2
+  m_Name: KougekiHantei
+  m_TagString: PlayerAttack
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6565211484614101039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6274218454076652873}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.06999993, y: 2.9863343, z: 1.3}
+  m_LocalScale: {x: 1, y: 1, z: 2}
+  m_Children: []
+  m_Father: {fileID: 335879758959811028}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7813468972231206480
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6274218454076652873}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.4084988, y: 3.4079773, z: 2.0184283}
+  m_Center: {x: 0.04906088, y: -1.2039887, z: -0.50921416}
+--- !u!114 &4633364376361271308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6274218454076652873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32fe6eea17c20f649a31193cdf494777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AtkPower: 0

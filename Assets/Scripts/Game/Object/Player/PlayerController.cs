@@ -8,15 +8,21 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject clickGameObject;     //クリックしたゲームオブジェクトを格納する
     [SerializeField] GameObject AttackHaniObject;
+    [SerializeField] GameObject AttackHanteiObject;    //攻撃判定
+
+    [SerializeField] float AttackZizokuTime;
+    [SerializeField] float AttackTime;
+
     MoveScript moveScript;          //移動スクリプト
     Animator animator;              //自分のアニメーター
-                                    // public GameObject bukiObject;   //武器オブジェクトの格納するもの
+    //public GameObject bukiObject;   //武器オブジェクトの格納するもの
     // Start is called before the first frame update
     void Start()
     {
         moveScript = this.gameObject.GetComponent<MoveScript>();
         // animator = bukiObject.GetComponent<Animator>();
         animator = this.GetComponent<Animator>();
+        AttackTime = 0f;
     }
 
     // Update is called once per frame
@@ -27,6 +33,13 @@ public class PlayerController : MonoBehaviour
         {
             MouseClick();
         }
+
+        if (AttackTime <= 0)
+        {
+            AttackHanteiObject.SetActive(false);
+        }
+        else
+            AttackTime--;
     }
 
     void MouseClick()
@@ -64,10 +77,13 @@ public class PlayerController : MonoBehaviour
     {
         if (attackFrag)
         {
+            AttackHanteiObject.SetActive(true);
             animator.SetTrigger("AttackMotion");
             moveScript.NavStop();
             attackFrag = false;
             AttackHaniObject.SetActive(false);
+            AttackTime = AttackZizokuTime;
         }
+        
     }
 }

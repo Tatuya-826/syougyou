@@ -10,6 +10,11 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
 
     [SerializeField] GameObject clickGameObject;     //クリックしたゲームオブジェクトを格納する
     [SerializeField] GameObject AttackHaniObject;
+    [SerializeField] GameObject AttackHanteiObject;    //攻撃判定
+
+    [SerializeField] float AttackZizokuTime;
+    [SerializeField] float AttackTime;
+
     NetMoveScript02 moveScript;          //移動スクリプト
     Animator animator;              //自分のアニメーター
                                     // public GameObject bukiObject;   //武器オブジェクトの格納するもの
@@ -19,6 +24,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
         moveScript = this.gameObject.GetComponent<NetMoveScript02>();
         // animator = bukiObject.GetComponent<Animator>();
         animator = this.GetComponent<Animator>();
+        AttackTime = 0f;
 
         // 自身が管理者かどうかを判定する
         if (photonView.IsMine)
@@ -37,6 +43,13 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
         {
             MouseClick();
         }
+
+        if (AttackTime <= 0)
+        {
+            AttackHanteiObject.SetActive(false);
+        }
+        else
+            AttackTime--;
     }
 
     void MouseClick()
@@ -48,6 +61,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
 
         if (Physics.Raycast(ray, out hit))
         {
+            //Debug.Log("aa");
             clickGameObject = hit.collider.gameObject;
             if (clickGameObject.gameObject.tag == "Enemy")
             {
@@ -74,10 +88,12 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (attackFrag)
         {
+            AttackHanteiObject.SetActive(true);
             animator.SetTrigger("AttackMotion");
             moveScript.NavStop();
             attackFrag = false;
             AttackHaniObject.SetActive(false);
+            AttackTime = AttackZizokuTime;
         }
     }
 

@@ -12,6 +12,10 @@ public class PlayerGoScript : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
     
+    void Update()
+    {
+        PlyaerObject = GameObject.FindWithTag("Player");
+    }
 
     //ナビメッシュで動かす
     public void PlayerTuibi()
