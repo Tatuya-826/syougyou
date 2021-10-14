@@ -20,7 +20,7 @@ public class PlayerHitScript : MonoBehaviour
         if (col.gameObject.tag == "EnemyAttack" )
         {
             HP=playerStatus.gethp();
-            HP--;
+            HP-= col.GetComponent<Damage>().hitDamage;
             playerStatus.sethp(HP);
 
             Debug.Log(HP);
