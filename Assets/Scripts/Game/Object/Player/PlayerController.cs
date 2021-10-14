@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
             {
                 //Debug.Log("teki");
                 attackFrag = true;
-                AttackHaniObject.SetActive(true);
+                //AttackHaniObject.SetActive(true);
                 moveScript.ClickGround();
             }
 
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
             {
                 //Debug.Log("yuka");
                 attackFrag = false;
-                AttackHaniObject.SetActive(false);
+               // AttackHaniObject.SetActive(false);
                 moveScript.ClickGround();
             }
         }
@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("AttackMotion");
             moveScript.NavStop();
             attackFrag = false;
-            AttackHaniObject.SetActive(false);
+            //AttackHaniObject.SetActive(false);
             AttackTime = AttackZizokuTime;
         }
         
