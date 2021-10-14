@@ -4231,10 +4231,10 @@ GameObject:
   - component: {fileID: 335879758959811028}
   - component: {fileID: 335879758793541477}
   - component: {fileID: 6261305713474699286}
-  - component: {fileID: -4093109590711567024}
   - component: {fileID: -1306045551270769078}
   - component: {fileID: 60126166580268365}
   - component: {fileID: 3892180502132059067}
+  - component: {fileID: -4093109590711567024}
   m_Layer: 0
   m_Name: NetArthur_02
   m_TagString: Untagged
@@ -4301,31 +4301,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-4093109590711567024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 335879758959904244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: -1306045551270769078}
-  - {fileID: 60126166580268365}
-  - {fileID: 3892180502132059067}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!114 &-1306045551270769078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4369,6 +4344,31 @@ MonoBehaviour:
   attackFrag: 0
   clickGameObject: {fileID: 0}
   AttackHaniObject: {fileID: 7170622697906169555, guid: b247c2abd2cac8d45b4f82d11ccdb073, type: 3}
+--- !u!114 &-4093109590711567024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335879758959904244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: -1306045551270769078}
+  - {fileID: 60126166580268365}
+  - {fileID: 3892180502132059067}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &335879758959904246
 GameObject:
   m_ObjectHideFlags: 0

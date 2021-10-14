@@ -18,7 +18,7 @@ public class AttackHaniScript : MonoBehaviour
         //Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "Enemy" && thisTokusei == 0)
         {
-            oyaObject.GetComponent<PlayerController>().Attack();
+            oyaObject.GetComponent<NetPlayerController02>().Attack();
         }
 
         if (col.gameObject.tag == "Player" && thisTokusei == 1)

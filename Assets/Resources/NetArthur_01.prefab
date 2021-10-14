@@ -4230,12 +4230,11 @@ GameObject:
   m_Component:
   - component: {fileID: 335879758959811028}
   - component: {fileID: 335879758793541477}
-  - component: {fileID: 6261305713474699287}
   - component: {fileID: 6261305713474699286}
+  - component: {fileID: -1306045551270769078}
   - component: {fileID: 5245388552441574785}
   - component: {fileID: -1380583692799773904}
   - component: {fileID: -4093109590711567024}
-  - component: {fileID: -1306045551270769078}
   m_Layer: 0
   m_Name: NetArthur_01
   m_TagString: Untagged
@@ -4280,21 +4279,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6261305713474699287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 335879758959904244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 148cbdde34f542f4b9f9305ff742ec12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackFrag: 0
-  clickGameObject: {fileID: 0}
-  AttackHaniObject: {fileID: 6261305712585652602}
 --- !u!195 &6261305713474699286
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4317,6 +4301,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-1306045551270769078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335879758959904244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!114 &5245388552441574785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4361,28 +4361,12 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: -1306045551270769078}
   - {fileID: 5245388552441574785}
   - {fileID: -1380583692799773904}
-  - {fileID: -1306045551270769078}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-1306045551270769078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 335879758959904244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!1 &335879758959904246
 GameObject:
   m_ObjectHideFlags: 0
