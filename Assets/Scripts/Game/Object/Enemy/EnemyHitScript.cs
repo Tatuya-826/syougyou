@@ -19,15 +19,15 @@ public class EnemyHitScript : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-
-        //Debug.Log(col.gameObject.tag);
+        
+        Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "PlayerAttack")
         {
-            
+            Debug.Log(HP);
             HP = enemyStatus.gethp();
             HP-=col.GetComponent<AttackPower > ().AtkPower;
             enemyStatus.sethp(HP);
-            Debug.Log(HP);
+            
             if (HP <= 0)
                 Destroy(oyaObject);
         }
