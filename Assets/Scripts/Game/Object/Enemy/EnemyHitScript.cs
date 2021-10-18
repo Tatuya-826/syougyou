@@ -11,17 +11,19 @@ public class EnemyHitScript : MonoBehaviour
 
     void Start()
     {
+
         oyaObject = transform.parent.gameObject;
         enemyStatus= oyaObject.GetComponent<EnemyStatus>();
+
     }
 
     void OnTriggerEnter(Collider col)
     {
+
         //Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "PlayerAttack")
         {
             
-
             HP = enemyStatus.gethp();
             HP-=col.GetComponent<AttackPower > ().AtkPower;
             enemyStatus.sethp(HP);

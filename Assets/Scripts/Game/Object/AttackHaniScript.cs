@@ -5,7 +5,11 @@ using UnityEngine;
 public class AttackHaniScript : MonoBehaviour
 {
     GameObject oyaObject;
-    [SerializeField] int thisTokusei;//0がプレイヤー1がエネミー
+    public enum Tokusei{
+        Player,
+        Enemy
+    }
+    [SerializeField] Tokusei thisTokusei;//0がプレイヤー1がエネミー
 
     
     void Start()
@@ -15,13 +19,14 @@ public class AttackHaniScript : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
+
         //Debug.Log(col.gameObject.tag);
-        if (col.gameObject.tag == "Enemy" && thisTokusei == 0)
+        if (col.gameObject.tag == "Enemy" && thisTokusei == Tokusei.Player)
         {
             oyaObject.GetComponent<PlayerController>().Attack();
         }
 
-        if (col.gameObject.tag == "Player" && thisTokusei == 1)
+        if (col.gameObject.tag == "Player" && thisTokusei == Tokusei.Enemy)
         {
             //Debug.Log("tekihakken");
             oyaObject.GetComponent<EnemyAction>().attackFrag = true;   //
@@ -32,10 +37,11 @@ public class AttackHaniScript : MonoBehaviour
     void OnTriggerExit(Collider col)
     {
 
-        if (col.gameObject.tag == "Player" && thisTokusei == 1)
+        if (col.gameObject.tag == "Player" && thisTokusei == Tokusei.Enemy)
         {
             //Debug.Log("tekihakken");
             oyaObject.GetComponent<EnemyAction>().attackFrag = false;   //
         }
+
     }
 }
