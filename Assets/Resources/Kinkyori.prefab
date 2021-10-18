@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 4798285355617495103}
   - component: {fileID: 4798285355617495096}
   - component: {fileID: 4798285355617495101}
+  - component: {fileID: 1270587072}
   m_Layer: 0
   m_Name: Kinkyori
   m_TagString: Untagged
@@ -344,6 +345,18 @@ MonoBehaviour:
   Tuibi: 0
   bulletObject: {fileID: 0}
   bulletSpeed: 0
+--- !u!114 &1270587072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4798285355617495097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb661170321c0504bb143ddd3c434652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4798285356250379924
 GameObject:
   m_ObjectHideFlags: 0

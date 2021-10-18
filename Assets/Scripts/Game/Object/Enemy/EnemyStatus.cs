@@ -24,7 +24,7 @@ public class EnemyStatus : MonoBehaviour
     {
         return HP;
     }
-
+    
     public int getmaxhp()
     {
         return MAXHP;
