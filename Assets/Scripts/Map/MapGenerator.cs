@@ -26,6 +26,9 @@ public class MapGenerator : MonoBehaviour
 
     public int roadWidth;
 
+    public GameObject cube;
+
+
     //“¹‚ÌW‡“_‚ğ‘‚â‚µ‚½‚¢‚È‚ç‚±‚ê‚ğ‘‚â‚·
     const int meetPointCount = 2;
 
@@ -37,6 +40,8 @@ public class MapGenerator : MonoBehaviour
         CreateSpaceData();
 
         CreateDangeon();
+
+        RandomSpawn();
 
     }
 
@@ -251,4 +256,24 @@ public class MapGenerator : MonoBehaviour
             }
         }
     }
+
+    private void RandomSpawn()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(0, MapHeight);
+            z = Random.Range(0, 0);
+        }
+        while (Map[y, x] != road);
+
+        // Instantiate(cube, new Vector3(y - MapWidth / 2, x - MapHeight / 2, 0), Quaternion.identity);
+        Instantiate(cube, new Vector3(x - MapWidth / 2, y - MapHeight / 2, 0), Quaternion.identity);
+
+    }
+
+
+
+
 }
