@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatus : MonoBehaviour
+public class EnemyStatus : MonoBehaviour
 {
 
     const int MAXHP = 10;
     int HP;
-    const int BasicAtk=5;
-    const int BasicDef=1;
+    const int BasicAtk = 1;
+    const int BasicDef = 1;
     // Start is called before the first frame update
     void Start()
     {

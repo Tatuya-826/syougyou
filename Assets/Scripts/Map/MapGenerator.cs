@@ -251,7 +251,7 @@ public class MapGenerator : MonoBehaviour
             {
                 if (Map[i, j] == wall)
                 {
-                    Instantiate(WallObject, new Vector3(j - MapWidth / 2, i - MapHeight / 2, 0), Quaternion.identity);
+                    Instantiate(WallObject, new Vector3(j - MapWidth / 2,0 , i - MapHeight / 2), Quaternion.identity);
                 }
             }
         }
