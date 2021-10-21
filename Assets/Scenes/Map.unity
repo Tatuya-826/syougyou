@@ -157,14 +157,15 @@ MonoBehaviour:
   wall: 3
   road: 0
   WallObject: {fileID: 1552073168178236077, guid: 0571539085084874ebe8093cb62cf469, type: 3}
-  roomMinHeight: 12
-  roomMaxHeight: 18
-  roomMinWidth: 12
-  roomMaxWidth: 18
-  RoomCountMin: 28
-  RoomCountMax: 28
+  roomMinHeight: 13
+  roomMaxHeight: 15
+  roomMinWidth: 13
+  roomMaxWidth: 15
+  RoomCountMin: 30
+  RoomCountMax: 35
   roadWidth: 3
   cube: {fileID: 4522335196964190159, guid: 33545f54ceb8f604daaae2ba1d318216, type: 3}
+  kaidan: {fileID: 6302954254441543567, guid: c7d5e76d7ad91df43ab3aa389d957039, type: 3}
 --- !u!4 &127525488
 Transform:
   m_ObjectHideFlags: 0
