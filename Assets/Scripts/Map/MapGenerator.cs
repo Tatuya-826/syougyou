@@ -26,7 +26,10 @@ public class MapGenerator : MonoBehaviour
 
     public int roadWidth;
 
-    public GameObject cube;
+    // ランダム生成
+    public GameObject cube;             // キャラクターのランダム生成
+    public GameObject kaidan;           // 次のフロアへ階段
+
 
 
     //道の集合点を増やしたいならこれを増やす
@@ -41,7 +44,9 @@ public class MapGenerator : MonoBehaviour
 
         CreateDangeon();
 
-        RandomSpawn();
+        RandomSpawn();          // キャラクターのランダム生成
+
+        RandomSpawn2();         // 階段
 
     }
 
@@ -257,23 +262,38 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+    // キャラクターのランダム生成
     private void RandomSpawn()
     {
         int x, y, z;
         do
         {
             x = Random.Range(0, MapWidth);
-            y = Random.Range(0, MapHeight);
-            z = Random.Range(0, 0);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
         }
-        while (Map[y, x] != road);
+        while (Map[z, x] != road);
 
         // Instantiate(cube, new Vector3(y - MapWidth / 2, x - MapHeight / 2, 0), Quaternion.identity);
-        Instantiate(cube, new Vector3(x - MapWidth / 2, y - MapHeight / 2, 0), Quaternion.identity);
+        Instantiate(cube, new Vector3(x - MapWidth / 2,y, z - MapHeight/2), Quaternion.identity);
 
     }
 
+    // 次のフロアへ階段
+    private void RandomSpawn2()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
 
+        // Instantiate(cube, new Vector3(y - MapWidth / 2, x - MapHeight / 2, 0), Quaternion.identity);
+        Instantiate(kaidan, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
 
+    }
 
 }
