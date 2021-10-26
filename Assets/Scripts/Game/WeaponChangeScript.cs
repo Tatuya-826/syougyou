@@ -9,6 +9,8 @@ public class WeaponChangeScript : MonoBehaviour
     public int WeaponButtonNo;
     public int ArmorButtonNo;
     public GameObject ButtonPrefab;
+    public GameObject Weapontext;
+    public GameObject Armortext;
     GameObject list;
     void Start()
     {
@@ -36,14 +38,14 @@ public class WeaponChangeScript : MonoBehaviour
             //プレハブからボタンを生成
             GameObject listButton = Instantiate(ButtonPrefab) as GameObject;
             RectTransform buttonRectTransform = listButton.GetComponent<RectTransform>();
-            //Vertical Layout Group の子にする
+            //list の子にする
             listButton.transform.SetParent(list.transform);
             buttonRectTransform.localPosition = new Vector3(0, 0, 0);
             buttonRectTransform.localScale = new Vector3(1, 1, 1);
 
             int n = i;
             Button listButtonButton = listButton.GetComponent<Button>();
-            listButtonButton.onClick.AddListener(() => MyOnClick(n));
+            listButtonButton.onClick.AddListener(() => WeaponChange(n));
         }
     }
 
@@ -60,19 +62,31 @@ public class WeaponChangeScript : MonoBehaviour
             //プレハブからボタンを生成
             GameObject listButton = Instantiate(ButtonPrefab) as GameObject;
             RectTransform buttonRectTransform = listButton.GetComponent<RectTransform>();
-            //Vertical Layout Group の子にする
+            //list の子にする
             listButton.transform.SetParent(list.transform);
             buttonRectTransform.localPosition = new Vector3(0, 0, 0);
             buttonRectTransform.localScale = new Vector3(1, 1, 1);
 
             int n = i;
             Button listButtonButton = listButton.GetComponent<Button>();
-            listButtonButton.onClick.AddListener(() => MyOnClick(n));
+            listButtonButton.onClick.AddListener(() => ArmorChange(n));
         }
     }
 
     void MyOnClick(int index)
     {
         print(index);
+    }
+
+    void WeaponChange(int index)
+    {
+        Text Weapon_text = Weapontext.GetComponent<Text>();
+        Weapon_text.text = index.ToString(); ;
+    }
+
+    void ArmorChange(int index)
+    {
+        Text Armor_text = Armortext.GetComponent<Text>();
+        Armor_text.text = index.ToString(); ;
     }
 }
