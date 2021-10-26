@@ -26,7 +26,27 @@ public class MapGenerator : MonoBehaviour
 
     public int roadWidth;
 
-    public GameObject cube;
+    // ランダム生成
+    public GameObject cube;             // キャラクターのランダム生成
+    public GameObject kaidan;           // 次のフロアへ階段
+
+    //敵のスポナー
+    public GameObject Enmspawner01;
+    public GameObject Enmspawner02;
+    public GameObject Enmspawner03;
+    public GameObject Enmspawner04;
+    public GameObject Enmspawner05;
+    public GameObject Enmspawner06;
+    public GameObject Enmspawner07;
+    public GameObject Enmspawner08;
+    public GameObject Enmspawner09;
+    public GameObject Enmspawner10;
+    public GameObject Enmspawner11;
+    public GameObject Enmspawner12;
+    public GameObject Enmspawner13;
+    public GameObject Enmspawner14;
+    public GameObject Enmspawner15;
+
 
 
     //道の集合点を増やしたいならこれを増やす
@@ -41,7 +61,25 @@ public class MapGenerator : MonoBehaviour
 
         CreateDangeon();
 
-        RandomSpawn();
+        RandomSpawn();          // キャラクターのランダム生成
+
+        RandomSpawn2();         // 階段
+
+        EnmSpawner01();         // 敵のスポナー1
+        EnmSpawner02();         // 敵のスポナー2
+        EnmSpawner03();         // 敵のスポナー3
+        EnmSpawner04();         // 敵のスポナー4
+        EnmSpawner05();         // 敵のスポナー5
+        EnmSpawner06();         // 敵のスポナー6
+        EnmSpawner07();         // 敵のスポナー7
+        EnmSpawner08();         // 敵のスポナー8
+        EnmSpawner09();         // 敵のスポナー9
+        EnmSpawner10();         // 敵のスポナー10
+        EnmSpawner11();         // 敵のスポナー11
+        EnmSpawner12();         // 敵のスポナー12
+        EnmSpawner13();         // 敵のスポナー13
+        EnmSpawner14();         // 敵のスポナー14
+        EnmSpawner15();         // 敵のスポナー15
 
     }
 
@@ -257,22 +295,280 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+    // キャラクターのランダム生成
     private void RandomSpawn()
     {
         int x, y, z;
         do
         {
             x = Random.Range(0, MapWidth);
-            y = Random.Range(0, MapHeight);
-            z = Random.Range(0, 0);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
         }
-        while (Map[y, x] != road);
+        while (Map[z, x] != road);
 
         // Instantiate(cube, new Vector3(y - MapWidth / 2, x - MapHeight / 2, 0), Quaternion.identity);
-        Instantiate(cube, new Vector3(x - MapWidth / 2, y - MapHeight / 2, 0), Quaternion.identity);
+        Instantiate(cube, new Vector3(x - MapWidth / 2,y, z - MapHeight/2), Quaternion.identity);
 
     }
 
+    // 次のフロアへ階段
+    private void RandomSpawn2()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        // Instantiate(cube, new Vector3(y - MapWidth / 2, x - MapHeight / 2, 0), Quaternion.identity);
+        Instantiate(kaidan, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+
+
+    // 敵のスポナー01
+    private void EnmSpawner01()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner01, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+
+    // 敵のスポナー02
+    private void EnmSpawner02()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner02, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+
+    // 敵のスポナー03
+    private void EnmSpawner03()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner03, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+
+    // 敵のスポナー04
+    private void EnmSpawner04()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner04, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+
+
+    // 敵のスポナー05
+    private void EnmSpawner05()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner05, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+
+    // 敵のスポナー06
+    private void EnmSpawner06()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner06, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+
+    // 敵のスポナー07
+    private void EnmSpawner07()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner07, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+
+    // 敵のスポナー08
+    private void EnmSpawner08()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner08, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+
+    // 敵のスポナー09
+    private void EnmSpawner09()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner09, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+
+    // 敵のスポナー10
+    private void EnmSpawner10()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner10, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+
+    // 敵のスポナー11
+    private void EnmSpawner11()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner11, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+
+    // 敵のスポナー12
+    private void EnmSpawner12()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner12, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+
+    // 敵のスポナー13
+    private void EnmSpawner13()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner13, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+
+    // 敵のスポナー14
+    private void EnmSpawner14()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner14, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
+    // 敵のスポナー15
+    private void EnmSpawner15()
+    {
+        int x, y, z;
+        do
+        {
+            x = Random.Range(0, MapWidth);
+            y = Random.Range(-1, -1);
+            z = Random.Range(0, MapHeight);
+        }
+        while (Map[z, x] != road);
+
+        Instantiate(Enmspawner15, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
+
+    }
 
 
 

@@ -38,20 +38,25 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Speed", moveScript.NavMagnitude());
-        if (Input.GetMouseButton(1))
+        if (photonView.IsMine)
         {
-            MouseClick();
-        }
+            animator.SetFloat("Speed", moveScript.NavMagnitude());
+            if (Input.GetMouseButton(1))
+            {
+                //MouseClick();
+                photonView.RPC(nameof(MouseClick), RpcTarget.All);//マウスクリックの同期RPC
+            }
 
-        if (AttackTime <= 0)
-        {
-            AttackHanteiObject.SetActive(false);
+            if (AttackTime <= 0)
+            {
+                AttackHanteiObject.SetActive(false);
+            }
+            else
+                AttackTime--;
         }
-        else
-            AttackTime--;
     }
 
+    [PunRPC]
     void MouseClick()
     {
 
@@ -84,6 +89,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
 
     }
 
+    
     public void Attack()
     {
         if (attackFrag)
