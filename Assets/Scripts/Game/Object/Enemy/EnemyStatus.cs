@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
-public class EnemyStatus : MonoBehaviour
+//public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
+    public class EnemyStatus : MonoBehaviour
 {
 
     const int MAXHP = 10;
-    int HP;
+          int HP;
     const int BasicAtk = 1;
     const int BasicDef = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,4 +43,28 @@ public class EnemyStatus : MonoBehaviour
     {
         return BasicDef;
     }
+
+    /*
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.sendNext(HP);
+
+            // Transformの値をストリームに書き込んで送信する
+            stream.SendNext(transform.localPosition);
+            stream.SendNext(transform.localRotation);
+            stream.SendNext(transform.localScale);
+        }
+        else
+        {
+            HP = (int)stream.ReceiveNext();
+
+            // 受信したストリームを読み込んでTransformの値を更新する
+            transform.localPosition = (Vector3)     stream.ReceiveNext();
+            transform.localRotation = (Quaternion)  stream.ReceiveNext();
+            transform.localScale    = (Vector3)     stream.ReceiveNext();
+        }
+    }
+    */
 }
