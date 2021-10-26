@@ -166,6 +166,21 @@ MonoBehaviour:
   roadWidth: 3
   cube: {fileID: 4522335196964190159, guid: 33545f54ceb8f604daaae2ba1d318216, type: 3}
   kaidan: {fileID: 6302954254441543567, guid: c7d5e76d7ad91df43ab3aa389d957039, type: 3}
+  Enmspawner01: {fileID: 7453843277016492325, guid: 14dae6b160f6cda4c96e93ba79696ada, type: 3}
+  Enmspawner02: {fileID: 7453843277016492325, guid: b39934ef213c2b2478b8376b58411bf3, type: 3}
+  Enmspawner03: {fileID: 7453843277016492325, guid: 5d843337676e6e343910cda20c356859, type: 3}
+  Enmspawner04: {fileID: 7453843277016492325, guid: edc4785e86d98ca458222fd1a6c8e09b, type: 3}
+  Enmspawner05: {fileID: 7453843277016492325, guid: 3f0f39d918323a345b43c50511fdc564, type: 3}
+  Enmspawner06: {fileID: 7453843277016492325, guid: 18d763fb4dd2ad04184b880159696467, type: 3}
+  Enmspawner07: {fileID: 7453843277016492325, guid: f9b53161f7c332641baaf692fb465734, type: 3}
+  Enmspawner08: {fileID: 7453843277016492325, guid: 5bcd46b839ce2eb4fa2cb5143551b28a, type: 3}
+  Enmspawner09: {fileID: 7453843277016492325, guid: ebfec0257d1695f4aad555186feaa029, type: 3}
+  Enmspawner10: {fileID: 7453843277016492325, guid: 2b3fa83290b72444d8469b86950af323, type: 3}
+  Enmspawner11: {fileID: 7453843277016492325, guid: fc6b8c6f8336cc34b836d418df3366fc, type: 3}
+  Enmspawner12: {fileID: 7453843277016492325, guid: ad6d204248006f64984ad0395e17a903, type: 3}
+  Enmspawner13: {fileID: 7453843277016492325, guid: 9f8c68b9f5fe65e4eaee2c2893bae315, type: 3}
+  Enmspawner14: {fileID: 7453843277016492325, guid: 8287608cd2a143345aad2a2899cab18a, type: 3}
+  Enmspawner15: {fileID: 7453843277016492325, guid: 607dc54da7c3b434a82b96cbba1e66f8, type: 3}
 --- !u!4 &127525488
 Transform:
   m_ObjectHideFlags: 0
