@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CSVtest : MonoBehaviour
-{
+{/*
     TextAsset csvFile; // CSVファイル
     List<string[]> csvDatas = new List<string[]>(); // CSVの中身を入れるリスト;
 
@@ -23,5 +23,5 @@ public class CSVtest : MonoBehaviour
         // csvDatas[行][列]を指定して値を自由に取り出せる
         Debug.Log(csvDatas[0][1]);
 
-    }
+    }*/
 }
