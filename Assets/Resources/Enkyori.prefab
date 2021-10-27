@@ -221,39 +221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb661170321c0504bb143ddd3c434652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
---- !u!114 &3209893995183626922
-MonoBehaviour:
-=======
 --- !u!54 &1265627130971774624
 Rigidbody:
->>>>>>> 96eb9e769e56cde74eada79f3bc840b9db2c010d
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 422886387570816168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: 2849746106416877804}
-  - {fileID: 4031615691551876823}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &2849746106416877804
-MonoBehaviour:
-=======
   m_GameObject: {fileID: 5103955577259271452}
   serializedVersion: 2
   m_Mass: 1
@@ -266,24 +239,10 @@ MonoBehaviour:
   m_CollisionDetection: 0
 --- !u!136 &5922422590352309371
 CapsuleCollider:
->>>>>>> 96eb9e769e56cde74eada79f3bc840b9db2c010d
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 422886387570816168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
---- !u!114 &4031615691551876823
-=======
   m_GameObject: {fileID: 5103955577259271452}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -293,25 +252,11 @@ CapsuleCollider:
   m_Direction: 1
   m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!114 &2448060543240128214
->>>>>>> 96eb9e769e56cde74eada79f3bc840b9db2c010d
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 422886387570816168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters: []
-  m_SynchronizeLayers: []
---- !u!1001 &422886388096443043
-=======
   m_GameObject: {fileID: 5103955577259271452}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -320,7 +265,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 1
 --- !u!1001 &5103250771979456036
->>>>>>> 96eb9e769e56cde74eada79f3bc840b9db2c010d
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
