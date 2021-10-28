@@ -7,8 +7,6 @@ public class NetConnect : MonoBehaviourPunCallbacks
 {
     private void Start()
     {
-        
-
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         PhotonNetwork.ConnectUsingSettings();
     }
@@ -24,14 +22,18 @@ public class NetConnect : MonoBehaviourPunCallbacks
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
     {
-
+        //
+        //リスポーンポイントの座標を取得し、その場所にアーサーくんを配位する
+        //
         GameObject respawnPoint;
         respawnPoint = GameObject.Find("RespawnPoint");
         
+        //座標の格納
         var rPosition = new Vector3(respawnPoint.transform.position.x,
             respawnPoint.transform.position.y,
             respawnPoint.transform.position.z);
         
+        //アーサーくん配置
         PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
 
         // ランダムな座標に自身のアバター（ネットワークオブジェクト）を生成する
