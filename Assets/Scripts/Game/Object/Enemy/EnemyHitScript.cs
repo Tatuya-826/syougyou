@@ -19,6 +19,7 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
 
     }
 
+
     void OnTriggerEnter(Collider col)
     {
         
