@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
-public class EnemyHitScript : MonoBehaviour
+public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
 {
     //‚Ä‚«‚Ì“–‚½‚è”»’èˆ—
     public int HP;
@@ -32,5 +34,17 @@ public class EnemyHitScript : MonoBehaviour
                 Destroy(oyaObject);
         }
 
+    }
+
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(HP);
+        }
+        else
+        {
+            HP = (int)stream.ReceiveNext();
+        }
     }
 }
