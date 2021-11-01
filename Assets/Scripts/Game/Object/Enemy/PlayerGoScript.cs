@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
-public class PlayerGoScript : MonoBehaviour
+public class PlayerGoScript : MonoBehaviourPunCallbacks//, IPunObservable
 {
     private UnityEngine.AI.NavMeshAgent agent;
     GameObject PlyaerObject;
+
     void Start()
     {
         PlyaerObject = GameObject.FindWithTag("Player");
@@ -17,7 +20,9 @@ public class PlayerGoScript : MonoBehaviour
         PlyaerObject = GameObject.FindWithTag("Player");
     }
 
+
     //ナビメッシュで動かす
+    [PunRPC]
     public void PlayerTuibi()
     {
         agent.isStopped = false;
@@ -26,9 +31,9 @@ public class PlayerGoScript : MonoBehaviour
     }
 
     //ナビメッシュを止める
+    [PunRPC]
     public void NavStop()
     {
         agent.isStopped = true;
     }
-
 }

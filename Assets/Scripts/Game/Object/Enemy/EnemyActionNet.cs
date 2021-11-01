@@ -4,7 +4,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-public class EnemyAction02 : MonoBehaviourPunCallbacks//, IPunObservable
+public class EnemyActionNet : MonoBehaviourPunCallbacks//IPunObservable
 {
     [SerializeField] GameObject AttackHaniObject;
     public GameObject Effect;
@@ -44,18 +44,18 @@ public class EnemyAction02 : MonoBehaviourPunCallbacks//, IPunObservable
                 if (DelayTime <= 0)
                 {
                     AttackHaniObject.SetActive(true);
-                    photonView.RPC(nameof(Attack), RpcTarget.All);
-                    //Attack();
+                    //photonView.RPC(nameof(Attack), RpcTarget.All);
+                    Attack();
                 }
                 break;
         }
         if (DelayTime > 0)
             DelayTime -= 0.1f;
     }
-
-    [PunRPC]
+    
     void Attack()
     {
+        
         switch (AttackType)
         {
             case 0:
