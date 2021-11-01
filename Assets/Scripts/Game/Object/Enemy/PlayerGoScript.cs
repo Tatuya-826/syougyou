@@ -18,6 +18,8 @@ public class PlayerGoScript : MonoBehaviourPunCallbacks//, IPunObservable
     void Update()
     {
         PlyaerObject = GameObject.FindWithTag("Player");
+        photonView.RPC(nameof(PlayerTuibi), RpcTarget.All);//RPC
+        photonView.RPC(nameof(NavStop), RpcTarget.All);//RPC
     }
 
 
