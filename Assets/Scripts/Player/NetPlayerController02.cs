@@ -65,8 +65,6 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
     [PunRPC]
     void MouseClick()
     {
-
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit = new RaycastHit();
 
