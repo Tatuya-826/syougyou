@@ -52,8 +52,8 @@ public class EnemyAction02 : MonoBehaviourPunCallbacks//, IPunObservable
         if (DelayTime > 0)
             DelayTime -= 0.1f;
     }
+    
 
-    [PunRPC]
     void Attack()
     {
         switch (AttackType)
