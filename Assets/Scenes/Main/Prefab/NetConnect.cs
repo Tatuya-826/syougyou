@@ -38,7 +38,7 @@ public class NetConnect : MonoBehaviourPunCallbacks
         /////////////////////////////////////////////////////////////////////////
 
         /////////////////////////////////////////////////////////////////////////
-        /*
+        
         //リスポーンポイントの座標を取得し、その場所にenkyoriを配位する
         GameObject enkyoriRespawnPoint;
         enkyoriRespawnPoint = GameObject.Find("EnkyoriRespawnPoint");
@@ -50,7 +50,7 @@ public class NetConnect : MonoBehaviourPunCallbacks
 
         //enkyoriくん配置
         PhotonNetwork.Instantiate("Enkyori", erPosition, Quaternion.identity);
-        */
+        
         /////////////////////////////////////////////////////////////////////////
     }
 }

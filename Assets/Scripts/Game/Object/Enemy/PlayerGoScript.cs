@@ -4,7 +4,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-public class PlayerGoScript : MonoBehaviourPunCallbacks//, IPunObservable
+public class PlayerGoScript : MonoBehaviourPunCallbacks, IPunObservable
 {
     private UnityEngine.AI.NavMeshAgent agent;
     GameObject PlyaerObject;
@@ -35,5 +35,23 @@ public class PlayerGoScript : MonoBehaviourPunCallbacks//, IPunObservable
     public void NavStop()
     {
         agent.isStopped = true;
+    }
+
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            // Transformの値をストリームに書き込んで送信する
+            stream.SendNext(transform.localPosition);
+            stream.SendNext(transform.localRotation);
+            stream.SendNext(transform.localScale);
+        }
+        else
+        {
+            // 受信したストリームを読み込んでTransformの値を更新する
+            transform.localPosition = (Vector3)stream.ReceiveNext();
+            transform.localRotation = (Quaternion)stream.ReceiveNext();
+            transform.localScale = (Vector3)stream.ReceiveNext();
+        }
     }
 }
