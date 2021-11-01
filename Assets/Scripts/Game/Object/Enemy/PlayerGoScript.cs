@@ -41,7 +41,7 @@ public class PlayerGoScript : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(PlyaerObject);
+            //stream.SendNext(PlyaerObject);
             // Transformの値をストリームに書き込んで送信する
             stream.SendNext(transform.localPosition);
             stream.SendNext(transform.localRotation);
@@ -49,7 +49,7 @@ public class PlayerGoScript : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            PlyaerObject = (GameObject)stream.ReceiveNext();
+            //PlyaerObject = (GameObject)stream.ReceiveNext();
             // 受信したストリームを読み込んでTransformの値を更新する
             transform.localPosition = (Vector3)stream.ReceiveNext();
             transform.localRotation = (Quaternion)stream.ReceiveNext();
