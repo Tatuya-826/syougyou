@@ -7,17 +7,17 @@ using UnityEngine;
 public class PlayerGoScript : MonoBehaviourPunCallbacks, IPunObservable
 {
     private UnityEngine.AI.NavMeshAgent agent;
-    GameObject PlayerObject;
+    GameObject PlyaerObject;
 
     void Start()
     {
-        PlayerObject = GameObject.FindWithTag("Player");
+        PlyaerObject = GameObject.FindWithTag("Player");
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
     
     void Update()
     {
-        PlayerObject = GameObject.FindWithTag("Player");
+        PlyaerObject = GameObject.FindWithTag("Player");
         //photonView.RPC(nameof(PlayerTuibi), RpcTarget.All);//RPC
         //photonView.RPC(nameof(NavStop), RpcTarget.All);//RPC
     }
@@ -28,7 +28,7 @@ public class PlayerGoScript : MonoBehaviourPunCallbacks, IPunObservable
     {
         agent.isStopped = false;
         //NavMeshAgentに座標を渡す
-        agent.SetDestination(PlayerObject.transform.position);
+        agent.SetDestination(PlyaerObject.transform.position);
     }
 
     //ナビメッシュを止める
@@ -41,7 +41,7 @@ public class PlayerGoScript : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(PlayerObject);
+            stream.SendNext(PlyaerObject);
             // Transformの値をストリームに書き込んで送信する
             stream.SendNext(transform.localPosition);
             stream.SendNext(transform.localRotation);
@@ -49,7 +49,7 @@ public class PlayerGoScript : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            PlayerObject = (GameObject)stream.ReceiveNext();
+            PlyaerObject = (GameObject)stream.ReceiveNext();
             // 受信したストリームを読み込んでTransformの値を更新する
             transform.localPosition = (Vector3)stream.ReceiveNext();
             transform.localRotation = (Quaternion)stream.ReceiveNext();
