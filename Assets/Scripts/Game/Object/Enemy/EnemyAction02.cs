@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-//using Photon.Pun;
-//using Photon.Realtime;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
-public class EnemyAction : MonoBehaviour//PunCallbacks, IPunObservable
+public class EnemyAction02 : MonoBehaviourPunCallbacks//, IPunObservable
 {
     [SerializeField] GameObject AttackHaniObject;
     public GameObject Effect;
@@ -53,7 +53,7 @@ public class EnemyAction : MonoBehaviour//PunCallbacks, IPunObservable
             DelayTime -= 0.1f;
     }
 
-    //[PunRPC]
+    [PunRPC]
     void Attack()
     {
         
