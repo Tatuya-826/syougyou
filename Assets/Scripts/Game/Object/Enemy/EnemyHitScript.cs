@@ -7,35 +7,39 @@ using UnityEngine;
 public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
 {
     //‚Ä‚«‚Ì“–‚½‚è”»’èˆ—
+    public int attackTrigger;
     public int HP;
     GameObject oyaObject;
     EnemyStatus enemyStatus;
 
     void Start()
     {
-
         oyaObject = transform.parent.gameObject;
         enemyStatus= oyaObject.GetComponent<EnemyStatus>();
+    }
+
+    void Main()
+    {
 
     }
 
-
     void OnTriggerEnter(Collider col)
     {
-        
         Debug.Log(col.gameObject.tag);
+        
         if (col.gameObject.tag == "PlayerAttack")
         {
             Debug.Log(HP);
             HP = enemyStatus.gethp();
-            HP-=col.GetComponent<AttackPower > ().AtkPower;
+            HP-=col.GetComponent<AttackPower> ().AtkPower;
             enemyStatus.sethp(HP);
             
             if (HP <= 0)
                 Destroy(oyaObject);
         }
-
     }
+
+    
 
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {

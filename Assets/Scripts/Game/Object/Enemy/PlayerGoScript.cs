@@ -18,13 +18,12 @@ public class PlayerGoScript : MonoBehaviourPunCallbacks//, IPunObservable
     void Update()
     {
         PlyaerObject = GameObject.FindWithTag("Player");
-        photonView.RPC(nameof(PlayerTuibi), RpcTarget.All);//RPC
-        photonView.RPC(nameof(NavStop), RpcTarget.All);//RPC
+        //photonView.RPC(nameof(PlayerTuibi), RpcTarget.All);//RPC
+        //photonView.RPC(nameof(NavStop), RpcTarget.All);//RPC
     }
 
 
     //ナビメッシュで動かす
-    [PunRPC]
     public void PlayerTuibi()
     {
         agent.isStopped = false;
@@ -33,7 +32,6 @@ public class PlayerGoScript : MonoBehaviourPunCallbacks//, IPunObservable
     }
 
     //ナビメッシュを止める
-    [PunRPC]
     public void NavStop()
     {
         agent.isStopped = true;
