@@ -41,11 +41,15 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
         if (photonView.IsMine)
         {
             animator.SetFloat("Speed", moveScript.NavMagnitude());
+<<<<<<< HEAD
             if (attackFrag)
             {
                 //photonView.RPC(nameof(Attack), RpcTarget.All);//マウスクリックの同期RPC
                 //Attack();
             }
+=======
+            
+>>>>>>> d0fa49f09a48320bb22555f010a0cdf80b103a77
 
                 if (Input.GetMouseButton(1))
             {

@@ -23,6 +23,14 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
 
     }
 
+    void Update()
+    {
+        //PhotonView photonView = PhotonView.Get(this);
+        photonView.RPC("enemyDestroy", RpcTarget.All);//“¯ŠúRPC
+        //enemyDestroy();
+    }
+
+
     void OnTriggerEnter(Collider col)
     {
         //Debug.Log(col.gameObject.tag);
@@ -34,9 +42,18 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
             HP-=col.GetComponent<AttackPower> ().AtkPower;
             enemyStatus.sethp(HP);
             
+            /*
             if (HP <= 0)
                 Destroy(oyaObject);
+                */
         }
+    }
+
+    [PunRPC]
+    void enemyDestroy()
+    {
+        if (HP <= 0)
+            Destroy(oyaObject);
     }
 
     
