@@ -43,8 +43,8 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
             animator.SetFloat("Speed", moveScript.NavMagnitude());
             if (attackFrag)
             {
-                photonView.RPC(nameof(Attack), RpcTarget.All);//マウスクリックの同期RPC
-                //Attack();
+                //photonView.RPC(nameof(Attack), RpcTarget.All);//マウスクリックの同期RPC
+                Attack();
             }
 
                 if (Input.GetMouseButton(1))
