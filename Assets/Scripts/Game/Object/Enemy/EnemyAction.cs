@@ -60,7 +60,7 @@ public class EnemyAction : MonoBehaviourPunCallbacks//, IPunObservable
         switch (AttackType)
         {
             case 0:
-                Instantiate(Effect, this.transform.position, Quaternion.identity);
+                //Instantiate(Effect, this.transform.position, Quaternion.identity);
                 break;
             case 1:
                 var Bullet = Instantiate(bulletObject, this.transform.position, this.transform.rotation);
