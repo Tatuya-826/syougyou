@@ -25,7 +25,7 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log(col.gameObject.tag);
+        //Debug.Log(col.gameObject.tag);
         
         if (col.gameObject.tag == "PlayerAttack")
         {
