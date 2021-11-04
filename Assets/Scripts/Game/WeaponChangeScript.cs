@@ -11,12 +11,17 @@ public class WeaponChangeScript : MonoBehaviour
     public GameObject ButtonPrefab;
     public GameObject Weapontext;
     public GameObject Armortext;
+    public GameObject[] Weaponinfo;
     GameObject list;
+    GameObject CSVreadObject;
+
+    CSVReader CSVread;
     void Start()
     {
         // Grid Layout Group コンポーネントをつけたGameObject
         list = GameObject.Find("WeaponList");
-
+        CSVreadObject = GameObject.Find("csvRead");
+        CSVread = CSVreadObject.GetComponent<CSVReader>();
     }
 
     // Update is called once per frame
@@ -77,7 +82,7 @@ public class WeaponChangeScript : MonoBehaviour
     {
         //武器の選択処理
         Text Weapon_text = Weapontext.GetComponent<Text>();
-        Weapon_text.text = index.ToString();
+        Weapon_text.text = CSVread.WeaponNameGetter(index);
     }
 
     void ArmorChange(int index)
