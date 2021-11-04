@@ -951,6 +951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnkyoriRespawnPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 5550955949410251680, guid: 401c13bfb9dc82345913b838113e6862, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 401c13bfb9dc82345913b838113e6862, type: 3}
 --- !u!1001 &896356348
@@ -963,6 +967,10 @@ PrefabInstance:
     - target: {fileID: 422886387570816168, guid: 1ec060d3088d5fd4f9782ca3674d4995, type: 3}
       propertyPath: m_Name
       value: Enkyori
+      objectReference: {fileID: 0}
+    - target: {fileID: 422886387570816168, guid: 1ec060d3088d5fd4f9782ca3674d4995, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 422886387570816852, guid: 1ec060d3088d5fd4f9782ca3674d4995, type: 3}
       propertyPath: m_RootOrder
@@ -1011,6 +1019,10 @@ PrefabInstance:
     - target: {fileID: 3122407779734346645, guid: 1ec060d3088d5fd4f9782ca3674d4995, type: 3}
       propertyPath: sceneViewId
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721882122954349843, guid: 1ec060d3088d5fd4f9782ca3674d4995, type: 3}
+      propertyPath: sceneViewId
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ec060d3088d5fd4f9782ca3674d4995, type: 3}
@@ -1727,6 +1739,10 @@ PrefabInstance:
     - target: {fileID: 4798285355617495097, guid: 24e60fca3a1c1d54eb8a2cf8354f95de, type: 3}
       propertyPath: m_Name
       value: Kinkyori
+      objectReference: {fileID: 0}
+    - target: {fileID: 4798285355617495097, guid: 24e60fca3a1c1d54eb8a2cf8354f95de, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4798285355617495102, guid: 24e60fca3a1c1d54eb8a2cf8354f95de, type: 3}
       propertyPath: m_RootOrder
