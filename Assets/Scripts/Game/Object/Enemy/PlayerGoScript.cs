@@ -17,11 +17,7 @@ public class PlayerGoScript : MonoBehaviourPunCallbacks, IPunObservable
     
     void Update()
     {
-<<<<<<< HEAD
-        //PlyaerObject = GameObject.FindWithTag("Player");
-=======
         //PlayerObject = GameObject.FindWithTag("Player");
->>>>>>> b406d6ff0634e914d07e8ff1d4443e4c705c236a
         //photonView.RPC(nameof(PlayerTuibi), RpcTarget.All);//RPC
         //photonView.RPC(nameof(NavStop), RpcTarget.All);//RPC
     }
