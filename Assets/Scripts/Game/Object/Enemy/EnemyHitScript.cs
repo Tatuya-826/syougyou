@@ -26,7 +26,7 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
     void Update()
     {
         //PhotonView photonView = PhotonView.Get(this);
-        photonView.RPC("enemyDestroy", RpcTarget.All);//“¯ŠúRPC
+        //photonView.RPC("enemyDestroy", RpcTarget.All);//“¯ŠúRPC
         //enemyDestroy();
     }
 
@@ -41,7 +41,8 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
             HP = enemyStatus.gethp();
             HP-=col.GetComponent<AttackPower> ().AtkPower;
             enemyStatus.sethp(HP);
-            
+
+            photonView.RPC("enemyDestroy", RpcTarget.All);//“¯ŠúRPC
             /*
             if (HP <= 0)
                 Destroy(oyaObject);
