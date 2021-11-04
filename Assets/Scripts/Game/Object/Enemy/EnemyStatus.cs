@@ -22,6 +22,11 @@ public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
     public void sethp(int HP)
     {
         this.HP = HP;
+        if (this.HP <= 0)
+        {
+            print("デストロイ2");
+            Destroy(oyaObject);
+        }
     }
 
     public int gethp()
@@ -44,6 +49,7 @@ public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
         return BasicDef;
     }
 
+    
     
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {

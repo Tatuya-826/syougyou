@@ -14,12 +14,14 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
 
     void Start()
     {
+        HP = enemyStatus.gethp();
         oyaObject = transform.parent.gameObject;
         enemyStatus= oyaObject.GetComponent<EnemyStatus>();
     }
 
     void Update()
     {
+        print(HP);
         //photonView.RPC("OnTriggerEnter", RpcTarget.All);//“¯ŠúRPC
         //PhotonView photonView = PhotonView.Get(this);
         //photonView.RPC("enemyDestroy", RpcTarget.All);//“¯ŠúRPC
