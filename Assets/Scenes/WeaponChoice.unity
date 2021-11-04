@@ -390,7 +390,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: "\u6B66"
 --- !u!222 &115046821
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -627,7 +627,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: "\u9632"
 --- !u!222 &141473682
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 234051035}
   - component: {fileID: 234051034}
   m_Layer: 5
-  m_Name: Change (1)
+  m_Name: armorChange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -782,7 +782,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.65882355, g: 0.65882355, b: 0.65882355, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -965,8 +965,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -662.5, y: 193.72247}
-  m_SizeDelta: {x: -1325, y: -855.755}
+  m_AnchoredPosition: {x: -662.5, y: 192.5}
+  m_SizeDelta: {x: -1325, y: -855}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1231043679
 MonoBehaviour:
@@ -1111,7 +1111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e59292d6c48e841a3b797a28280105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponButtonNo: 5
+  WeaponButtonNo: 30
   ArmorButtonNo: 8
   ButtonPrefab: {fileID: 978258517386665286, guid: 7d97ed71782516a4e9e55f708e9d7f15, type: 3}
   Weapontext: {fileID: 115046818}
@@ -1129,7 +1129,7 @@ GameObject:
   - component: {fileID: 1344707403}
   - component: {fileID: 1344707402}
   m_Layer: 5
-  m_Name: Change
+  m_Name: weaponChange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1179,7 +1179,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1689,7 +1689,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 150}
+  m_SizeDelta: {x: 252.16, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1782331616
 MonoBehaviour:
@@ -1965,8 +1965,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -662.5, y: 426.94998}
-  m_SizeDelta: {x: -1325, y: -853.9001}
+  m_AnchoredPosition: {x: -662.5, y: 422}
+  m_SizeDelta: {x: -1325, y: -856}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2132351150
 MonoBehaviour:

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/Player/NetMoveScript02.cs.meta
+guid: ca781e54653895848a322533bec7f772
+=======
+guid: fc815f905f523394eb17e4cb0bed1ad1
+>>>>>>> origin/master:Assets/Scripts/Game/Object/Enemy/EnemyStatus.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

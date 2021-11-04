@@ -4236,6 +4236,7 @@ GameObject:
   - component: {fileID: 3892180502132059067}
   - component: {fileID: -4093109590711567024}
   - component: {fileID: 1183344310701972673}
+  - component: {fileID: 8167479499363755893}
   m_Layer: 0
   m_Name: NetArthur
   m_TagString: Player
@@ -4371,6 +4372,7 @@ MonoBehaviour:
   - {fileID: -1306045551270769078}
   - {fileID: 60126166580268365}
   - {fileID: 3892180502132059067}
+  - {fileID: 8167479499363755893}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -4386,6 +4388,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f41215f5695fa47adbcdff3eef433a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8167479499363755893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335879758959904244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 1
+    SynchronizeType: 1
+    Name: Speed
+  - Type: 4
+    SynchronizeType: 1
+    Name: Attack
+  - Type: 9
+    SynchronizeType: 1
+    Name: AttackMotion
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1 &335879758959904246
 GameObject:
   m_ObjectHideFlags: 0
