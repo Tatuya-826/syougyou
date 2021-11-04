@@ -26,6 +26,7 @@ public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
 
     public int gethp()
     {
+        print("getHP");
         return HP;
     }
     
@@ -44,7 +45,6 @@ public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
         return BasicDef;
     }
 
-    
     
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
