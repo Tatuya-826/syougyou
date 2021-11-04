@@ -157,7 +157,10 @@ MonoBehaviour:
   wall: 3
   road: 0
   WallObject: {fileID: 1552073168178236077, guid: 0571539085084874ebe8093cb62cf469, type: 3}
+<<<<<<< HEAD
 
+=======
+>>>>>>> dc3fb3a4de3b58f3177e52d52f434908d5a70fb6
   roomMinHeight: 13
   roomMaxHeight: 15
   roomMinWidth: 13
@@ -182,7 +185,6 @@ MonoBehaviour:
   Enmspawner13: {fileID: 7453843277016492325, guid: 9f8c68b9f5fe65e4eaee2c2893bae315, type: 3}
   Enmspawner14: {fileID: 7453843277016492325, guid: 8287608cd2a143345aad2a2899cab18a, type: 3}
   Enmspawner15: {fileID: 7453843277016492325, guid: 607dc54da7c3b434a82b96cbba1e66f8, type: 3}
->>>>>>> 292eb3987c0654262929905b3aadf2a08ce6d83d
 --- !u!4 &127525488
 Transform:
   m_ObjectHideFlags: 0
@@ -372,11 +374,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+<<<<<<< HEAD
 
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 
 =======
 >>>>>>> e3eccf75ed2bc5196f1a48dda782004630e23094
+=======
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> dc3fb3a4de3b58f3177e52d52f434908d5a70fb6
 --- !u!1 &1673300951
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,4 +459,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> 292eb3987c0654262929905b3aadf2a08ce6d83d

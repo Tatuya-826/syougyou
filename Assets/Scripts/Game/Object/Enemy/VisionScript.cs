@@ -21,6 +21,7 @@ public class VisionScript : MonoBehaviourPunCallbacks
         {
             //Debug.Log("tekihakken");
             oyaObject.GetComponent<EnemyAction>().Tuibi = true;
+            oyaObject.GetComponent<PlayerGoScript>().PlayerObject = col.gameObject;
         }
     }
 }
