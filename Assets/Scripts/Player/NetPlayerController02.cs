@@ -44,7 +44,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
             if (attackFrag)
             {
                 //photonView.RPC(nameof(Attack), RpcTarget.All);//マウスクリックの同期RPC
-                Attack();
+                //Attack();
             }
 
                 if (Input.GetMouseButton(1))
