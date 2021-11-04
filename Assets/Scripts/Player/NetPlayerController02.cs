@@ -41,7 +41,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
         if (photonView.IsMine)
         {
             animator.SetFloat("Speed", moveScript.NavMagnitude());
-            
+
 
                 if (Input.GetMouseButton(1))
             {
