@@ -7,17 +7,17 @@ using UnityEngine;
 public class PlayerGoScript : MonoBehaviourPunCallbacks, IPunObservable
 {
     private UnityEngine.AI.NavMeshAgent agent;
-    GameObject PlyaerObject;
+    public GameObject PlayerObject;
 
     void Start()
     {
-        PlyaerObject = GameObject.FindWithTag("Player");
+        //PlayerObject = GameObject.FindWithTag("Player");
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
     
     void Update()
     {
-        PlyaerObject = GameObject.FindWithTag("Player");
+        //PlayerObject = GameObject.FindWithTag("Player");
         //photonView.RPC(nameof(PlayerTuibi), RpcTarget.All);//RPC
         //photonView.RPC(nameof(NavStop), RpcTarget.All);//RPC
     }
@@ -28,7 +28,7 @@ public class PlayerGoScript : MonoBehaviourPunCallbacks, IPunObservable
     {
         agent.isStopped = false;
         //NavMeshAgentに座標を渡す
-        agent.SetDestination(PlyaerObject.transform.position);
+        agent.SetDestination(PlayerObject.transform.position);
     }
 
     //ナビメッシュを止める
