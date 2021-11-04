@@ -45,8 +45,11 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
     void enemyDestroy()
     {
         if (HP <= 0)
+        {
+
+            print("デストロイ");
             Destroy(oyaObject);
-        print("デストロイ");
+        }
     }
 
     
