@@ -4,8 +4,8 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 
-//public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
-    public class EnemyStatus : MonoBehaviour
+public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
+    //public class EnemyStatus : MonoBehaviour
 {
 
     const int MAXHP = 10;
@@ -26,6 +26,7 @@ using UnityEngine;
 
     public int gethp()
     {
+        print("getHP");
         return HP;
     }
     
@@ -44,12 +45,12 @@ using UnityEngine;
         return BasicDef;
     }
 
-    /*
+    
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
-            stream.sendNext(HP);
+            stream.SendNext(HP);
 
             // Transformの値をストリームに書き込んで送信する
             stream.SendNext(transform.localPosition);
@@ -66,5 +67,5 @@ using UnityEngine;
             transform.localScale    = (Vector3)     stream.ReceiveNext();
         }
     }
-    */
+    
 }

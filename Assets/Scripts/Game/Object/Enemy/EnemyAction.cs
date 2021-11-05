@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
-public class EnemyAction : MonoBehaviour
+public class EnemyAction : MonoBehaviourPunCallbacks//, IPunObservable
 {
     [SerializeField] GameObject AttackHaniObject;
     public GameObject Effect;
@@ -28,7 +30,6 @@ public class EnemyAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         switch (attackFrag)
         {
             case false:
@@ -42,8 +43,8 @@ public class EnemyAction : MonoBehaviour
                 
                 if (DelayTime <= 0)
                 {
-                    
                     AttackHaniObject.SetActive(true);
+                    //photonView.RPC(nameof(Attack), RpcTarget.All, );
                     Attack();
                 }
                 break;
@@ -52,19 +53,19 @@ public class EnemyAction : MonoBehaviour
             DelayTime -= 0.1f;
     }
 
+    //[PunRPC]
     void Attack()
     {
         
         switch (AttackType)
         {
             case 0:
-                Instantiate(Effect, this.transform.position, Quaternion.identity);
+                //Instantiate(Effect, this.transform.position, Quaternion.identity);
                 break;
             case 1:
                 var Bullet = Instantiate(bulletObject, this.transform.position, this.transform.rotation);
                 break;
         }
-
 
         DelayTime = AttackDelay;
         AttackHaniObject.SetActive(false);

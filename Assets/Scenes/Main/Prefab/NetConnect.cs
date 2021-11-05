@@ -7,8 +7,6 @@ public class NetConnect : MonoBehaviourPunCallbacks
 {
     private void Start()
     {
-        
-
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         PhotonNetwork.ConnectUsingSettings();
     }
@@ -24,19 +22,35 @@ public class NetConnect : MonoBehaviourPunCallbacks
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
     {
-
+        /////////////////////////////////////////////////////////////////////////
+        //リスポーンポイントの座標を取得し、その場所にアーサーくんを配位する
         GameObject respawnPoint;
         respawnPoint = GameObject.Find("RespawnPoint");
         
+        //座標の格納
         var rPosition = new Vector3(respawnPoint.transform.position.x,
             respawnPoint.transform.position.y,
             respawnPoint.transform.position.z);
         
+        //アーサーくん配置
         PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
-
-        // ランダムな座標に自身のアバター（ネットワークオブジェクト）を生成する
-        //var position = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
-        //PhotonNetwork.Instantiate("NetArthur", position, Quaternion.identity);
         print("ネットワークに接続し、オブジェクトを生成");
+        /////////////////////////////////////////////////////////////////////////
+
+        /////////////////////////////////////////////////////////////////////////
+        
+        //リスポーンポイントの座標を取得し、その場所にenkyoriを配位する
+        GameObject enkyoriRespawnPoint;
+        enkyoriRespawnPoint = GameObject.Find("EnkyoriRespawnPoint");
+
+        //座標の格納
+        var erPosition = new Vector3(enkyoriRespawnPoint.transform.position.x,
+            enkyoriRespawnPoint.transform.position.y,
+            enkyoriRespawnPoint.transform.position.z);
+
+        //enkyoriくん配置
+        PhotonNetwork.Instantiate("Enkyori", erPosition, Quaternion.identity);
+        
+        /////////////////////////////////////////////////////////////////////////
     }
 }
