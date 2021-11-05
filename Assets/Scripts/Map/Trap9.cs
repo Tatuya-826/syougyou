@@ -1,17 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-public class Trap : MonoBehaviour
+public class Trap9 : MonoBehaviour
 {
 
-    public GameObject enemy1;
+    public GameObject enemy9;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
 
-            enemy1.SetActive(true);
+            enemy9.SetActive(true);
         }
     }
 }
