@@ -26,6 +26,7 @@ public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
 
     public int gethp()
     {
+        print("getHP");
         return HP;
     }
     
@@ -49,7 +50,7 @@ public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
-            //stream.SendNext(HP);
+            stream.SendNext(HP);
 
             // Transformの値をストリームに書き込んで送信する
             stream.SendNext(transform.localPosition);
@@ -58,7 +59,7 @@ public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            //HP = (int)stream.ReceiveNext();
+            HP = (int)stream.ReceiveNext();
 
             // 受信したストリームを読み込んでTransformの値を更新する
             transform.localPosition = (Vector3)     stream.ReceiveNext();
