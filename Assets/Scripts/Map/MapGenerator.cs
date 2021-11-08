@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -47,7 +48,8 @@ public class MapGenerator : MonoBehaviour
     public GameObject Enmspawner14;
     public GameObject Enmspawner15;
 
-
+    [SerializeField]
+    private NavMeshSurface _surface;
 
     //道の集合点を増やしたいならこれを増やす
     const int meetPointCount = 2;
@@ -293,6 +295,9 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
+        // NavMeshをビルドする
+        _surface.BuildNavMesh();
+
     }
 
     // キャラクターのランダム生成
