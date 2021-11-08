@@ -697,7 +697,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 44
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 300
     m_Alignment: 0
@@ -706,7 +706,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u304F\u3041\uFF57\u305B\uFF44\uFF52\uFF46\uFF47\uFF54\uFF59\u3075\u3058\u3053\uFF4C\uFF50\uFF1B\uFF20\uFF1A\u300D\n"
+  m_Text: "\u6B66\u5668\u306E\u540D\u524D\n"
 --- !u!222 &205348654
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1164,7 +1164,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 44
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 300
     m_Alignment: 0
@@ -1173,7 +1173,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u304F\u3041\uFF57\u305B\uFF44\uFF52\uFF46\uFF47\uFF54\uFF59\u3075\u3058\u3053\uFF4C\uFF50\uFF1B\uFF20\uFF1A\u300D\n"
+  m_Text: "\u653B\u6483\u529B"
 --- !u!222 &1123722502
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1243,7 +1243,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 44
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 300
     m_Alignment: 0
@@ -1252,7 +1252,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u304F\u3041\uFF57\u305B\uFF44\uFF52\uFF46\uFF47\uFF54\uFF59\u3075\u3058\u3053\uFF4C\uFF50\uFF1B\uFF20\uFF1A\u300D\n"
+  m_Text: "\u6027\u8CEA"
 --- !u!222 &1227040615
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1444,7 +1444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e59292d6c48e841a3b797a28280105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponButtonNo: 95
+  WeaponButtonNo: 20
   ArmorButtonNo: 8
   ButtonPrefab: {fileID: 978258517386665286, guid: 7d97ed71782516a4e9e55f708e9d7f15, type: 3}
   Weapontext: {fileID: 115046818}
@@ -2332,7 +2332,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 44
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 300
     m_Alignment: 0
@@ -2341,7 +2341,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u304F\u3041\uFF57\u305B\uFF44\uFF52\uFF46\uFF47\uFF54\uFF59\u3075\u3058\u3053\uFF4C\uFF50\uFF1B\uFF20\uFF1A\u300D\n"
+  m_Text: "\u7A2E\u985E"
 --- !u!222 &1874966763
 CanvasRenderer:
   m_ObjectHideFlags: 0

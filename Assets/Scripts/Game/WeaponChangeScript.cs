@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class WeaponChangeScript : MonoBehaviour
 {
+    const int infosu = 4;
     // Start is called before the first frame update
     public int WeaponButtonNo;
     public int ArmorButtonNo;
     public GameObject ButtonPrefab;
     public GameObject Weapontext;
     public GameObject Armortext;
-    public GameObject[] Weaponinfo;
+    public GameObject[] Weaponinfo = new GameObject[infosu];
     GameObject list;
     GameObject CSVreadObject;
 
@@ -83,13 +84,31 @@ public class WeaponChangeScript : MonoBehaviour
         //武器の選択処理
         Text Weapon_text = Weapontext.GetComponent<Text>();
         Weapon_text.text = CSVread.WeaponNameGetter(index);
+        Text[] Weapon_info=new Text[infosu];
+        Weapon_info[0] = Weaponinfo[0].GetComponent<Text>();
+        Weapon_info[0].text = "名前：" + CSVread.WeaponNameGetter(index);
+        Weapon_info[1] = Weaponinfo[1].GetComponent<Text>();
+        Weapon_info[1].text = "種類：" + CSVread.WeaponTypeGetter(index);
+        Weapon_info[2] = Weaponinfo[2].GetComponent<Text>();
+        Weapon_info[2].text = "性質：" + CSVread.WeaponPropGetter(index);
+        Weapon_info[3] = Weaponinfo[3].GetComponent<Text>();
+        Weapon_info[3].text = "攻撃力：" + CSVread.WeaponPowGetter(index);
     }
 
     void ArmorChange(int index)
     {
         //防具の選択処理
         Text Armor_text = Armortext.GetComponent<Text>();
-        Armor_text.text = index.ToString();
+        Armor_text.text = CSVread.ArmorNameGetter(index);
+        Text[] Weapon_info = new Text[infosu];
+        Weapon_info[0] = Weaponinfo[0].GetComponent<Text>();
+        Weapon_info[0].text = "名前：" + CSVread.ArmorNameGetter(index);
+        Weapon_info[1] = Weaponinfo[1].GetComponent<Text>();
+        Weapon_info[1].text = "種類：" + CSVread.ArmorTypeGetter(index);
+        Weapon_info[2] = Weaponinfo[2].GetComponent<Text>();
+        Weapon_info[2].text = "性質：" + CSVread.ArmorPropGetter(index);
+        Weapon_info[3] = Weaponinfo[3].GetComponent<Text>();
+        Weapon_info[3].text = "防御力：" + CSVread.ArmorDefGetter(index);
     }
 
     void WeaponTrash()
