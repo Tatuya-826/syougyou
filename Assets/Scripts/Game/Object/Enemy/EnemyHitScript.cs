@@ -49,13 +49,10 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (HP <= 0)
         {
-
             print("デストロイ");
             Destroy(oyaObject);
         }
     }
-
-    
 
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
