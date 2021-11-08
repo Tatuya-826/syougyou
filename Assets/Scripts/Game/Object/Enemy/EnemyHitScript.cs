@@ -54,8 +54,6 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
 
-    
-
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
