@@ -285,9 +285,9 @@ public class MapGenerator : MonoBehaviour
     /// </summary>
     private void CreateDangeon()
     {
-        for (int i = 0; i < MapHeight; i++)
+        for (int i = 0; i < MapHeight; i+=4)
         {
-            for (int j = 0; j < MapWidth; j++)
+            for (int j = 0; j < MapWidth; j+=4)
             {
                 if (Map[i, j] == wall)
                 {
@@ -296,8 +296,8 @@ public class MapGenerator : MonoBehaviour
             }
         }
         // NavMesh‚ðƒrƒ‹ƒh‚·‚é
-       // Debug.Log("‚È‚Ñ");
-        //_surface.BuildNavMesh();
+        // Debug.Log("‚È‚Ñ");
+        //_surface.BuildNavMesh();“®‚©‚ñ
 
     }
 
