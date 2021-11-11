@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9513b005cd13fb42815287ec355c129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerObject: {fileID: 0}
 --- !u!195 &422886387570816170
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -265,7 +266,6 @@ MonoBehaviour:
   - {fileID: 807177551}
   - {fileID: -2839740684291192162}
   - {fileID: -7711334974064633378}
-  - {fileID: 2448060543240128214}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -345,6 +345,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackTrigger: 0
   HP: 1
+--- !u!114 &5721882122954349843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5103955577259271452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 2448060543240128214}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &5103250771979456036
 PrefabInstance:
   m_ObjectHideFlags: 0

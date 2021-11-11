@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -47,7 +48,8 @@ public class MapGenerator : MonoBehaviour
     public GameObject Enmspawner14;
     public GameObject Enmspawner15;
 
-
+    [SerializeField]
+    //private NavMeshSurface _surface;
 
     //道の集合点を増やしたいならこれを増やす
     const int meetPointCount = 2;
@@ -86,7 +88,7 @@ public class MapGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //_surface.BuildNavMesh();
     }
 
     /// <summary>
@@ -283,9 +285,9 @@ public class MapGenerator : MonoBehaviour
     /// </summary>
     private void CreateDangeon()
     {
-        for (int i = 0; i < MapHeight; i++)
+        for (int i = 0; i < MapHeight; i+=4)
         {
-            for (int j = 0; j < MapWidth; j++)
+            for (int j = 0; j < MapWidth; j+=4)
             {
                 if (Map[i, j] == wall)
                 {
@@ -293,6 +295,10 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
+        // NavMeshをビルドする
+        // Debug.Log("なび");
+        //_surface.BuildNavMesh();動かん
+
     }
 
     // キャラクターのランダム生成
