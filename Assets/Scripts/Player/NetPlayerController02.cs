@@ -15,12 +15,14 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] float AttackZizokuTime;
     [SerializeField] float AttackTime;
 
+    int playerSpawn;
     NetMoveScript02 moveScript;          //移動スクリプト
     Animator animator;              //自分のアニメーター
                                     // public GameObject bukiObject;   //武器オブジェクトの格納するもの
                                     // Start is called before the first frame update
     void Start()
     {
+        playerSpawn = 1;//1プレイヤーが沸いたフラグ
         moveScript = this.gameObject.GetComponent<NetMoveScript02>();
         // animator = bukiObject.GetComponent<Animator>();
         animator = this.GetComponent<Animator>();
