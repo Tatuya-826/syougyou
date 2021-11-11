@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8545052567266889587}
   - component: {fileID: 8234296161211327000}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EnmSpawner 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
