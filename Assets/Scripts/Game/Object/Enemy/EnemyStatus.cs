@@ -26,7 +26,7 @@ public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
 
     public int gethp()
     {
-        print("getHP");
+       // print("getHP");
         return HP;
     }
     

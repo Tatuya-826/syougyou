@@ -275,7 +275,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: -189
+  m_Spacing: -80
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -470,7 +470,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: bougu
+  m_Text: "\u9632\u5177"
 --- !u!222 &133196528
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1386,7 +1386,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: soubihenkou
+  m_Text: "\u88C5\u5099\u5909\u66F4"
 --- !u!222 &1216673121
 CanvasRenderer:
   m_ObjectHideFlags: 0
