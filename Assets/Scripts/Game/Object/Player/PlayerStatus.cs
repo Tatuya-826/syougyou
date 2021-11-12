@@ -32,11 +32,12 @@ public class PlayerStatus : MonoBehaviour
 
     public int getAtk()
     {
-        return BasicAtk;
+        return BasicAtk + PlayerNowWeapon.PlayerEquipment.WeaponAtk;
     }
 
     public int getDef()
     {
-        return BasicDef;
+        return BasicDef + PlayerNowWeapon.PlayerEquipment.ArmorDef;
     }
+
 }
