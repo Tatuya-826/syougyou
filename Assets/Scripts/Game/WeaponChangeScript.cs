@@ -9,6 +9,10 @@ public class WeaponChangeScript : MonoBehaviour
     // Start is called before the first frame update
     public int WeaponButtonNo;
     public int ArmorButtonNo;
+
+    int choiseWeapon;
+    int choiseArmor;
+
     public GameObject ButtonPrefab;
     public GameObject Weapontext;
     public GameObject Armortext;
@@ -93,6 +97,7 @@ public class WeaponChangeScript : MonoBehaviour
         Weapon_info[2].text = "性質：" + CSVread.WeaponPropGetter(index);
         Weapon_info[3] = Weaponinfo[3].GetComponent<Text>();
         Weapon_info[3].text = "攻撃力：" + CSVread.WeaponPowGetter(index);
+        choiseWeapon = index;
     }
 
     void ArmorChange(int index)
@@ -109,6 +114,15 @@ public class WeaponChangeScript : MonoBehaviour
         Weapon_info[2].text = "性質：" + CSVread.ArmorPropGetter(index);
         Weapon_info[3] = Weaponinfo[3].GetComponent<Text>();
         Weapon_info[3].text = "防御力：" + CSVread.ArmorDefGetter(index);
+        choiseArmor = index;
+    }
+
+    public void WeaponChangeButton()
+    {
+        PlayerNowWeapon.PlayerEquipment.WeaponAtk= int.Parse(CSVread.WeaponPowGetter(choiseWeapon));//ここに武器チェンジの処理
+        PlayerNowWeapon.PlayerEquipment.ArmorDef = int.Parse(CSVread.ArmorDefGetter(choiseArmor));
+        Debug.Log(PlayerNowWeapon.PlayerEquipment.WeaponAtk);
+        Debug.Log(PlayerNowWeapon.PlayerEquipment.ArmorDef);
     }
 
     void WeaponTrash()
@@ -120,4 +134,5 @@ public class WeaponChangeScript : MonoBehaviour
     {
         ;//ここに完了ボタンを推した時の処理
     }
+
 }

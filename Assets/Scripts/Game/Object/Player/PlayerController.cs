@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     void MouseClick()
     {
 
-        Debug.Log("click~");
+        //Debug.Log("click~");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit = new RaycastHit();
 
