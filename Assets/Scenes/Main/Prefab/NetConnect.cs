@@ -5,6 +5,7 @@ using UnityEngine;
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class NetConnect : MonoBehaviourPunCallbacks
 {
+    CameraScript cameraScript;//カメラスクリプトをロード
     private void Start()
     {
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
@@ -24,9 +25,12 @@ public class NetConnect : MonoBehaviourPunCallbacks
     {
         /////////////////////////////////////////////////////////////////////////
         //リスポーンポイントの座標を取得し、その場所にアーサーくんを配位する
+        GameObject mainCamera;
         GameObject respawnPoint;
+        mainCamera = GameObject.Find("Main Camera");
         respawnPoint = GameObject.Find("RespawnPoint");
-        
+        cameraScript = mainCamera.GetComponent<CameraScript>();
+
         //座標の格納
         var rPosition = new Vector3(respawnPoint.transform.position.x,
             respawnPoint.transform.position.y,
@@ -35,6 +39,8 @@ public class NetConnect : MonoBehaviourPunCallbacks
         //アーサーくん配置
         PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
         print("ネットワークに接続し、オブジェクトを生成");
+        cameraScript.player = GameObject.Find("NetArthur");
+
         /////////////////////////////////////////////////////////////////////////
 
         /////////////////////////////////////////////////////////////////////////

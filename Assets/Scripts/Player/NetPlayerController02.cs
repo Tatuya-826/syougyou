@@ -7,6 +7,7 @@ using UnityEngine;
 public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
 {
     [SerializeField] bool attackFrag = false;
+    [SerializeField] bool actionFrag = true;
 
     [SerializeField] GameObject clickGameObject;     //クリックしたゲームオブジェクトを格納する
     [SerializeField] GameObject AttackHaniObject;
@@ -15,12 +16,14 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] float AttackZizokuTime;
     [SerializeField] float AttackTime;
 
+    int playerSpawn;
     NetMoveScript02 moveScript;          //移動スクリプト
     Animator animator;              //自分のアニメーター
                                     // public GameObject bukiObject;   //武器オブジェクトの格納するもの
                                     // Start is called before the first frame update
     void Start()
     {
+        playerSpawn = 1;//1プレイヤーが沸いたフラグ
         moveScript = this.gameObject.GetComponent<NetMoveScript02>();
         // animator = bukiObject.GetComponent<Animator>();
         animator = this.GetComponent<Animator>();
@@ -43,7 +46,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
             animator.SetFloat("Speed", moveScript.NavMagnitude());
 
 
-                if (Input.GetMouseButton(1))
+                if (Input.GetMouseButton(1)&&actionFrag)
             {
                 //MouseClick();
                 photonView.RPC(nameof(MouseClick), RpcTarget.All);//マウスクリックの同期RPC
@@ -51,9 +54,12 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
 
             if (AttackTime <= 0)
             {
+                attackFrag = false;
+                actionFrag = true;
                 AttackHanteiObject.SetActive(false);
             }
             else
+
                 AttackTime--;
         }
     }
@@ -72,6 +78,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
             {
                 //Debug.Log("teki");
                 attackFrag = true;
+                actionFrag = false;
                 AttackHaniObject.SetActive(true);
                 moveScript.ClickGround();
             }
@@ -97,7 +104,6 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
             AttackHanteiObject.SetActive(true);
             animator.SetTrigger("AttackMotion");
             moveScript.NavStop();
-            attackFrag = false;
             AttackHaniObject.SetActive(false);
             AttackTime = AttackZizokuTime;
         }
