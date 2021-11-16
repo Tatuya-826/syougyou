@@ -4348,7 +4348,7 @@ MonoBehaviour:
   clickGameObject: {fileID: 0}
   AttackHaniObject: {fileID: 6261305712585652602}
   AttackHanteiObject: {fileID: 6274218454076652873}
-  AttackZizokuTime: 3
+  AttackZizokuTime: 10
   AttackTime: 0
 --- !u!114 &-4093109590711567024
 MonoBehaviour:
