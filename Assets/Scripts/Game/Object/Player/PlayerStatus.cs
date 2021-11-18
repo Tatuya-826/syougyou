@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStatus : MonoBehaviour
 {
 
-    const int MAXHP = 10;
+    const int MAXHP = 10000;
     int HP;
     const int BasicAtk=5;
     const int BasicDef=1;
@@ -32,11 +32,12 @@ public class PlayerStatus : MonoBehaviour
 
     public int getAtk()
     {
-        return BasicAtk;
+        return BasicAtk + PlayerNowWeapon.PlayerEquipment.WeaponAtk;
     }
-
+    
     public int getDef()
     {
-        return BasicDef;
+        return BasicDef + PlayerNowWeapon.PlayerEquipment.ArmorDef;
     }
+
 }

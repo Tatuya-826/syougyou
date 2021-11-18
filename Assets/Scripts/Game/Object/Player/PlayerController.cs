@@ -44,8 +44,8 @@ public class PlayerController : MonoBehaviour
 
     void MouseClick()
     {
-        
 
+        //Debug.Log("click~");
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit = new RaycastHit();
 
@@ -62,14 +62,14 @@ public class PlayerController : MonoBehaviour
 
             else if(clickGameObject.gameObject.tag == "Ground")
             {
-                //Debug.Log("yuka");
+               // Debug.Log("yuka");
                 attackFrag = false;
                 AttackHaniObject.SetActive(false);
                 moveScript.ClickGround();
             }
         }
 
-        clickGameObject = null;
+        //clickGameObject = null;
 
     }
 
