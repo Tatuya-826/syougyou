@@ -57,6 +57,7 @@ public class MapGenerator : MonoBehaviour
     void Start()
     {
 
+        if (photonView.Controller) {
         ResetMapData();
 
         CreateSpaceData();
@@ -82,7 +83,7 @@ public class MapGenerator : MonoBehaviour
         EnmSpawner13();         // 敵のスポナー13
         EnmSpawner14();         // 敵のスポナー14
         EnmSpawner15();         // 敵のスポナー15
-
+             }
     }
 
     // Update is called once per frame
