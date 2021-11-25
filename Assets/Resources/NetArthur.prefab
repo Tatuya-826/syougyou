@@ -4347,6 +4347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackFrag: 0
+  actionFrag: 1
   clickGameObject: {fileID: 0}
   AttackHaniObject: {fileID: 6261305712585652602}
   AttackHanteiObject: {fileID: 6274218454076652873}
