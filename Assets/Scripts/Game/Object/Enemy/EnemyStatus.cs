@@ -7,16 +7,22 @@ using UnityEngine;
 public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
     //public class EnemyStatus : MonoBehaviour
 {
+    [SerializeField] int id;
+    int MAXHP = 10;
+    int HP;
+    int BasicAtk = 1;
+    int BasicDef = 1;
 
-    const int MAXHP = 10;
-          int HP;
-    const int BasicAtk = 1;
-    const int BasicDef = 1;
+    [SerializeField] GameObject CSVreadObject;
+    EnemyCSVReader CSVread;
 
     // Start is called before the first frame update
     void Start()
     {
+        CSVread = CSVreadObject.GetComponent<EnemyCSVReader>();
+        MAXHP = CSVread.maxhpGetter(id);
         HP = MAXHP;
+        Debug.Log(HP);
     }
 
     public void sethp(int HP)
@@ -37,7 +43,7 @@ public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
 
     public int getAtk()
     {
-        return BasicAtk;
+        return BasicAtk+ CSVread.atkGetter(id);
     }
 
     public int getDef()

@@ -6,6 +6,6 @@ public class PlayerNowWeapon : MonoBehaviour
 {
     public readonly static PlayerNowWeapon PlayerEquipment = new PlayerNowWeapon();
 
-    public int WeaponAtk;
-    public int ArmorDef;
+    public int WeaponAtk=5;
+    public int ArmorDef=5;
 }

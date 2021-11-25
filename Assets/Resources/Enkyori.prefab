@@ -243,6 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb661170321c0504bb143ddd3c434652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 2
+  CSVreadObject: {fileID: 0}
 --- !u!114 &3122407779734346645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +268,7 @@ MonoBehaviour:
   - {fileID: 807177551}
   - {fileID: -2839740684291192162}
   - {fileID: -7711334974064633378}
-  sceneViewId: 0
+  sceneViewId: 3
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &-2839740684291192162
@@ -344,7 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackTrigger: 0
-  HP: 1
+  HP: 100000000
 --- !u!114 &5721882122954349843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,7 +367,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 2448060543240128214}
-  sceneViewId: 0
+  sceneViewId: 5
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1001 &5103250771979456036
