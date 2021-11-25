@@ -25,7 +25,7 @@ public class PlayerHitScript : MonoBehaviour
 
             Debug.Log(HP);
             if (HP <= 0)
-                Destroy(oyaObject);
+                oyaObject.SetActive(false); ;
 
         }
 
