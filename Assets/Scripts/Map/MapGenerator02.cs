@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MapGenerator : MonoBehaviour
+public class MapGenerator02 : MonoBehaviour
 {
 
     public int MapWidth;
@@ -56,6 +56,11 @@ public class MapGenerator : MonoBehaviour
 
     void Start()
     {
+        //ランダムオブジェクトを探して値を持ってくる関数
+
+        //下記のInitStateに入れる
+        Random.InitState(1);
+
         ResetMapData();
 
         CreateSpaceData();
@@ -282,13 +287,13 @@ public class MapGenerator : MonoBehaviour
     /// </summary>
     private void CreateDangeon()
     {
-        for (int i = 0; i < MapHeight; i+=4)
+        for (int i = 0; i < MapHeight; i += 4)
         {
-            for (int j = 0; j < MapWidth; j+=4)
+            for (int j = 0; j < MapWidth; j += 4)
             {
                 if (Map[i, j] == wall)
                 {
-                    Instantiate(WallObject, new Vector3(j - MapWidth / 2,0 , i - MapHeight / 2), Quaternion.identity);
+                    Instantiate(WallObject, new Vector3(j - MapWidth / 2, 0, i - MapHeight / 2), Quaternion.identity);
                 }
             }
         }
@@ -311,7 +316,7 @@ public class MapGenerator : MonoBehaviour
         while (Map[z, x] != road);
 
         // Instantiate(cube, new Vector3(y - MapWidth / 2, x - MapHeight / 2, 0), Quaternion.identity);
-        Instantiate(cube, new Vector3(x - MapWidth / 2,y, z - MapHeight/2), Quaternion.identity);
+        Instantiate(cube, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
 
     }
 
