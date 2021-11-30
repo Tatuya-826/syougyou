@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class MapGenerator02 : MonoBehaviour
 {
 
+
     public int MapWidth;
     public int MapHeight;
 
@@ -54,12 +55,22 @@ public class MapGenerator02 : MonoBehaviour
     //道の集合点を増やしたいならこれを増やす
     const int meetPointCount = 2;
 
+
+    GameObject seedObject;
+    MapRandomSeed seedScript;
+
     void Start()
     {
         //ランダムオブジェクトを探して値を持ってくる関数
+        seedObject = GameObject.Find("SeedObject");
+        seedScript = seedObject.GetComponent<MapRandomSeed>();
+        
+        Random.InitState(seedScript.mapSeed);
+        //Random.InitState(1);
 
-        //下記のInitStateに入れる
-        Random.InitState(1);
+
+
+
 
         ResetMapData();
 
