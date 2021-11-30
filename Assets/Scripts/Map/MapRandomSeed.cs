@@ -1,3 +1,4 @@
+//using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
@@ -7,6 +8,7 @@ using UnityEngine;
 
 public class MapRandomSeed : MonoBehaviourPunCallbacks, IPunObservable
 {
+    public int mapSeed; //= 2;
 
     void Start()
     {
@@ -18,35 +20,28 @@ public class MapRandomSeed : MonoBehaviourPunCallbacks, IPunObservable
             // 所有者のプレイヤー名とIDをコンソールに出力する
         }
 
-        if (photonView.IsMine)
-        {
-        }
+        //Random r1 = new System.Random();
+        //mapSeed = r1.Next(0, 5);
+        mapSeed = Random.Range(0,100);
+        //mapSeed = 2;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (photonView.IsMine)
-        {
-
-        }
     }
 
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
-            // Transformの値をストリームに書き込んで送信する
-            stream.SendNext(transform.localPosition);
-            stream.SendNext(transform.localRotation);
-            stream.SendNext(transform.localScale);
+            stream.SendNext(mapSeed);
         }
         else
         {
-            // 受信したストリームを読み込んでTransformの値を更新する
-            transform.localPosition = (Vector3)stream.ReceiveNext();
-            transform.localRotation = (Quaternion)stream.ReceiveNext();
-            transform.localScale = (Vector3)stream.ReceiveNext();
+            mapSeed = (int)stream.ReceiveNext();
         }
     }
+
 }

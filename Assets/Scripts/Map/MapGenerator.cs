@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MapGenerator : MonoBehaviour
+public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
 {
 
     public int MapWidth;
@@ -54,9 +56,21 @@ public class MapGenerator : MonoBehaviour
     //道の集合点を増やしたいならこれを増やす
     const int meetPointCount = 2;
 
+    int seed = Random.Range(0, 100);
+
+    GameObject seedObject;
+    MapRandomSeed seedScript;
     void Start()
     {
-        Random.InitState(100);
+        //ランダムオブジェクトを探して値を持ってくる関数
+        seedObject = GameObject.Find("SeedObject");
+        seedScript = seedObject.GetComponent<MapRandomSeed>();
+
+        
+        //int seed = seedScript.mapSeed;
+        Random.InitState(seed);
+
+        //Random.InitState(100);
 
         ResetMapData();
 
@@ -575,6 +589,17 @@ public class MapGenerator : MonoBehaviour
 
     }
 
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(seed);
+        }
+        else
+        {
+            seed = (int)stream.ReceiveNext();
+        }
+    }
 
 
 }
