@@ -42,7 +42,7 @@ public class NetConnect : MonoBehaviourPunCallbacks
         cameraScript.player = GameObject.Find("NetArthur");
         /////////////////////////////////////////////////////////////////////////
         ///
-        //リスポーンポイントの座標を取得し、その場所にアーサーくんを配位する
+
         GameObject MapRandomSeed;
         MapRandomSeed = GameObject.Find("MapRandomSeed");
 
@@ -51,18 +51,19 @@ public class NetConnect : MonoBehaviourPunCallbacks
         //もしMapRandomSeedがなければ
         if(MapRandomSeed == null)
         {
+            print("ランダムシードないからおいた");
             //ランダムシードを配置する
             PhotonNetwork.Instantiate("Enkyori", randomSeed, Quaternion.identity);
         }
-
+        
         mainCamera = GameObject.Find("Main Camera");
         respawnPoint = GameObject.Find("RespawnPoint");
         cameraScript = mainCamera.GetComponent<CameraScript>();
         
 
-        //アーサーくん配置
+        //配置
         PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
-        print("ネットワークに接続し、オブジェクトを生成");
+        print("aaa");
         cameraScript.player = GameObject.Find("NetArthur");
 
         /////////////////////////////////////////////////////////////////////////
