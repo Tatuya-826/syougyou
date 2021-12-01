@@ -7,7 +7,6 @@ using UnityEngine.AI;
 
 public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
 {
-
     public int MapWidth;
     public int MapHeight;
 
@@ -56,22 +55,18 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
     //道の集合点を増やしたいならこれを増やす
     const int meetPointCount = 2;
 
-    int seed = Random.Range(0, 100);
+    int seed;
 
-    GameObject seedObject;
-    MapRandomSeed seedScript;
+    GameObject      seedObject;
+    MapRandomSeed   seedScript;
     void Start()
     {
-        //ランダムオブジェクトを探して値を持ってくる関数
         seedObject = GameObject.Find("SeedObject");
         seedScript = seedObject.GetComponent<MapRandomSeed>();
-
         
-        //int seed = seedScript.mapSeed;
-        Random.InitState(seed);
-
-        //Random.InitState(100);
-
+        seed = Random.Range(0, 100);    //乱数でシード値を設定する
+        Random.InitState(seed);         //設定したシード値をマップ生成の元にする
+        
         ResetMapData();
 
         CreateSpaceData();
@@ -588,7 +583,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
         Instantiate(Enmspawner15, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
 
     }
-
+    
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
@@ -600,6 +595,4 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
             seed = (int)stream.ReceiveNext();
         }
     }
-
-
 }
