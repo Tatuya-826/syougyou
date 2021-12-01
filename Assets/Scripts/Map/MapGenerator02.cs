@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Photon.Pun;
-using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
+public class MapGenerator02 : MonoBehaviour
 {
+
+
     public int MapWidth;
     public int MapHeight;
 
@@ -55,19 +55,22 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
     //道の集合点を増やしたいならこれを増やす
     const int meetPointCount = 2;
 
-    int seed;
 
-    GameObject      seedObject;
-    MapRandomSeed   seedScript;
+    GameObject seedObject;
+    MapRandomSeed seedScript;
+
     void Start()
     {
-
+        //ランダムオブジェクトを探して値を持ってくる関数
         seedObject = GameObject.Find("SeedObject");
         seedScript = seedObject.GetComponent<MapRandomSeed>();
         
-        seed = Random.Range(0, 100);    //乱数でシード値を設定する
-        Random.InitState(seed);         //設定したシード値をマップ生成の元にする
-        
+        Random.InitState(seedScript.mapSeed);
+        //Random.InitState(1);
+
+
+
+
 
         ResetMapData();
 
@@ -295,13 +298,13 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
     /// </summary>
     private void CreateDangeon()
     {
-        for (int i = 0; i < MapHeight; i+=4)
+        for (int i = 0; i < MapHeight; i += 4)
         {
-            for (int j = 0; j < MapWidth; j+=4)
+            for (int j = 0; j < MapWidth; j += 4)
             {
                 if (Map[i, j] == wall)
                 {
-                    Instantiate(WallObject, new Vector3(j - MapWidth / 2,0 , i - MapHeight / 2), Quaternion.identity);
+                    Instantiate(WallObject, new Vector3(j - MapWidth / 2, 0, i - MapHeight / 2), Quaternion.identity);
                 }
             }
         }
@@ -324,7 +327,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
         while (Map[z, x] != road);
 
         // Instantiate(cube, new Vector3(y - MapWidth / 2, x - MapHeight / 2, 0), Quaternion.identity);
-        Instantiate(cube, new Vector3(x - MapWidth / 2,y, z - MapHeight/2), Quaternion.identity);
+        Instantiate(cube, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
 
     }
 
@@ -585,16 +588,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
         Instantiate(Enmspawner15, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
 
     }
-    
-    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(seed);
-        }
-        else
-        {
-            seed = (int)stream.ReceiveNext();
-        }
-    }
+
+
+
 }

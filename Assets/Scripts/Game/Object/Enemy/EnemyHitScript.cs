@@ -22,7 +22,6 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
 
     void Start()
     {
-        
         oyaObject = transform.parent.gameObject;
         enemyStatus= oyaObject.GetComponent<EnemyStatus>();
         HP = enemyStatus.gethp();
