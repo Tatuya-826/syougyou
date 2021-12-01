@@ -61,12 +61,14 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
     MapRandomSeed   seedScript;
     void Start()
     {
+
         seedObject = GameObject.Find("SeedObject");
         seedScript = seedObject.GetComponent<MapRandomSeed>();
         
         seed = Random.Range(0, 100);    //乱数でシード値を設定する
         Random.InitState(seed);         //設定したシード値をマップ生成の元にする
         
+
         ResetMapData();
 
         CreateSpaceData();
