@@ -56,6 +56,7 @@ public class MapGenerator : MonoBehaviour
 
     void Start()
     {
+        //Random.InitState(1);
 
         ResetMapData();
 

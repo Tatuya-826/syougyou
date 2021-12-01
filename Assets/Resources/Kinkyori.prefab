@@ -388,7 +388,7 @@ MonoBehaviour:
   - {fileID: 2184947050928345184}
   - {fileID: 5646127426487345552}
   - {fileID: 4798285354945188731}
-  sceneViewId: 6
+  sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &2184947050928345184
@@ -481,7 +481,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: befbeb2cf14885443b209f296833a25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   hitDamage: 3
+  CSVreadObject: {fileID: 0}
 --- !u!1001 &4798285354610714592
 PrefabInstance:
   m_ObjectHideFlags: 0

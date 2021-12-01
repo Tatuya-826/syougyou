@@ -17,6 +17,7 @@ public class WeaponChangeScript : MonoBehaviour
     public GameObject Weapontext;
     public GameObject Armortext;
     public GameObject[] Weaponinfo = new GameObject[infosu];
+
     GameObject list;
     GameObject CSVreadObject;
 
