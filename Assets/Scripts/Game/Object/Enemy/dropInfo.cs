@@ -24,4 +24,6 @@ public class dropInfo : MonoBehaviour
         Debug.Log(Name);
         Debug.Log(atk);
     }
+
+    
 }
