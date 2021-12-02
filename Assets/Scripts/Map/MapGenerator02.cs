@@ -55,7 +55,7 @@ public class MapGenerator02 : MonoBehaviour
     //“¹‚ÌW‡“_‚ğ‘‚â‚µ‚½‚¢‚È‚ç‚±‚ê‚ğ‘‚â‚·
     const int meetPointCount = 2;
 
-
+    int seedNum;
     GameObject seedObject;
     MapRandomSeed seedScript;
 
@@ -65,7 +65,9 @@ public class MapGenerator02 : MonoBehaviour
         seedObject = GameObject.Find("SeedObject");
         seedScript = seedObject.GetComponent<MapRandomSeed>();
         
-        Random.InitState(seedScript.mapSeed);
+        //seedNum = seedScript.mapS
+
+        Random.InitState(seedScript.seedNum);
         //Random.InitState(1);
 
 
