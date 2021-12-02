@@ -68,7 +68,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
         seed = Random.Range(0, 100);    //乱数でシード値を設定する
         Random.InitState(seed);         //設定したシード値をマップ生成の元にする
         
-
         ResetMapData();
 
         CreateSpaceData();
