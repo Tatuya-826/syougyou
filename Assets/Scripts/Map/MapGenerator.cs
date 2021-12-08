@@ -56,7 +56,10 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
     //“¹‚ÌW‡“_‚ğ‘‚â‚µ‚½‚¢‚È‚ç‚±‚ê‚ğ‘‚â‚·
     const int meetPointCount = 2;
 
-    int seed = Random.Range(0, 100);
+
+    //public int seed = Random.Range(0, 100);
+
+        
 
     GameObject seedObject;
     MapRandomSeed seedScript;
@@ -66,11 +69,16 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
         seedObject = GameObject.Find("SeedObject");
         seedScript = seedObject.GetComponent<MapRandomSeed>();
 
-        
-        //int seed = seedScript.mapSeed;
-        Random.InitState(seed);
 
-        //Random.InitState(100);
+
+        //Random.InitState(seed);
+        //int seed = seedScript.mapSeed;
+
+        setSeed();
+
+        
+
+        
 
         ResetMapData();
 
@@ -104,6 +112,16 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
     void Update()
     {
         //_surface.BuildNavMesh();
+    }
+
+    int setSeed()
+    {
+        int seed = Random.Range(0, 100);
+
+        Random.InitState(seed);
+        print("seed" + seed);
+
+        return seed;
     }
 
     /// <summary>

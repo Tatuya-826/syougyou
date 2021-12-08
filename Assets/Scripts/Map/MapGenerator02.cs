@@ -65,7 +65,7 @@ public class MapGenerator02 : MonoBehaviour
         seedObject = GameObject.Find("SeedObject");
         seedScript = seedObject.GetComponent<MapRandomSeed>();
         
-        Random.InitState(seedScript.mapSeed);
+        //Random.InitState(seedScript.mapSeed);
         //Random.InitState(1);
 
 
