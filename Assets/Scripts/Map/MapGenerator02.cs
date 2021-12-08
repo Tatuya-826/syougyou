@@ -68,10 +68,6 @@ public class MapGenerator02 : MonoBehaviour
         //seedNum = seedScript.mapS
 
         Random.InitState(seedScript.seedNum);
-        //Random.InitState(1);
-
-
-
 
 
         ResetMapData();

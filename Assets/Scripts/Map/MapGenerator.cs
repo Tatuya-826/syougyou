@@ -53,24 +53,25 @@ public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
 
     //道の集合点を増やしたいならこれを増やす
     const int meetPointCount = 2;
-
+    
     int seedNum;     //シード値
     
     int seed;
     GameObject      seedObject;
     MapRandomSeed   seedScript;
 
-
     void Start()
     {
         seedObject = GameObject.Find("seedObject");
         seedScript = seedObject.GetComponent<MapRandomSeed>();
+        
+        //Random.InitState(seed);
+        //int seed = seedScript.mapSeed;
 
-        //print("チェックするからねー" + seedScript.seedNum);
+        setSeed();
 
-
-
-        //Random.InitState(seedScript.seedNum);         //設定したシード値をマップ生成の元にする
+        //設定したシード値をマップ生成の元にする
+        //Random.InitState(seedScript.seedNum); 
 
         /*
         if (PhotonNetwork.IsMasterClient)
@@ -80,7 +81,8 @@ public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
         */
 
         Random.InitState(seedScript.seedNum);
-        //Random.InitState(seedNum);
+
+        print("現在のSeed初期値" + seedScript.seedNum);
 
         ResetMapData();
 
@@ -126,7 +128,17 @@ public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
     void seedSetting()
     {
         seedNum = Random.Range(0, 100); //シード値を乱数でセットする
-        print("乱数セットの時点で" + seedNum);
+        print("mapgeneraterより 乱数セットの時点で" + seedNum);
+    }
+
+    int setSeed()
+    {
+        int seed = Random.Range(0, 100);
+
+        Random.InitState(seed);
+        print("seed" + seed);
+
+        return seed;
     }
 
     /// <summary>

@@ -20,7 +20,7 @@ public class MapRandomSeed : MonoBehaviourPunCallbacks, IPunObservable
         //ƒ[ƒh‚µ‚Ä‚©‚çì¬‚·‚é
         //seedSetting();
         seedSetting();
-        if (PhotonNetwork.IsMasterClient)
+        if (photonView.IsMine)
         {
             seedSetting();
         }
