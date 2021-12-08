@@ -7,17 +7,31 @@ using UnityEngine;
 public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
 {
     //てきの当たり判定処理
-    public int attackTrigger;
     public int HP;
+    int dropid;
+
+    string Name, type;
+    int atk;
+
+    public GameObject dropItemObj;
     GameObject oyaObject;
     EnemyStatus enemyStatus;
+    public GameObject CSVreadObject;
+    dropCSVRead CSVread;
+    //EnemyCSVReader CSVread;
 
     void Start()
     {
         oyaObject = transform.parent.gameObject;
         enemyStatus= oyaObject.GetComponent<EnemyStatus>();
         HP = enemyStatus.gethp();
-    }
+        dropid= enemyStatus.getDrop();
+        //Debug.Log(CSVreadObject.name);
+        CSVreadObject = GameObject.Find("EmyCSVRead");
+        CSVread = CSVreadObject.GetComponent<dropCSVRead>();
+        //CSVread = CSVreadObject.GetComponent<EnemyCSVReader>();
+    } 
+
 
     void Update()
     {
@@ -26,6 +40,13 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
         //PhotonView photonView = PhotonView.Get(this);
         //photonView.RPC("enemyDestroy", RpcTarget.All);//同期RPC
         //enemyDestroy();
+        if (Input.GetKey(KeyCode.K))//デバック用Kキーで全員死ぬ
+            {
+            HP = enemyStatus.gethp();
+            HP = 0;
+            enemyStatus.sethp(HP);
+            enemyDestroy();
+        }
     }
     
     void OnTriggerEnter(Collider col)
@@ -48,6 +69,16 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (HP <= 0)
         {
+
+            GameObject drophin = Instantiate<GameObject>(dropItemObj, transform.position + Vector3.up, Quaternion.identity);
+            dropInfo drophantei= drophin.GetComponent<dropInfo>();
+
+            type = CSVread.typeGetter(dropid);
+            Name =  CSVread.nameGetter(dropid);
+            atk = CSVread.atkGetter(dropid);// CSVread.atkGetter(dropid);
+
+            drophantei.dropSirabe(type, Name, atk);
+
             print("デストロイ");
             Destroy(oyaObject);
         }

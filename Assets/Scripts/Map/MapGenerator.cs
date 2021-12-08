@@ -5,9 +5,8 @@ using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
+public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
 {
-
     public int MapWidth;
     public int MapHeight;
 
@@ -51,59 +50,83 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
     public GameObject Enmspawner15;
 
     [SerializeField]
-    //private NavMeshSurface _surface;
 
     //道の集合点を増やしたいならこれを増やす
     const int meetPointCount = 2;
 
-    int seed = Random.Range(0, 100);
+    int seedNum;     //シード値
+    
+    int seed;
+    GameObject      seedObject;
+    MapRandomSeed   seedScript;
 
-    GameObject seedObject;
-    MapRandomSeed seedScript;
+
     void Start()
     {
-        //ランダムオブジェクトを探して値を持ってくる関数
-        seedObject = GameObject.Find("SeedObject");
+        seedObject = GameObject.Find("seedObject");
         seedScript = seedObject.GetComponent<MapRandomSeed>();
 
-        
-        //int seed = seedScript.mapSeed;
-        Random.InitState(seed);
+        //print("チェックするからねー" + seedScript.seedNum);
 
-        //Random.InitState(100);
+
+
+        //Random.InitState(seedScript.seedNum);         //設定したシード値をマップ生成の元にする
+
+        /*
+        if (PhotonNetwork.IsMasterClient)
+        {
+            seedSetting();
+        }
+        */
+
+        Random.InitState(seedScript.seedNum);
+        //Random.InitState(seedNum);
 
         ResetMapData();
 
-        CreateSpaceData();
+            CreateSpaceData();
 
-        CreateDangeon();
+            CreateDangeon();
 
-        RandomSpawn();          // キャラクターのランダム生成
+            RandomSpawn();          // キャラクターのランダム生成
 
-        RandomSpawn2();         // 階段
+            RandomSpawn2();         // 階段
 
-        EnmSpawner01();         // 敵のスポナー1
-        EnmSpawner02();         // 敵のスポナー2
-        EnmSpawner03();         // 敵のスポナー3
-        EnmSpawner04();         // 敵のスポナー4
-        EnmSpawner05();         // 敵のスポナー5
-        EnmSpawner06();         // 敵のスポナー6
-        EnmSpawner07();         // 敵のスポナー7
-        EnmSpawner08();         // 敵のスポナー8
-        EnmSpawner09();         // 敵のスポナー9
-        EnmSpawner10();         // 敵のスポナー10
-        EnmSpawner11();         // 敵のスポナー11
-        EnmSpawner12();         // 敵のスポナー12
-        EnmSpawner13();         // 敵のスポナー13
-        EnmSpawner14();         // 敵のスポナー14
-        EnmSpawner15();         // 敵のスポナー15
+            EnmSpawner01();         // 敵のスポナー1
+            EnmSpawner02();         // 敵のスポナー2
+            EnmSpawner03();         // 敵のスポナー3
+            EnmSpawner04();         // 敵のスポナー4
+            EnmSpawner05();         // 敵のスポナー5
+            EnmSpawner06();         // 敵のスポナー6
+            EnmSpawner07();         // 敵のスポナー7
+            EnmSpawner08();         // 敵のスポナー8
+            EnmSpawner09();         // 敵のスポナー9
+            EnmSpawner10();         // 敵のスポナー10
+            EnmSpawner11();         // 敵のスポナー11
+            EnmSpawner12();         // 敵のスポナー12
+            EnmSpawner13();         // 敵のスポナー13
+            EnmSpawner14();         // 敵のスポナー14
+            EnmSpawner15();         // 敵のスポナー15
 
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        //seed = Random.Range(0, 100);    //乱数でシード値を設定する
+        //Random.InitState(seed);         //設定したシード値をマップ生成の元にする
+        //Random.InitState(seed);         //設定したシード値をマップ生成の元にする
+
+
         //_surface.BuildNavMesh();
+        //print(seed);
+    }
+
+    void seedSetting()
+    {
+        seedNum = Random.Range(0, 100); //シード値を乱数でセットする
+        print("乱数セットの時点で" + seedNum);
     }
 
     /// <summary>
@@ -154,8 +177,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
                 CreateRoadData(roadStartPointX, roadStartPointY, meetPointsX[Random.Range(0, 0)], meetPointsY[Random.Range(0, 0)]);
             }
         }
-
-
     }
 
     /// <summary>
@@ -588,18 +609,18 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
         Instantiate(Enmspawner15, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
 
     }
-
+    
+    /*
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(seed);
+            stream.SendNext(seedNum);
         }
         else
         {
-            seed = (int)stream.ReceiveNext();
+            seedNum = (int)stream.ReceiveNext();
         }
     }
-
-
+    */
 }

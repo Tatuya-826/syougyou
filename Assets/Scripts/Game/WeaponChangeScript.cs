@@ -17,6 +17,7 @@ public class WeaponChangeScript : MonoBehaviour
     public GameObject Weapontext;
     public GameObject Armortext;
     public GameObject[] Weaponinfo = new GameObject[infosu];
+
     GameObject list;
     GameObject CSVreadObject;
 
@@ -119,7 +120,11 @@ public class WeaponChangeScript : MonoBehaviour
 
     public void WeaponChangeButton()
     {
+        PlayerNowWeapon.PlayerEquipment.WeaponID = choiseWeapon;
+        PlayerNowWeapon.PlayerEquipment.WeaponName = CSVread.WeaponNameGetter(choiseWeapon);//
         PlayerNowWeapon.PlayerEquipment.WeaponAtk= int.Parse(CSVread.WeaponPowGetter(choiseWeapon));//Ç±Ç±Ç…ïêäÌÉ`ÉFÉìÉWÇÃèàóù
+        PlayerNowWeapon.PlayerEquipment.ArmorID = choiseArmor;
+        PlayerNowWeapon.PlayerEquipment.ArmorName = CSVread.WeaponNameGetter(choiseArmor);//
         PlayerNowWeapon.PlayerEquipment.ArmorDef = int.Parse(CSVread.ArmorDefGetter(choiseArmor));
         Debug.Log(PlayerNowWeapon.PlayerEquipment.WeaponAtk);
         Debug.Log(PlayerNowWeapon.PlayerEquipment.ArmorDef);

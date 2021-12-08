@@ -8,40 +8,41 @@ using UnityEngine;
 
 public class MapRandomSeed : MonoBehaviourPunCallbacks, IPunObservable
 {
-    public int mapSeed; //= 2;
-
+    
+    public int seedNum;     //シード値
+    public int seedFrag;
+    
     void Start()
     {
-        // 自身が管理者かどうかを判定する
-        if (photonView.IsMine)
+        //ゲーム開始
+        //シード値をセットし
+        //マップジェネレートがシード値をロードする
+        //ロードしてから作成する
+        //seedSetting();
+        seedSetting();
+        if (PhotonNetwork.IsMasterClient)
         {
-            // 所有者を取得する
-            Player owner = photonView.Owner;
-            // 所有者のプレイヤー名とIDをコンソールに出力する
+            seedSetting();
         }
-
-        //Random r1 = new System.Random();
-        //mapSeed = r1.Next(0, 5);
-        mapSeed = Random.Range(0,100);
-        //mapSeed = 2;
-
     }
 
-    // Update is called once per frame
-    void Update()
+    //シードをセットする。
+        void seedSetting()
     {
+        seedNum = Random.Range(0, 100); //シード値を乱数でセットする
+        print("乱数セットの時点で" + seedNum);
     }
 
+    //値の同期
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(mapSeed);
+            stream.SendNext(seedNum);
         }
         else
         {
-            mapSeed = (int)stream.ReceiveNext();
+            seedNum = (int)stream.ReceiveNext();
         }
     }
-
 }

@@ -14,6 +14,6 @@ public class Damage : MonoBehaviour
         CSVreadObject = GameObject.Find("EmyCSVRead");
         CSVread = CSVreadObject.GetComponent<EnemyCSVReader>();
         hitDamage = CSVread.atkGetter(id);
-        Debug.Log(hitDamage);
+        //Debug.Log(hitDamage);
     }
 }
