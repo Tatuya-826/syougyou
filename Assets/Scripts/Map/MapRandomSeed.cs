@@ -22,6 +22,7 @@ public class MapRandomSeed : MonoBehaviourPunCallbacks, IPunObservable
         seedSetting();
         if (photonView.IsMine)
         {
+            print("‚¢‚¸‚Ü‚¢‚ŽN!!!");
             seedSetting();
         }
     }
