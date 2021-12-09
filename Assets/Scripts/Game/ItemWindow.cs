@@ -48,7 +48,7 @@ public class ItemWindow : MonoBehaviour
 
         for (int i = 0; i < WeaponButtonNo; i++)
         {
-            Debug.Log("でばばば" + i);
+            //Debug.Log("でば" + i);
             //プレハブからボタンを生成
             GameObject listButton = Instantiate(ButtonPrefab) as GameObject;
             RectTransform buttonRectTransform = listButton.GetComponent<RectTransform>();
@@ -73,7 +73,7 @@ public class ItemWindow : MonoBehaviour
         Weapon_info[0].text = "名前：" + ItemList.GetName(index);
         Weapon_info[1] = Weaponinfo[1].GetComponent<Text>();
         Weapon_info[1].text = "種類：" + ItemList.GetType(index);
-        Weapon_info[2] = Weaponinfo[3].GetComponent<Text>();
+        Weapon_info[2] = Weaponinfo[2].GetComponent<Text>();
         if (ItemList.GetType(index)=="W")
             Weapon_info[2].text = "攻撃力：" + ItemList.GetSeino(index);
         else

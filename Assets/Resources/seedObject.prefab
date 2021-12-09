@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3426645604829532618
+--- !u!1 &6865153973084193000
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3426645604829532628}
-  - component: {fileID: 3426645604829532619}
-  - component: {fileID: 3076790619319583668}
+  - component: {fileID: 5629325902039902537}
+  - component: {fileID: 7790414760184758335}
+  - component: {fileID: -1915513118932416172}
   m_Layer: 0
-  m_Name: MapGenerator
+  m_Name: seedObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3426645604829532628
+--- !u!4 &5629325902039902537
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3426645604829532618}
+  m_GameObject: {fileID: 6865153973084193000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,55 +32,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3426645604829532619
+--- !u!114 &7790414760184758335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3426645604829532618}
+  m_GameObject: {fileID: 6865153973084193000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67684a3d402096747aad4dcee9ba34f4, type: 3}
+  m_Script: {fileID: 11500000, guid: dcf6993a1150ff146bf618aa353c18ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapWidth: 150
-  MapHeight: 150
-  wall: 3
-  road: 0
-  WallObject: {fileID: 1552073168178236077, guid: 0571539085084874ebe8093cb62cf469, type: 3}
-  roomMinHeight: 12
-  roomMaxHeight: 18
-  roomMinWidth: 12
-  roomMaxWidth: 18
-  RoomCountMin: 28
-  RoomCountMax: 28
-  roadWidth: 3
-  cube: {fileID: 0}
-  kaidan: {fileID: 0}
-  Enmspawner01: {fileID: 0}
-  Enmspawner02: {fileID: 0}
-  Enmspawner03: {fileID: 0}
-  Enmspawner04: {fileID: 0}
-  Enmspawner05: {fileID: 0}
-  Enmspawner06: {fileID: 0}
-  Enmspawner07: {fileID: 0}
-  Enmspawner08: {fileID: 0}
-  Enmspawner09: {fileID: 0}
-  Enmspawner10: {fileID: 0}
-  Enmspawner11: {fileID: 0}
-  Enmspawner12: {fileID: 0}
-  Enmspawner13: {fileID: 0}
-  Enmspawner14: {fileID: 0}
-  Enmspawner15: {fileID: 0}
-  MapSeed: {fileID: 6865153973084193000, guid: ed509d60ef22030448b69462b7143d4a, type: 3}
---- !u!114 &3076790619319583668
+  mapSeed: 0
+  setFrag: 0
+--- !u!114 &-1915513118932416172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3426645604829532618}
+  m_GameObject: {fileID: 6865153973084193000}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
@@ -92,8 +64,7 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents:
-  - {fileID: 3426645604829532619}
+  ObservedComponents: []
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
