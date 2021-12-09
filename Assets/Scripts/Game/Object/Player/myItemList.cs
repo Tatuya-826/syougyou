@@ -16,13 +16,49 @@ public class myItemList : MonoBehaviour
 
     void Start()
     {
+        //‰Šú‰»Aˆê”Ô–Ú‚Æ“ñ”Ô–Ú‚Í‚¿‚ñ‚¾•Ší–h‹ï
         myItem[0] = new Item() { Name = PlayerNowWeapon.PlayerEquipment.WeaponName, Type = "W", Seino = PlayerNowWeapon.PlayerEquipment.WeaponAtk };
         myItem[1] = new Item() { Name = PlayerNowWeapon.PlayerEquipment.ArmorName, Type = "A", Seino = PlayerNowWeapon.PlayerEquipment.ArmorDef };
         for(int i = 2; i < ItemLimit; i++)
         {
             myItem[i] = new Item() { Name = null, Type = null, Seino = 0 };
         }
+        //Debug.Log(myItem[0].Name);
     }
 
 
+
+    public void SetItem(string pickName, string pickType, int pickSeino)
+    {
+        for(int i = 0; i < ItemLimit; i++)
+        {
+            if (myItem[i].Name == null)//null‚ğ’T‚µ‚Ä
+            {
+                myItem[i] = new Item() { Name = pickName, Type = pickType, Seino = pickSeino };
+                return;
+            }
+        }
+        Debug.Log("‚¿•¨‚ª‚¢‚Á‚Ï‚¢ƒfƒX");
+        return;
+    }
+
+    public string GetName(int index)
+    {
+        return myItem[index].Name;
+    }
+
+    public string GetType(int index)
+    {
+        return myItem[index].Type;
+    }
+
+    public int GetSeino(int index)
+    {
+        return myItem[index].Seino;
+    }
+
+    public void OverwriteItem()
+    {
+        ;
+    }
 }
