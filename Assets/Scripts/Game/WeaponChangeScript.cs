@@ -17,6 +17,7 @@ public class WeaponChangeScript : MonoBehaviour
     public GameObject Weapontext;
     public GameObject Armortext;
     public GameObject[] Weaponinfo = new GameObject[infosu];
+
     GameObject list;
     GameObject CSVreadObject;
 
@@ -55,7 +56,7 @@ public class WeaponChangeScript : MonoBehaviour
 
             int n = i;
             Button listButtonButton = listButton.GetComponent<Button>();
-            listButtonButton.onClick.AddListener(() => WeaponChange(n));//ボタンを作る
+            listButtonButton.onClick.AddListener(() => WeaponButtonChange(n));//ボタンを作る
         }
     }
 
@@ -79,11 +80,11 @@ public class WeaponChangeScript : MonoBehaviour
 
             int n = i;
             Button listButtonButton = listButton.GetComponent<Button>();
-            listButtonButton.onClick.AddListener(() => ArmorChange(n));//ボタンを作る
+            listButtonButton.onClick.AddListener(() => ArmorButtonChange(n));//ボタンを作る
         }
     }
 
-    void WeaponChange(int index)
+    void WeaponButtonChange(int index)
     {
         //武器の選択処理
         Text Weapon_text = Weapontext.GetComponent<Text>();
@@ -100,7 +101,7 @@ public class WeaponChangeScript : MonoBehaviour
         choiseWeapon = index;
     }
 
-    void ArmorChange(int index)
+    void ArmorButtonChange(int index)
     {
         //防具の選択処理
         Text Armor_text = Armortext.GetComponent<Text>();
@@ -119,7 +120,11 @@ public class WeaponChangeScript : MonoBehaviour
 
     public void WeaponChangeButton()
     {
+        PlayerNowWeapon.PlayerEquipment.WeaponID = choiseWeapon;
+        PlayerNowWeapon.PlayerEquipment.WeaponName = CSVread.WeaponNameGetter(choiseWeapon);//
         PlayerNowWeapon.PlayerEquipment.WeaponAtk= int.Parse(CSVread.WeaponPowGetter(choiseWeapon));//ここに武器チェンジの処理
+        PlayerNowWeapon.PlayerEquipment.ArmorID = choiseArmor;
+        PlayerNowWeapon.PlayerEquipment.ArmorName = CSVread.WeaponNameGetter(choiseArmor);//
         PlayerNowWeapon.PlayerEquipment.ArmorDef = int.Parse(CSVread.ArmorDefGetter(choiseArmor));
         Debug.Log(PlayerNowWeapon.PlayerEquipment.WeaponAtk);
         Debug.Log(PlayerNowWeapon.PlayerEquipment.ArmorDef);

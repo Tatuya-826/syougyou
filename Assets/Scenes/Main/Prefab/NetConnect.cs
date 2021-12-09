@@ -40,11 +40,35 @@ public class NetConnect : MonoBehaviourPunCallbacks
         PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
         print("ネットワークに接続し、オブジェクトを生成");
         cameraScript.player = GameObject.Find("NetArthur");
-
         /////////////////////////////////////////////////////////////////////////
+        ///
 
-        /////////////////////////////////////////////////////////////////////////
+        GameObject MapRandomSeed;
+        MapRandomSeed = GameObject.Find("MapRandomSeed");
+
+        var randomSeed = new Vector3(0, 0, 0);
+
+        //もしMapRandomSeedがなければ
+        if(MapRandomSeed == null)
+        {
+            //print("ランダムシードないからおいた");
+            //ランダムシードを配置する
+            //PhotonNetwork.Instantiate("Enkyori", randomSeed, Quaternion.identity);
+        }
         
+        mainCamera = GameObject.Find("Main Camera");
+        respawnPoint = GameObject.Find("RespawnPoint");
+        cameraScript = mainCamera.GetComponent<CameraScript>();
+        
+
+        //配置
+        //PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
+        print("aaa");
+        cameraScript.player = GameObject.Find("NetArthur");
+
+        /////////////////////////////////////////////////////////////////////////
+
+        /*
         //リスポーンポイントの座標を取得し、その場所にenkyoriを配位する
         GameObject enkyoriRespawnPoint;
         enkyoriRespawnPoint = GameObject.Find("EnkyoriRespawnPoint");
@@ -56,7 +80,7 @@ public class NetConnect : MonoBehaviourPunCallbacks
 
         //enkyoriくん配置
         PhotonNetwork.Instantiate("Enkyori", erPosition, Quaternion.identity);
-        
+        */
         /////////////////////////////////////////////////////////////////////////
     }
 }
