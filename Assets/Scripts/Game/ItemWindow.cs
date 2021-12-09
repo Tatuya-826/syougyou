@@ -48,7 +48,7 @@ public class ItemWindow : MonoBehaviour
 
         for (int i = 0; i < WeaponButtonNo; i++)
         {
-            //Debug.Log("でば" + i);
+            Debug.Log("でば" + i);
             //プレハブからボタンを生成
             GameObject listButton = Instantiate(ButtonPrefab) as GameObject;
             RectTransform buttonRectTransform = listButton.GetComponent<RectTransform>();
@@ -57,14 +57,16 @@ public class ItemWindow : MonoBehaviour
             buttonRectTransform.localPosition = new Vector3(0, 0, 0);
             buttonRectTransform.localScale = new Vector3(1, 1, 1);
 
-            
+            int n = i;
             Button listButtonButton = listButton.GetComponent<Button>();
-            listButtonButton.onClick.AddListener(() => WeaponButtonChange(i));//ボタンを作る
+            listButtonButton.onClick.AddListener(() => WeaponButtonChange(n));//ボタンを作る
         }
     }
 
     void WeaponButtonChange(int index)
     {
+        Debug.Log("botannoindexwosiraberuyo");
+        Debug.Log(index);
         //武器の選択処理
         Text Weapon_text = Weapontext.GetComponent<Text>();
         Weapon_text.text = ItemList.GetName(index);
@@ -72,12 +74,17 @@ public class ItemWindow : MonoBehaviour
         Weapon_info[0] = Weaponinfo[0].GetComponent<Text>();
         Weapon_info[0].text = "名前：" + ItemList.GetName(index);
         Weapon_info[1] = Weaponinfo[1].GetComponent<Text>();
-        Weapon_info[1].text = "種類：" + ItemList.GetType(index);
+        if (Weapon_info[1] = "W")
+            Weapon_info[1].text = "種類：" + "武器";
+        else
+            Weapon_info[1].text = "種類：" + "防具";
         Weapon_info[2] = Weaponinfo[2].GetComponent<Text>();
-        if (ItemList.GetType(index)=="W")
+        if (Weapon_info[1]="W")
             Weapon_info[2].text = "攻撃力：" + ItemList.GetSeino(index);
         else
             Weapon_info[2].text = "防御力：" + ItemList.GetSeino(index);
         choiseWeapon = index;
     }
+
+
 }
