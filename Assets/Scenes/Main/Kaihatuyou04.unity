@@ -4330,19 +4330,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-<<<<<<< HEAD
-    - target: {fileID: 3426645604829532618, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
-      propertyPath: m_Name
-      value: MapGenerator
-      objectReference: {fileID: 0}
-    - target: {fileID: 3426645604829532618, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-=======
     - target: {fileID: -1915513118932416172, guid: ed509d60ef22030448b69462b7143d4a, type: 3}
       propertyPath: sceneViewId
       value: 7
->>>>>>> 46c09fb3ffec17f65c776bfc9008ea98b7a50ff6
       objectReference: {fileID: 0}
     - target: {fileID: 5629325902039902537, guid: ed509d60ef22030448b69462b7143d4a, type: 3}
       propertyPath: m_RootOrder

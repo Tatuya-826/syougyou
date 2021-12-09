@@ -63,7 +63,6 @@ public class NetConnect : MonoBehaviourPunCallbacks
 
         //”z’u
         //PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
-        print("aaa");
         cameraScript.player = GameObject.Find("NetArthur");
 
         /////////////////////////////////////////////////////////////////////////

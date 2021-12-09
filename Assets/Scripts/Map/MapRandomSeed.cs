@@ -12,24 +12,19 @@ public class MapRandomSeed : MonoBehaviourPunCallbacks, IPunObservable
     public int seedNum;     //シード値
     public int seedFrag;
 
-    ExitGames.Client.Photon.Hashtable roomHash;
+    //ExitGames.Client.Photon.Hashtable roomHash;
 
     void Start()
     {
-        
+        /*
+        //ルームプロパティ設定
+        roomHash = new ExitGames.Client.Photon.Hashtable();
+        roomHash.Add("Seed", seedNum);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
+        */
 
-
-        //ゲーム開始
-        //シード値をセットし
-        //マップジェネレートがシード値をロードする
-        //ロードしてから作成する
-        //seedSetting();
         seedSetting();
-        if (photonView.IsMine)
-        {
-            print("いずまいｎN!!!");
-            seedSetting();
-        }
+
     }
 
     //シードをセットする。
@@ -39,20 +34,19 @@ public class MapRandomSeed : MonoBehaviourPunCallbacks, IPunObservable
         print("乱数セットの時点で" + seedNum);
     }
 
-    public void SetRoomProperty()
+    /*
+    public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
-        // ハッシュに要素を追加(同じ名前があるとエラーになる)
-        roomHash.Add("hoge", 0);
-
-        // ハッシュに要素を追加、既に同じ名前のキーがあれば上書き
-        roomHash["hoge"] = 1;
-
-        // ルームにハッシュを送信する
-        //PhotonNetwork.room.SetCustomProperties(roomHash);
+        object value = null;
+        //変更のあったプロパティに"Time"が含まれているならtimeを更新
+        if (propertiesThatChanged.TryGetValue("Seed", out value))
+        {
+            seedNum = (int)value;
+        }
     }
+    */
 
-
-
+    
     //値の同期
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
