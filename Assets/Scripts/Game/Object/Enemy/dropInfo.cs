@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class dropInfo : MonoBehaviour
 {
+    public GameObject ItemList;
     string Name, type;
     int atk;
     int dropid;
@@ -25,5 +26,11 @@ public class dropInfo : MonoBehaviour
         Debug.Log(atk);
     }
 
-    
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            ItemList.GetComponent<myItemList>().SetItem(type,Name,atk);
+        }
+    }
 }

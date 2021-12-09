@@ -56,7 +56,7 @@ public class WeaponChangeScript : MonoBehaviour
 
             int n = i;
             Button listButtonButton = listButton.GetComponent<Button>();
-            listButtonButton.onClick.AddListener(() => WeaponChange(n));//ボタンを作る
+            listButtonButton.onClick.AddListener(() => WeaponButtonChange(n));//ボタンを作る
         }
     }
 
@@ -80,11 +80,11 @@ public class WeaponChangeScript : MonoBehaviour
 
             int n = i;
             Button listButtonButton = listButton.GetComponent<Button>();
-            listButtonButton.onClick.AddListener(() => ArmorChange(n));//ボタンを作る
+            listButtonButton.onClick.AddListener(() => ArmorButtonChange(n));//ボタンを作る
         }
     }
 
-    void WeaponChange(int index)
+    void WeaponButtonChange(int index)
     {
         //武器の選択処理
         Text Weapon_text = Weapontext.GetComponent<Text>();
@@ -101,7 +101,7 @@ public class WeaponChangeScript : MonoBehaviour
         choiseWeapon = index;
     }
 
-    void ArmorChange(int index)
+    void ArmorButtonChange(int index)
     {
         //防具の選択処理
         Text Armor_text = Armortext.GetComponent<Text>();
