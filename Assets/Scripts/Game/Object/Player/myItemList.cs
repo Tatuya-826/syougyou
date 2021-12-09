@@ -44,10 +44,6 @@ public class myItemList : MonoBehaviour
 
     public string GetName(int index)
     {
-        Debug.Log("debagudesu-");
-        Debug.Log(index);
-        Debug.Log(myItem[index].Name);
-        Debug.Log(myItem[0].Name);
         return myItem[index].Name;
     }
 

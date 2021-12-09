@@ -65,26 +65,36 @@ public class ItemWindow : MonoBehaviour
 
     void WeaponButtonChange(int index)
     {
-        Debug.Log("botannoindexwosiraberuyo");
-        Debug.Log(index);
         //武器の選択処理
         Text Weapon_text = Weapontext.GetComponent<Text>();
+        Text Armor_text = Armortext.GetComponent<Text>();
+
         Weapon_text.text = ItemList.GetName(index);
         Text[] Weapon_info = new Text[infosu];
         Weapon_info[0] = Weaponinfo[0].GetComponent<Text>();
         Weapon_info[0].text = "名前：" + ItemList.GetName(index);
         Weapon_info[1] = Weaponinfo[1].GetComponent<Text>();
-        if (Weapon_info[1] = "W")
+        if (ItemList.GetType(index) == "W")
             Weapon_info[1].text = "種類：" + "武器";
         else
             Weapon_info[1].text = "種類：" + "防具";
         Weapon_info[2] = Weaponinfo[2].GetComponent<Text>();
-        if (Weapon_info[1]="W")
+        if (ItemList.GetType(index)=="W")
             Weapon_info[2].text = "攻撃力：" + ItemList.GetSeino(index);
         else
             Weapon_info[2].text = "防御力：" + ItemList.GetSeino(index);
         choiseWeapon = index;
+
     }
 
+    public void StartMenu()
+    {
+        this.gameObject.SetActive(true);
+        WeaponChange();
+    }
 
+   public void EndChange()
+    {
+        this.gameObject.SetActive(false); ;//ここに完了ボタンを推した時の処理
+    }
 }
