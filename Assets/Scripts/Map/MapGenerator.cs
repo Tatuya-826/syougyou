@@ -65,13 +65,11 @@ public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
         seedObject = GameObject.Find("seedObject");
         seedScript = seedObject.GetComponent<MapRandomSeed>();
 
-        setSeed();
+        //setSeed();
 
         //Random.InitState(seed);
         //int seed = seedScript.mapSeed;
-
-
-
+        
         //設定したシード値をマップ生成の元にする
         //Random.InitState(seedScript.seedNum); 
 
@@ -83,9 +81,8 @@ public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
         */
 
         Random.InitState(seedScript.seedNum);
-
         print("現在のSeed初期値" + seedScript.seedNum);
-
+        
         ResetMapData();
 
             CreateSpaceData();
@@ -95,34 +92,32 @@ public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
             RandomSpawn();          // キャラクターのランダム生成
 
             RandomSpawn2();         // 階段
-
-            EnmSpawner01();         // 敵のスポナー1
-            EnmSpawner02();         // 敵のスポナー2
-            EnmSpawner03();         // 敵のスポナー3
-            EnmSpawner04();         // 敵のスポナー4
-            EnmSpawner05();         // 敵のスポナー5
-            EnmSpawner06();         // 敵のスポナー6
-            EnmSpawner07();         // 敵のスポナー7
-            EnmSpawner08();         // 敵のスポナー8
-            EnmSpawner09();         // 敵のスポナー9
-            EnmSpawner10();         // 敵のスポナー10
-            EnmSpawner11();         // 敵のスポナー11
-            EnmSpawner12();         // 敵のスポナー12
-            EnmSpawner13();         // 敵のスポナー13
-            EnmSpawner14();         // 敵のスポナー14
-            EnmSpawner15();         // 敵のスポナー15
-
+        
+        EnmSpawner01();         // 敵のスポナー1
+        EnmSpawner02();         // 敵のスポナー2
+        EnmSpawner03();         // 敵のスポナー3
+        EnmSpawner04();         // 敵のスポナー4
+        EnmSpawner05();         // 敵のスポナー5
+        EnmSpawner06();         // 敵のスポナー6
+        EnmSpawner07();         // 敵のスポナー7
+        EnmSpawner08();         // 敵のスポナー8
+        EnmSpawner09();         // 敵のスポナー9
+        EnmSpawner10();         // 敵のスポナー10
+        EnmSpawner11();         // 敵のスポナー11
+        EnmSpawner12();         // 敵のスポナー12
+        EnmSpawner13();         // 敵のスポナー13
+        EnmSpawner14();         // 敵のスポナー14
+        EnmSpawner15();         // 敵のスポナー15
     }
+    
 
-    // Update is called once per frame
+
     void Update()
     {
-
         //seed = Random.Range(0, 100);    //乱数でシード値を設定する
         //Random.InitState(seed);         //設定したシード値をマップ生成の元にする
         //Random.InitState(seed);         //設定したシード値をマップ生成の元にする
-
-
+        
         //_surface.BuildNavMesh();
         //print(seed);
     }
@@ -623,7 +618,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
         Instantiate(Enmspawner15, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
 
     }
-    
     /*
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
