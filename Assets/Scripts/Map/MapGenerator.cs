@@ -56,25 +56,45 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
     
     int seedNum;     //シード値
     
-    int seed = 0;
+    public int seed;
     GameObject      seedObject;
     MapRandomSeed   seedScript;
 
+    
+
+
+    void Awake()
+    {
+        setSeed();
+
+
+    }
+
     void Start()
     {
-        if (seed == 0)//シード値がなければセットする
-        {
-            seedObject = GameObject.Find("seedObject");
-            seedScript = seedObject.GetComponent<MapRandomSeed>();
+        customP();
 
-            seedSetting();
-
-        }
-        Random.InitState(seed);
-        //Random.InitState(seedScript.seedNum);
+            //Random.InitState(seedScript.seedNum);
             //print("現在のSeed初期値" + seedScript.seedNum);
 
-            ResetMapData();
+
+            for (int end=0;end>0;)
+        {
+            if (seed == 0)//シード値がなければセットする
+            {
+                seedObject = GameObject.Find("seedObject");
+                seedScript = seedObject.GetComponent<MapRandomSeed>();
+
+                seedSetting();
+
+            }
+
+
+        }
+
+        Random.InitState(seed);
+
+        ResetMapData();
 
             CreateSpaceData();
 
@@ -105,17 +125,20 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
 
     void Update()
     {
-        //seed = Random.Range(0, 100);    //乱数でシード値を設定する
-        //Random.InitState(seed);         //設定したシード値をマップ生成の元にする
-        //Random.InitState(seed);         //設定したシード値をマップ生成の元にする
-        
-        //_surface.BuildNavMesh();
-        //print(seed);
+
     }
+
+    void customP()
+    {
+
+    }
+
+
+
 
     void seedSetting()
     {
-        seed = Random.Range(0, 100); //シード値を乱数でセットする
+        seed = Random.Range(1, 100); //シード値を乱数でセットする
         print("mapgeneraterLocalより 乱数セットの時点で" + seed);
     }
 

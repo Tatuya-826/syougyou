@@ -16,15 +16,7 @@ public class MapRandomSeed : MonoBehaviourPunCallbacks, IPunObservable
 
     void Start()
     {
-        /*
-        //ルームプロパティ設定
-        roomHash = new ExitGames.Client.Photon.Hashtable();
-        roomHash.Add("Seed", seedNum);
-        PhotonNetwork.CurrentRoom.SetCustomProperties(roomHash);
-        */
-
         seedSetting();
-
     }
 
     //シードをセットする。
@@ -33,18 +25,6 @@ public class MapRandomSeed : MonoBehaviourPunCallbacks, IPunObservable
         seedNum = Random.Range(0, 100); //シード値を乱数でセットする
         print("乱数セットの時点で" + seedNum);
     }
-
-    /*
-    public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
-    {
-        object value = null;
-        //変更のあったプロパティに"Time"が含まれているならtimeを更新
-        if (propertiesThatChanged.TryGetValue("Seed", out value))
-        {
-            seedNum = (int)value;
-        }
-    }
-    */
 
     
     //値の同期
