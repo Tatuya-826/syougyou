@@ -54,8 +54,10 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
     //道の集合点を増やしたいならこれを増やす
     const int meetPointCount = 2;
     
-    int seedNum;     //シード値
-    
+
+
+
+    public int seedNum;     //シード値
     public int seed;
     GameObject      seedObject;
     MapRandomSeed   seedScript;
@@ -65,9 +67,12 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
 
     void Awake()
     {
+        var hashtable = new ExitGames.Client.Photon.Hashtable();//ハッシュテーブルを作成
+        hashtable["Seed"] = 0;//hashtableって名前のハッシュテーブルにＳｅｅｄって要素を作る
+        PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);//ルームにhashtableをセットする。
+
         setSeed();
-
-
+        seed = (int)PhotonNetwork.CurrentRoom.CustomProperties["Seed"];//Seedって名前の要素をシード値にいれる。
     }
 
     void Start()
@@ -77,20 +82,11 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
             //Random.InitState(seedScript.seedNum);
             //print("現在のSeed初期値" + seedScript.seedNum);
 
-
-            for (int end=0;end>0;)
-        {
-            if (seed == 0)//シード値がなければセットする
-            {
                 seedObject = GameObject.Find("seedObject");
                 seedScript = seedObject.GetComponent<MapRandomSeed>();
 
                 seedSetting();
 
-            }
-
-
-        }
 
         Random.InitState(seed);
 
@@ -633,6 +629,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
 
     }
     
+    //ネットワーク同期部分
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
