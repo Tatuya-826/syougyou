@@ -12,7 +12,7 @@ public class dropInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        ItemList= GameObject.FindWithTag("ItemList");
     }
 
     public void dropSirabe(string ty,string na,int at)
@@ -28,9 +28,14 @@ public class dropInfo : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
+
         if (col.gameObject.tag == "Player")
         {
-            ItemList.GetComponent<myItemList>().SetItem(type,Name,atk);
+            if(ItemList.GetComponent<myItemList>().SetItem(Name,type,atk) == 1)
+                Destroy(this.gameObject);
         }
+
     }
+
 }
+

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class myItemList : MonoBehaviour
 {
-    static int ItemLimit = 5;//アイテムの持てる数状況によって変更可
+    static int ItemLimit = 6;//アイテムの持てる数状況によって変更可 想定の数の1増やす　５個持たせたいなら6と入力
     public struct Item
     {
         public string Name;//名前
@@ -23,23 +23,44 @@ public class myItemList : MonoBehaviour
         {
             myItem[i] = new Item() { Name = null, Type = null, Seino = 0 };
         }
+
+        SetItem("でばっくそーど", "W", 20000);
+
+        SetItem("でばっくあーまー", "A", 1341);
+
+        DestroyItem(2);
         //Debug.Log(myItem[0].Name);
     }
 
 
 
-    public void SetItem(string pickName, string pickType, int pickSeino)
+    public int SetItem(string pickName, string pickType, int pickSeino)
     {
-        for(int i = 0; i < ItemLimit; i++)
+        for(int i = 0; i < ItemLimit-1; i++)
         {
             if (myItem[i].Name == null)//nullを探して
             {
                 myItem[i] = new Item() { Name = pickName, Type = pickType, Seino = pickSeino };
-                return;
+                Debug.Log(myItem[i].Name);
+                Debug.Log(myItem[i].Type);
+                Debug.Log(myItem[i].Seino);
+                return 1;
             }
         }
         Debug.Log("持ち物がいっぱいデス");
-        return;
+        return 0;
+    }
+
+    public int BukiSu()
+    {
+        for (int i = 0; i < ItemLimit; i++)
+        {
+            if (myItem[i].Name == null)//nullを探して
+            {
+                return i;
+            }
+        }
+        return 0;
     }
 
     public string GetName(int index)
@@ -57,8 +78,18 @@ public class myItemList : MonoBehaviour
         return myItem[index].Seino;
     }
 
-    public void OverwriteItem()
+    public void DestroyItem(int index)
     {
-        ;
+        myItem[index] = new Item() { Name = null, Type = null, Seino = 0 };
+        Item irekaeItem;
+        for (int i = index; i < ItemLimit; i++)
+        {
+            myItem[i] = myItem[i + 1];
+            if (myItem[i + 1].Name == null)//nullを探して
+            {
+                return;
+            }
+        }
+        return;
     }
 }

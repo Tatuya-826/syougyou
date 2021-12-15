@@ -10,12 +10,16 @@ public class ItemWindow : MonoBehaviour
     public int WeaponButtonNo;
     public int ArmorButtonNo;
 
-    int choiseWeapon;
-    int choiseArmor;
+    int choiseWeapon=0;
+    int choiseArmor=1;
 
     public GameObject ButtonPrefab;
-    public GameObject Weapontext;
-    public GameObject Armortext;
+
+    public GameObject NowWeapontext;
+    public GameObject NewWeapontext;
+    public GameObject NowArmortext;
+    public GameObject NewArmortext;
+
     public GameObject[] Weaponinfo = new GameObject[infosu];
     public GameObject myItem;
 
@@ -23,12 +27,22 @@ public class ItemWindow : MonoBehaviour
 
     myItemList ItemList;
 
+    Text nowWeapontext;
+    Text nowArmortext;
+    Text newWeapontext;
+    Text newArmortext;
+
     void Start()
     {
         Weaponlist = GameObject.Find("WeaponList");
         ItemList = myItem.GetComponent<myItemList>();
-        
-        WeaponChange();
+
+        nowWeapontext = NowWeapontext.GetComponent<Text>();
+        nowArmortext = NowArmortext.GetComponent<Text>();
+        newWeapontext = NewWeapontext.GetComponent<Text>();
+        newArmortext = NewArmortext.GetComponent<Text>();
+
+        WeaponButtonSet();
     }
 
     // Update is called once per frame
@@ -37,14 +51,22 @@ public class ItemWindow : MonoBehaviour
         //WeaponChange();
     }
 
-    public void WeaponChange()
+    public void WeaponButtonSet()
     {
+        
+        nowWeapontext.text = ItemList.GetName(choiseWeapon);
+        nowArmortext.text = ItemList.GetName(choiseArmor);
+        newWeapontext.text = ItemList.GetName(choiseWeapon);
+        newArmortext.text = ItemList.GetName(choiseArmor);
+
         //子オブジェクトを一つずつ取得
         foreach (Transform child in Weaponlist.transform)
         {
             //削除する
             Destroy(child.gameObject);
         }
+
+        WeaponButtonNo = ItemList.BukiSu();
 
         for (int i = 0; i < WeaponButtonNo; i++)
         {
@@ -59,17 +81,20 @@ public class ItemWindow : MonoBehaviour
 
             int n = i;
             Button listButtonButton = listButton.GetComponent<Button>();
-            listButtonButton.onClick.AddListener(() => WeaponButtonChange(n));//ボタンを作る
+            listButtonButton.onClick.AddListener(() => WeaponButton(n));//ボタンを作る
         }
     }
 
-    void WeaponButtonChange(int index)
+    void WeaponButton(int index)
     {
         //武器の選択処理
-        Text Weapon_text = Weapontext.GetComponent<Text>();
-        Text Armor_text = Armortext.GetComponent<Text>();
 
-        Weapon_text.text = ItemList.GetName(index);
+        
+        if (ItemList.GetType(index) == "W")
+            newWeapontext.text = ItemList.GetName(index);
+        else
+            newArmortext.text = ItemList.GetName(index);
+
         Text[] Weapon_info = new Text[infosu];
         Weapon_info[0] = Weaponinfo[0].GetComponent<Text>();
         Weapon_info[0].text = "名前：" + ItemList.GetName(index);
@@ -83,14 +108,33 @@ public class ItemWindow : MonoBehaviour
             Weapon_info[2].text = "攻撃力：" + ItemList.GetSeino(index);
         else
             Weapon_info[2].text = "防御力：" + ItemList.GetSeino(index);
-        choiseWeapon = index;
+        if (ItemList.GetType(index) == "W")
+            choiseWeapon = index;
+        else
+            choiseArmor = index;
 
+    }
+
+    public void ChangeButton()
+    {
+        PlayerNowWeapon.PlayerEquipment.WeaponID = choiseWeapon;
+        PlayerNowWeapon.PlayerEquipment.WeaponName = ItemList.GetName(choiseWeapon);//
+        PlayerNowWeapon.PlayerEquipment.WeaponAtk = ItemList.GetSeino(choiseWeapon);//ここに武器チェンジの処理
+        PlayerNowWeapon.PlayerEquipment.ArmorID = choiseArmor;
+        PlayerNowWeapon.PlayerEquipment.ArmorName = ItemList.GetName(choiseArmor);//
+        PlayerNowWeapon.PlayerEquipment.ArmorDef = ItemList.GetSeino(choiseArmor);
+
+        nowWeapontext.text = ItemList.GetName(choiseWeapon);
+        nowArmortext.text = ItemList.GetName(choiseArmor);
+
+        Debug.Log(PlayerNowWeapon.PlayerEquipment.WeaponAtk);
+        Debug.Log(PlayerNowWeapon.PlayerEquipment.ArmorDef);
     }
 
     public void StartMenu()
     {
         this.gameObject.SetActive(true);
-        WeaponChange();
+        WeaponButtonSet();
     }
 
    public void EndChange()
