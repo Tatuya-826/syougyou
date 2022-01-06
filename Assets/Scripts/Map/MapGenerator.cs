@@ -7,6 +7,9 @@ using UnityEngine.AI;
 
 public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
 {
+    bool pushFlag = false;
+    public int mapStart = 0;
+
     public int MapWidth;
     public int MapHeight;
 
@@ -53,31 +56,20 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
 
     //道の集合点を増やしたいならこれを増やす
     const int meetPointCount = 2;
-    
+
 
 
 
     public int seedNum;     //シード値
     public int seed;
-    GameObject      seedObject;
-    MapRandomSeed   seedScript;
-
-    
+    GameObject seedObject;
+    MapRandomSeed seedScript;
 
 
-    void Awake()
-    {
-        var hashtable = new ExitGames.Client.Photon.Hashtable();//ハッシュテーブルを作成
-        hashtable["Seed"] = 0;//hashtableって名前のハッシュテーブルにＳｅｅｄって要素を作る
-        PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);//ルームにhashtableをセットする。
 
-        setSeed();
-        seed = (int)PhotonNetwork.CurrentRoom.CustomProperties["Seed"];//Seedって名前の要素をシード値にいれる。
-    }
-
+    /*
     void Start()
     {
-        customP();
 
             //Random.InitState(seedScript.seedNum);
             //print("現在のSeed初期値" + seedScript.seedNum);
@@ -116,18 +108,107 @@ public class MapGenerator : MonoBehaviourPunCallbacks, IPunObservable
             EnmSpawner14();         // 敵のスポナー14
             EnmSpawner15();         // 敵のスポナー15
     }
-    
-
+    */
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
 
+            mapStart = 1;
+
+
+
+            seedObject = GameObject.Find("seedObject");
+            seedScript = seedObject.GetComponent<MapRandomSeed>();
+
+            //seedSetting();
+
+
+            //Random.InitState(seed);
+            Random.InitState(seedScript.seedNum);
+
+            ResetMapData();
+
+            CreateSpaceData();
+
+            CreateDangeon();
+
+            RandomSpawn();          // キャラクターのランダム生成
+
+            RandomSpawn2();         // 階段
+
+            EnmSpawner01();         // 敵のスポナー1
+            EnmSpawner02();         // 敵のスポナー2
+            EnmSpawner03();         // 敵のスポナー3
+            EnmSpawner04();         // 敵のスポナー4
+            EnmSpawner05();         // 敵のスポナー5
+            EnmSpawner06();         // 敵のスポナー6
+            EnmSpawner07();         // 敵のスポナー7
+            EnmSpawner08();         // 敵のスポナー8
+            EnmSpawner09();         // 敵のスポナー9
+            EnmSpawner10();         // 敵のスポナー10
+            EnmSpawner11();         // 敵のスポナー11
+            EnmSpawner12();         // 敵のスポナー12
+            EnmSpawner13();         // 敵のスポナー13
+            EnmSpawner14();         // 敵のスポナー14
+            EnmSpawner15();         // 敵のスポナー15
+
+            mapStart = 0;
+
+
+
+
+            print("キー入力Mを確認");
+        }
     }
 
-    void customP()
+    /*
+    void MapCreat()
     {
+        if (mapStart == 1)
+        {
+            //Random.InitState(seedScript.seedNum);
+            //print("現在のSeed初期値" + seedScript.seedNum);
 
+            seedObject = GameObject.Find("seedObject");
+            seedScript = seedObject.GetComponent<MapRandomSeed>();
+
+            seedSetting();
+
+
+            Random.InitState(seed);
+
+            ResetMapData();
+
+            CreateSpaceData();
+
+            CreateDangeon();
+
+            RandomSpawn();          // キャラクターのランダム生成
+
+            RandomSpawn2();         // 階段
+
+            EnmSpawner01();         // 敵のスポナー1
+            EnmSpawner02();         // 敵のスポナー2
+            EnmSpawner03();         // 敵のスポナー3
+            EnmSpawner04();         // 敵のスポナー4
+            EnmSpawner05();         // 敵のスポナー5
+            EnmSpawner06();         // 敵のスポナー6
+            EnmSpawner07();         // 敵のスポナー7
+            EnmSpawner08();         // 敵のスポナー8
+            EnmSpawner09();         // 敵のスポナー9
+            EnmSpawner10();         // 敵のスポナー10
+            EnmSpawner11();         // 敵のスポナー11
+            EnmSpawner12();         // 敵のスポナー12
+            EnmSpawner13();         // 敵のスポナー13
+            EnmSpawner14();         // 敵のスポナー14
+            EnmSpawner15();         // 敵のスポナー15
+
+            mapStart = 0;
+        }
     }
+    */
 
 
 
