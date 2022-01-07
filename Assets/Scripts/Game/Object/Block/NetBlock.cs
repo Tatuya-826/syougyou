@@ -39,7 +39,7 @@ public class NetBlock : MonoBehaviourPunCallbacks, IPunObservable
             // 受信したストリームを読み込んでTransformの値を更新する
             transform.localPosition = (Vector3)stream.ReceiveNext();
             transform.localRotation = (Quaternion)stream.ReceiveNext();
-            transform.localScale = (Vector3)stream.ReceiveNext();
+            transform.localScale    = (Vector3)stream.ReceiveNext();
         }
     }
 }

@@ -1,0 +1,13 @@
+diff a/Assets/Scenes/Main/Kaihatuyou04.unity b/Assets/Scenes/Main/Kaihatuyou04.unity	(rejected hunks)
+@@ -720,7 +720,11 @@
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+   m_AnchorMin: {x: 0, y: 1}
+   m_AnchorMax: {x: 0, y: 1}
++<<<<<<< HEAD
+   m_AnchoredPosition: {x: 258.59998, y: 208.12502}
++=======
++  m_AnchoredPosition: {x: 258.59998, y: 195.50002}
++>>>>>>> ff835af53877835fb712b89c7754153854efc37d
+   m_SizeDelta: {x: 172.4, y: 171.9}
+   m_Pivot: {x: 0.5, y: 0.5}
+ --- !u!114 &237442962

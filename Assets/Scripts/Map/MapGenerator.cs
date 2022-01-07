@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MapGenerator : MonoBehaviour
+public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
 {
+    bool pushFlag = false;
+    public int mapStart = 0;
 
     public int MapWidth;
     public int MapHeight;
@@ -27,11 +31,11 @@ public class MapGenerator : MonoBehaviour
 
     public int roadWidth;
 
-    // ƒ‰ƒ“ƒ_ƒ€¶¬
-    public GameObject cube;             // ƒLƒƒƒ‰ƒNƒ^[‚Ìƒ‰ƒ“ƒ_ƒ€¶¬
-    public GameObject kaidan;           // Ÿ‚ÌƒtƒƒA‚ÖŠK’i
+    // ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public GameObject cube;             // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½^ï¿½[ï¿½Ìƒï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public GameObject kaidan;           // ï¿½ï¿½ï¿½Ìƒtï¿½ï¿½ï¿½Aï¿½ÖŠKï¿½i
 
-    //“G‚ÌƒXƒ|ƒi[
+    //ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[
     public GameObject Enmspawner01;
     public GameObject Enmspawner02;
     public GameObject Enmspawner03;
@@ -49,50 +53,191 @@ public class MapGenerator : MonoBehaviour
     public GameObject Enmspawner15;
 
     [SerializeField]
-    //private NavMeshSurface _surface;
 
-    //“¹‚ÌW‡“_‚ğ‘‚â‚µ‚½‚¢‚È‚ç‚±‚ê‚ğ‘‚â‚·
+    //ï¿½ï¿½ï¿½ÌWï¿½ï¿½ï¿½_ï¿½ğ‘‚â‚µï¿½ï¿½ï¿½ï¿½ï¿½È‚ç‚±ï¿½ï¿½ğ‘‚â‚·
     const int meetPointCount = 2;
 
+
+
+
+    public int seedNum;     //ï¿½Vï¿½[ï¿½hï¿½l
+    public int seed;
+    GameObject seedObject;
+    MapRandomSeed seedScript;
+
+
+
+    /*
     void Start()
     {
 
+            //Random.InitState(seedScript.seedNum);
+            //print("ï¿½ï¿½ï¿½İ‚ï¿½Seedï¿½ï¿½ï¿½ï¿½ï¿½l" + seedScript.seedNum);
+
+        //setSeed();
+
+        //Random.InitState(seed);
+        //int seed = seedScript.mapSeed;
+        
+        //ï¿½İ’è‚µï¿½ï¿½ï¿½Vï¿½[ï¿½hï¿½lï¿½ï¿½ï¿½}ï¿½bï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ÌŒï¿½ï¿½É‚ï¿½ï¿½ï¿½
+        //Random.InitState(seedScript.seedNum); 
+
+        /*
+        if (PhotonNetwork.IsMasterClient)
+        {
+            seedSetting();
+        }
+        
+
+        Random.InitState(seedScript.seedNum);
+        print("ï¿½ï¿½ï¿½İ‚ï¿½Seedï¿½ï¿½ï¿½ï¿½ï¿½l" + seedScript.seedNum);
+        
         ResetMapData();
 
-        CreateSpaceData();
+            CreateSpaceData();
 
-        CreateDangeon();
+            CreateDangeon();
 
-        RandomSpawn();          // ƒLƒƒƒ‰ƒNƒ^[‚Ìƒ‰ƒ“ƒ_ƒ€¶¬
+            RandomSpawn();          // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½^ï¿½[ï¿½Ìƒï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-        RandomSpawn2();         // ŠK’i
-
-        EnmSpawner01();         // “G‚ÌƒXƒ|ƒi[1
-        EnmSpawner02();         // “G‚ÌƒXƒ|ƒi[2
-        EnmSpawner03();         // “G‚ÌƒXƒ|ƒi[3
-        EnmSpawner04();         // “G‚ÌƒXƒ|ƒi[4
-        EnmSpawner05();         // “G‚ÌƒXƒ|ƒi[5
-        EnmSpawner06();         // “G‚ÌƒXƒ|ƒi[6
-        EnmSpawner07();         // “G‚ÌƒXƒ|ƒi[7
-        EnmSpawner08();         // “G‚ÌƒXƒ|ƒi[8
-        EnmSpawner09();         // “G‚ÌƒXƒ|ƒi[9
-        EnmSpawner10();         // “G‚ÌƒXƒ|ƒi[10
-        EnmSpawner11();         // “G‚ÌƒXƒ|ƒi[11
-        EnmSpawner12();         // “G‚ÌƒXƒ|ƒi[12
-        EnmSpawner13();         // “G‚ÌƒXƒ|ƒi[13
-        EnmSpawner14();         // “G‚ÌƒXƒ|ƒi[14
-        EnmSpawner15();         // “G‚ÌƒXƒ|ƒi[15
-
+            RandomSpawn2();         // ï¿½Kï¿½i
+        
+        EnmSpawner01();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[1
+        EnmSpawner02();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[2
+        EnmSpawner03();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[3
+        EnmSpawner04();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[4
+        EnmSpawner05();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[5
+        EnmSpawner06();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[6
+        EnmSpawner07();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[7
+        EnmSpawner08();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[8
+        EnmSpawner09();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[9
+        EnmSpawner10();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[10
+        EnmSpawner11();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[11
+        EnmSpawner12();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[12
+        EnmSpawner13();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[13
+        EnmSpawner14();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[14
+        EnmSpawner15();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[15
     }
+    */
 
-    // Update is called once per frame
     void Update()
     {
-        //_surface.BuildNavMesh();
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+
+            mapStart = 1;
+
+
+
+            seedObject = GameObject.Find("seedObject");
+            seedScript = seedObject.GetComponent<MapRandomSeed>();
+
+            //seedSetting();
+
+
+            //Random.InitState(seed);
+            Random.InitState(seedScript.seedNum);
+
+            ResetMapData();
+
+            CreateSpaceData();
+
+            CreateDangeon();
+
+            RandomSpawn();          // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½^ï¿½[ï¿½Ìƒï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+            RandomSpawn2();         // ï¿½Kï¿½i
+
+            EnmSpawner01();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[1
+            EnmSpawner02();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[2
+            EnmSpawner03();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[3
+            EnmSpawner04();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[4
+            EnmSpawner05();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[5
+            EnmSpawner06();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[6
+            EnmSpawner07();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[7
+            EnmSpawner08();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[8
+            EnmSpawner09();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[9
+            EnmSpawner10();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[10
+            EnmSpawner11();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[11
+            EnmSpawner12();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[12
+            EnmSpawner13();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[13
+            EnmSpawner14();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[14
+            EnmSpawner15();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[15
+
+            mapStart = 0;
+
+
+
+
+            print("ï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½Mï¿½ï¿½ï¿½mï¿½F");
+        }
+    }
+
+    /*
+    void MapCreat()
+    {
+        if (mapStart == 1)
+        {
+            //Random.InitState(seedScript.seedNum);
+            //print("ï¿½ï¿½ï¿½İ‚ï¿½Seedï¿½ï¿½ï¿½ï¿½ï¿½l" + seedScript.seedNum);
+
+            seedObject = GameObject.Find("seedObject");
+            seedScript = seedObject.GetComponent<MapRandomSeed>();
+
+            seedSetting();
+
+
+            Random.InitState(seed);
+
+            ResetMapData();
+
+            CreateSpaceData();
+
+            CreateDangeon();
+
+            RandomSpawn();          // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½^ï¿½[ï¿½Ìƒï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+            RandomSpawn2();         // ï¿½Kï¿½i
+
+            EnmSpawner01();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[1
+            EnmSpawner02();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[2
+            EnmSpawner03();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[3
+            EnmSpawner04();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[4
+            EnmSpawner05();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[5
+            EnmSpawner06();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[6
+            EnmSpawner07();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[7
+            EnmSpawner08();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[8
+            EnmSpawner09();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[9
+            EnmSpawner10();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[10
+            EnmSpawner11();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[11
+            EnmSpawner12();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[12
+            EnmSpawner13();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[13
+            EnmSpawner14();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[14
+            EnmSpawner15();         // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[15
+
+            mapStart = 0;
+        }
+    }
+    */
+
+    void seedSetting()
+    {
+        seedNum = Random.Range(0, 100); //ï¿½Vï¿½[ï¿½hï¿½lï¿½ğ—ï¿½ï¿½ÅƒZï¿½bï¿½gï¿½ï¿½ï¿½ï¿½
+        print("mapgeneraterï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½Ìï¿½ï¿½_ï¿½ï¿½" + seedNum);
+    }
+
+    int setSeed()
+    {
+        int seed = Random.Range(0, 100);
+
+        Random.InitState(seed);
+        print("seed" + seed);
+
+        return seed;
     }
 
     /// <summary>
-    /// Map‚Ì“ñŸŒ³”z—ñ‚Ì‰Šú‰»
+    /// Mapï¿½Ì“ñŸŒï¿½ï¿½zï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     private void ResetMapData()
     {
@@ -107,7 +252,7 @@ public class MapGenerator : MonoBehaviour
     }
 
     /// <summary>
-    /// ‹ó”’•”•ª‚Ìƒf[ƒ^‚ğ•ÏX
+    /// ï¿½ó”’•ï¿½ï¿½ï¿½ï¿½Ìƒfï¿½[ï¿½^ï¿½ï¿½ÏX
     /// </summary>
     private void CreateSpaceData()
     {
@@ -139,17 +284,15 @@ public class MapGenerator : MonoBehaviour
                 CreateRoadData(roadStartPointX, roadStartPointY, meetPointsX[Random.Range(0, 0)], meetPointsY[Random.Range(0, 0)]);
             }
         }
-
-
     }
 
     /// <summary>
-    /// •”‰®ƒf[ƒ^‚ğ¶¬B‚·‚Å‚É•”‰®‚ª‚ ‚éê‡‚Ítrue‚ğ•Ô‚µA“¹‚ğì‚ç‚È‚¢‚æ‚¤‚É‚·‚é
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ğ¶ï¿½ï¿½Bï¿½ï¿½ï¿½Å‚É•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ï¿½trueï¿½ï¿½Ô‚ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½É‚ï¿½ï¿½ï¿½
     /// </summary>
-    /// <param name="roomHeight">•”‰®‚Ì‚‚³</param>
-    /// <param name="roomWidth">•”‰®‚Ì‰¡•</param>
-    /// <param name="roomPointX">•”‰®‚Ìn“_(x)</param>
-    /// <param name="roomPointY">•”‰®‚Ìn“_(y)</param>
+    /// <param name="roomHeight">ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½</param>
+    /// <param name="roomWidth">ï¿½ï¿½ï¿½ï¿½ï¿½Ì‰ï¿½ï¿½ï¿½</param>
+    /// <param name="roomPointX">ï¿½ï¿½ï¿½ï¿½ï¿½Ìnï¿½_(x)</param>
+    /// <param name="roomPointY">ï¿½ï¿½ï¿½ï¿½ï¿½Ìnï¿½_(y)</param>
     /// <returns></returns>
     private bool CreateRoomData(int roomHeight, int roomWidth, int roomPointX, int roomPointY)
     {
@@ -172,7 +315,7 @@ public class MapGenerator : MonoBehaviour
     }
 
     /// <summary>
-    /// “¹ƒf[ƒ^‚ğ¶¬
+    /// ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ğ¶ï¿½
     /// </summary>
     /// <param name="roadStartPointX"></param>
     /// <param name="roadStartPointY"></param>
@@ -274,14 +417,12 @@ public class MapGenerator : MonoBehaviour
                 {
                     roadStartPointX++;
                 }
-
             }
-
         }
     }
 
     /// <summary>
-    /// ƒ}ƒbƒvƒf[ƒ^‚ğ‚à‚Æ‚Éƒ_ƒ“ƒWƒ‡ƒ“‚ğ¶¬
+    /// ï¿½}ï¿½bï¿½vï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚Éƒ_ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ğ¶ï¿½
     /// </summary>
     private void CreateDangeon()
     {
@@ -295,13 +436,12 @@ public class MapGenerator : MonoBehaviour
                 }
             }
         }
-        // NavMesh‚ğƒrƒ‹ƒh‚·‚é
-        // Debug.Log("‚È‚Ñ");
-        //_surface.BuildNavMesh();“®‚©‚ñ
-
+        // NavMeshï¿½ï¿½ï¿½rï¿½ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½
+        // Debug.Log("ï¿½È‚ï¿½");
+        //_surface.BuildNavMesh();ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
-    // ƒLƒƒƒ‰ƒNƒ^[‚Ìƒ‰ƒ“ƒ_ƒ€¶¬
+    // ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½^ï¿½[ï¿½Ìƒï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private void RandomSpawn()
     {
         int x, y, z;
@@ -318,7 +458,7 @@ public class MapGenerator : MonoBehaviour
 
     }
 
-    // Ÿ‚ÌƒtƒƒA‚ÖŠK’i
+    // ï¿½ï¿½ï¿½Ìƒtï¿½ï¿½ï¿½Aï¿½ÖŠKï¿½i
     private void RandomSpawn2()
     {
         int x, y, z;
@@ -336,7 +476,7 @@ public class MapGenerator : MonoBehaviour
     }
 
 
-    // “G‚ÌƒXƒ|ƒi[01
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[01
     private void EnmSpawner01()
     {
         int x, y, z;
@@ -352,7 +492,7 @@ public class MapGenerator : MonoBehaviour
 
     }
 
-    // “G‚ÌƒXƒ|ƒi[02
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[02
     private void EnmSpawner02()
     {
         int x, y, z;
@@ -368,7 +508,7 @@ public class MapGenerator : MonoBehaviour
 
     }
 
-    // “G‚ÌƒXƒ|ƒi[03
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[03
     private void EnmSpawner03()
     {
         int x, y, z;
@@ -384,7 +524,7 @@ public class MapGenerator : MonoBehaviour
 
     }
 
-    // “G‚ÌƒXƒ|ƒi[04
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[04
     private void EnmSpawner04()
     {
         int x, y, z;
@@ -401,7 +541,7 @@ public class MapGenerator : MonoBehaviour
     }
 
 
-    // “G‚ÌƒXƒ|ƒi[05
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[05
     private void EnmSpawner05()
     {
         int x, y, z;
@@ -417,7 +557,7 @@ public class MapGenerator : MonoBehaviour
 
     }
 
-    // “G‚ÌƒXƒ|ƒi[06
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[06
     private void EnmSpawner06()
     {
         int x, y, z;
@@ -433,7 +573,7 @@ public class MapGenerator : MonoBehaviour
 
     }
 
-    // “G‚ÌƒXƒ|ƒi[07
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[07
     private void EnmSpawner07()
     {
         int x, y, z;
@@ -449,7 +589,7 @@ public class MapGenerator : MonoBehaviour
 
     }
 
-    // “G‚ÌƒXƒ|ƒi[08
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[08
     private void EnmSpawner08()
     {
         int x, y, z;
@@ -465,7 +605,7 @@ public class MapGenerator : MonoBehaviour
 
     }
 
-    // “G‚ÌƒXƒ|ƒi[09
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[09
     private void EnmSpawner09()
     {
         int x, y, z;
@@ -481,7 +621,7 @@ public class MapGenerator : MonoBehaviour
 
     }
 
-    // “G‚ÌƒXƒ|ƒi[10
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[10
     private void EnmSpawner10()
     {
         int x, y, z;
@@ -497,7 +637,7 @@ public class MapGenerator : MonoBehaviour
 
     }
 
-    // “G‚ÌƒXƒ|ƒi[11
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[11
     private void EnmSpawner11()
     {
         int x, y, z;
@@ -513,7 +653,7 @@ public class MapGenerator : MonoBehaviour
 
     }
 
-    // “G‚ÌƒXƒ|ƒi[12
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[12
     private void EnmSpawner12()
     {
         int x, y, z;
@@ -529,7 +669,7 @@ public class MapGenerator : MonoBehaviour
 
     }
 
-    // “G‚ÌƒXƒ|ƒi[13
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[13
     private void EnmSpawner13()
     {
         int x, y, z;
@@ -545,7 +685,7 @@ public class MapGenerator : MonoBehaviour
 
     }
 
-    // “G‚ÌƒXƒ|ƒi[14
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[14
     private void EnmSpawner14()
     {
         int x, y, z;
@@ -560,7 +700,7 @@ public class MapGenerator : MonoBehaviour
         Instantiate(Enmspawner14, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
 
     }
-    // “G‚ÌƒXƒ|ƒi[15
+    // ï¿½Gï¿½ÌƒXï¿½|ï¿½iï¿½[15
     private void EnmSpawner15()
     {
         int x, y, z;
@@ -575,7 +715,17 @@ public class MapGenerator : MonoBehaviour
         Instantiate(Enmspawner15, new Vector3(x - MapWidth / 2, y, z - MapHeight / 2), Quaternion.identity);
 
     }
-
-
-
+    /*
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(seedNum);
+        }
+        else
+        {
+            seedNum = (int)stream.ReceiveNext();
+        }
+    }
+    */
 }

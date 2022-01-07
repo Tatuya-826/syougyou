@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackTrigger: 0
-  HP: 1
+  HP: 11000
 --- !u!1 &4798285354451543290
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9513b005cd13fb42815287ec355c129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerObject: {fileID: 0}
 --- !u!195 &4798285355617495096
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -361,6 +362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb661170321c0504bb143ddd3c434652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 1
+  CSVreadObject: {fileID: 0}
 --- !u!114 &8201190414728664254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,6 +383,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 4798285355617495103}
   - {fileID: 1270587072}
   - {fileID: 2184947050928345184}
   - {fileID: 5646127426487345552}
@@ -477,7 +481,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: befbeb2cf14885443b209f296833a25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   hitDamage: 3
+  CSVreadObject: {fileID: 0}
 --- !u!1001 &4798285354610714592
 PrefabInstance:
   m_ObjectHideFlags: 0
