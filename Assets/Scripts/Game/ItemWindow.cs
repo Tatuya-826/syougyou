@@ -12,6 +12,7 @@ public class ItemWindow : MonoBehaviour
 
     int choiseWeapon=0;
     int choiseArmor=1;
+    int choiseItem=100;
 
     public GameObject ButtonPrefab;
 
@@ -20,8 +21,12 @@ public class ItemWindow : MonoBehaviour
     public GameObject NowArmortext;
     public GameObject NewArmortext;
 
+    public GameObject trashbuttonObject;
+
     public GameObject[] Weaponinfo = new GameObject[infosu];
     public GameObject myItem;
+
+    bool trashFrag=false;
 
     GameObject Weaponlist;
 
@@ -117,11 +122,13 @@ public class ItemWindow : MonoBehaviour
 
     public void ChangeButton()
     {
+        //ここに武器チェンジの処理
+
         PlayerNowWeapon.PlayerEquipment.WeaponID = choiseWeapon;
-        PlayerNowWeapon.PlayerEquipment.WeaponName = ItemList.GetName(choiseWeapon);//
-        PlayerNowWeapon.PlayerEquipment.WeaponAtk = ItemList.GetSeino(choiseWeapon);//ここに武器チェンジの処理
+        PlayerNowWeapon.PlayerEquipment.WeaponName = ItemList.GetName(choiseWeapon);
+        PlayerNowWeapon.PlayerEquipment.WeaponAtk = ItemList.GetSeino(choiseWeapon);
         PlayerNowWeapon.PlayerEquipment.ArmorID = choiseArmor;
-        PlayerNowWeapon.PlayerEquipment.ArmorName = ItemList.GetName(choiseArmor);//
+        PlayerNowWeapon.PlayerEquipment.ArmorName = ItemList.GetName(choiseArmor);
         PlayerNowWeapon.PlayerEquipment.ArmorDef = ItemList.GetSeino(choiseArmor);
 
         nowWeapontext.text = ItemList.GetName(choiseWeapon);
@@ -136,6 +143,13 @@ public class ItemWindow : MonoBehaviour
         this.gameObject.SetActive(true);
         WeaponButtonSet();
     }
+
+    public void trashButton()
+    {
+        trashbuttonObject.SetActive(true);
+    }
+
+
 
    public void EndChange()
     {

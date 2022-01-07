@@ -341,7 +341,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
         // NavMeshをビルドする
         // Debug.Log("なび");
         //_surface.BuildNavMesh();動かん
-
     }
 
     // キャラクターのランダム生成
