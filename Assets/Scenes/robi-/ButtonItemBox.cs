@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class HandlerTest : MonoBehaviour, IPointerClickHandler
+public class ButtonItemBox : MonoBehaviour,IPointerClickHandler
 {
 
     public void OnButtonPressed()
