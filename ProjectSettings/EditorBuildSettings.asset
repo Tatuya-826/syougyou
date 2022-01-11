@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/robi-/robi-.unity
     guid: f4dc1ab3904ee8f48b48dafc16486967
   - enabled: 1
+    path: Assets/Scenes/Dungeon.unity
+    guid: ed973c3be8fad75469e13d9a6ef791f0
+  - enabled: 1
     path: Assets/Scenes/Main/Kaihatuyou04.unity
     guid: 4a8015d44e15eaa46856fb4c22ccc302
   - enabled: 1
