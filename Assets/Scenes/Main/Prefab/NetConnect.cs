@@ -20,6 +20,7 @@ public class NetConnect : MonoBehaviourPunCallbacks
         print("ルームに参加しました。");
     }
 
+
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
     {
