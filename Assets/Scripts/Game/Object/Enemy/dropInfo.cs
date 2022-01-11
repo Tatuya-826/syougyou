@@ -5,7 +5,7 @@ using UnityEngine;
 public class dropInfo : MonoBehaviour
 {
     public GameObject ItemList;
-    string Name, type;
+    string Name, type, wType, Prog;
     int atk;
     int dropid;
 
@@ -15,11 +15,13 @@ public class dropInfo : MonoBehaviour
         ItemList= GameObject.FindWithTag("ItemList");
     }
 
-    public void dropSirabe(string ty,string na,int at)
+    public void dropSirabe(string ty,string na,int at,string wt,string pr)
     {
         type = ty;
         Name = na;
         atk = at;
+        wType = wt;
+        Prog = pr;
 
         Debug.Log(type);
         Debug.Log(Name);
@@ -31,7 +33,7 @@ public class dropInfo : MonoBehaviour
 
         if (col.gameObject.tag == "Player")
         {
-            if(ItemList.GetComponent<myItemList>().SetItem(Name,type,atk) == 1)
+            if(ItemList.GetComponent<myItemList>().SetItem(Name,type,atk,wType,Prog) == 1)
                 Destroy(this.gameObject);
         }
 
