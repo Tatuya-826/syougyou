@@ -62,7 +62,7 @@ public class MatchmakingView : MonoBehaviourPunCallbacks
         //gameObject.SetActive(false);
 
         //ƒQ[ƒ€ƒV[ƒ“‚ÖˆÚ“®‚·‚é
-        SceneManager.LoadScene("Kaihatuyou04");
+        SceneManager.LoadScene("robi-");
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
