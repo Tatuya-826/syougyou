@@ -34,14 +34,6 @@ public class StartupGame : MonoBehaviourPunCallbacks
 
         var randomSeed = new Vector3(0, 0, 0);
 
-        //もしMapRandomSeedがなければ
-        if (MapRandomSeed == null)
-        {
-            //print("ランダムシードないからおいた");
-            //ランダムシードを配置する
-            //PhotonNetwork.Instantiate("Enkyori", randomSeed, Quaternion.identity);
-        }
-
         mainCamera = GameObject.Find("Main Camera");
         respawnPoint = GameObject.Find("RespawnPoint");
         cameraScript = mainCamera.GetComponent<CameraScript>();
