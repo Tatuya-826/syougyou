@@ -10,7 +10,7 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
     public int HP;
     int dropid;
 
-    string Name, type;
+    string Name, type,wType, Prog;
     int atk;
 
     public GameObject dropItemObj;
@@ -74,10 +74,12 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
             dropInfo drophantei= drophin.GetComponent<dropInfo>();
 
             type = CSVread.typeGetter(dropid);
-            Name =  CSVread.nameGetter(dropid);
+            Name = CSVread.nameGetter(dropid);
             atk = CSVread.atkGetter(dropid);// CSVread.atkGetter(dropid);
+            wType = CSVread.wtypeGetter(dropid);
+            Prog = CSVread.progGetter(dropid);
 
-            drophantei.dropSirabe(type, Name, atk);
+            drophantei.dropSirabe(type, Name, atk, wType, Prog);
 
             print("デストロイ");
             Destroy(oyaObject);
