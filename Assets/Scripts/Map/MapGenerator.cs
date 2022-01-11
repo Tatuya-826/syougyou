@@ -85,7 +85,8 @@ public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
 
 
             //Random.InitState(seed);
-            Random.InitState(seedScript.seedNum);
+            //Random.InitState(seedScript.seedNum);
+            Random.InitState(MapRandomSeed.staticSeed);
 
             ResetMapData();
 
