@@ -38,4 +38,14 @@ public class dropCSVRead : MonoBehaviour
         int atk = Random.Range(int.Parse(DropCSVDatas[index][3]), int.Parse(DropCSVDatas[index][4]));
         return atk;
     }
+
+    public string wtypeGetter(int index)
+    {
+        return DropCSVDatas[index][5];
+    }
+
+    public string progGetter(int index)
+    {
+        return DropCSVDatas[index][6];
+    }
 }

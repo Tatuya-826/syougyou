@@ -15,10 +15,12 @@ public class CameraScript : MonoBehaviourPunCallbacks//, IPunObservable
     }
     void Update()
     {
+        /*
         if (photonView.IsMine)
         {
             //transform.position = player.transform.position + offset;
         }
+        */
 
     }
 

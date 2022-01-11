@@ -1,6 +1,7 @@
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class StartupGame : MonoBehaviourPunCallbacks
@@ -50,7 +51,15 @@ public class StartupGame : MonoBehaviourPunCallbacks
         //PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
         cameraScript.player = GameObject.Find("NetArthur");
     }
-    
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            SceneManager.LoadScene("Map");
+        }
+    }
 
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()

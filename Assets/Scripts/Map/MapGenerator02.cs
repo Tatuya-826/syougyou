@@ -64,10 +64,11 @@ public class MapGenerator02 : MonoBehaviour
         //ランダムオブジェクトを探して値を持ってくる関数
         seedObject = GameObject.Find("SeedObject");
         seedScript = seedObject.GetComponent<MapRandomSeed>();
-        
-        //seedNum = seedScript.mapS
 
-        Random.InitState(seedScript.seedNum);
+        //seedNum = seedScript.mapS
+        
+        //Random.InitState(seedScript.seedNum);
+        Random.InitState(MapRandomSeed.staticSeed);
 
 
         ResetMapData();
