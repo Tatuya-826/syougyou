@@ -3,6 +3,7 @@ using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MatchmakingView : MonoBehaviourPunCallbacks
 {
@@ -58,7 +59,10 @@ public class MatchmakingView : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         // ルームへの参加が成功したら、UIを非表示にする
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+
+        //ゲームシーンへ移動する
+        SceneManager.LoadScene("robi-");
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
