@@ -310,7 +310,23 @@ PrefabInstance:
     - target: {fileID: 3426645604829532619, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
       propertyPath: Enmspawner01
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4798285355617495097, guid: 24e60fca3a1c1d54eb8a2cf8354f95de, type: 3}
+    - target: {fileID: 3426645604829532619, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
+      propertyPath: Enmspawner02
+      value: 
+      objectReference: {fileID: 4798285355617495097, guid: 24e60fca3a1c1d54eb8a2cf8354f95de, type: 3}
+    - target: {fileID: 3426645604829532619, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
+      propertyPath: Enmspawner03
+      value: 
+      objectReference: {fileID: 4798285355617495097, guid: 24e60fca3a1c1d54eb8a2cf8354f95de, type: 3}
+    - target: {fileID: 3426645604829532619, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
+      propertyPath: Enmspawner04
+      value: 
+      objectReference: {fileID: 4798285355617495097, guid: 24e60fca3a1c1d54eb8a2cf8354f95de, type: 3}
+    - target: {fileID: 3426645604829532619, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
+      propertyPath: Enmspawner05
+      value: 
+      objectReference: {fileID: 4798285355617495097, guid: 24e60fca3a1c1d54eb8a2cf8354f95de, type: 3}
     - target: {fileID: 3426645604829532628, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -542,7 +558,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104868647}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 51.7, z: -2}
+  m_LocalPosition: {x: 0, y: 121, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

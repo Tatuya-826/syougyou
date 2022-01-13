@@ -16,16 +16,23 @@ public class StartupGame : MonoBehaviourPunCallbacks
         roomOptions.IsVisible = false;
         print("ÉãÅ[ÉÄì¸é∫");
         PhotonNetwork.JoinOrCreateRoom(MatchmakingView.pass, roomOptions, TypedLobby.Default);
-
-        
     }
 
+    public override void OnConnectedToMaster()
+    {
+        var roomOptions = new RoomOptions();
+        roomOptions.MaxPlayers = 4;
+        roomOptions.IsVisible = false;
+        print("ÉãÅ[ÉÄì¸é∫");
+        PhotonNetwork.JoinOrCreateRoom(MatchmakingView.pass, roomOptions, TypedLobby.Default);
+    }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
             PhotonNetwork.LeaveRoom();
+            PhotonNetwork.LeaveLobby();
             //SceneManager.LoadScene("Map");
         }
     }
