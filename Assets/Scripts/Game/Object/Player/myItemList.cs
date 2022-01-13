@@ -107,7 +107,7 @@ public class myItemList : MonoBehaviour
         return myItem[index].Prog;
     }
 
-    public void DestroyItem(int index)
+    public void TrashItem(int index)
     {
         myItem[index] = new Item() { Name = null, Type = null, Seino = 0, wType = null, Prog = null };
         Item irekaeItem;
