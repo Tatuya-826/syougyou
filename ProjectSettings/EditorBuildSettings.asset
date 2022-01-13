@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/RoomMatchmaking.unity
+    guid: 8e28b168c7ba8934b809c69cd85927b4
+  - enabled: 1
     path: Assets/Scenes/robi-/robi-.unity
     guid: f4dc1ab3904ee8f48b48dafc16486967
   - enabled: 1

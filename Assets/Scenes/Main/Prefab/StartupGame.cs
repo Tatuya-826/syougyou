@@ -15,7 +15,7 @@ public class StartupGame : MonoBehaviourPunCallbacks
         GameObject respawnPoint;
         mainCamera = GameObject.Find("Main Camera");
         respawnPoint = GameObject.Find("RespawnPoint");
-        cameraScript = mainCamera.GetComponent<CameraScript>();
+        //cameraScript = mainCamera.GetComponent<CameraScript>();
 
         //座標の格納
         var rPosition = new Vector3(respawnPoint.transform.position.x,
@@ -24,24 +24,8 @@ public class StartupGame : MonoBehaviourPunCallbacks
 
         //アーサーくん配置
         PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
-        print("ネットワークに接続し、オブジェクトを生成");
-        cameraScript.player = GameObject.Find("NetArthur");
-        /////////////////////////////////////////////////////////////////////////
-        ///
 
-        GameObject MapRandomSeed;
-        MapRandomSeed = GameObject.Find("MapRandomSeed");
-
-        var randomSeed = new Vector3(0, 0, 0);
-
-        mainCamera = GameObject.Find("Main Camera");
-        respawnPoint = GameObject.Find("RespawnPoint");
-        cameraScript = mainCamera.GetComponent<CameraScript>();
-
-
-        //配置
-        //PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
-        cameraScript.player = GameObject.Find("NetArthur");
+        //cameraScript.player = GameObject.Find("NetArthur");
     }
 
 
@@ -56,5 +40,18 @@ public class StartupGame : MonoBehaviourPunCallbacks
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
     {
+        GameObject mainCamera;
+        GameObject respawnPoint;
+        mainCamera = GameObject.Find("Main Camera");
+        respawnPoint = GameObject.Find("RespawnPoint");
+        //cameraScript = mainCamera.GetComponent<CameraScript>();
+
+        //座標の格納
+        var rPosition = new Vector3(respawnPoint.transform.position.x,
+            respawnPoint.transform.position.y,
+            respawnPoint.transform.position.z);
+
+        //アーサーくん配置
+        PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
     }
 }
