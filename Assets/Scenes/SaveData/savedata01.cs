@@ -34,7 +34,7 @@ public class savedata01 : MonoBehaviour
 
         string jsonstr = JsonUtility.ToJson(saveData);
 
-        writer = new StreamWriter(Application.dataPath + "/savedata.json" + Button.getter() + ".json", false);
+        writer = new StreamWriter(Application.dataPath + "/SaveData/savedata.json" + Button.getter() + ".json", false);
         writer.Write(jsonstr);
         writer.Flush();
         writer.Close();
@@ -46,9 +46,9 @@ public class savedata01 : MonoBehaviour
 
         StreamReader reader;
 
-        reader = new StreamReader(Application.dataPath + "/savedata.json" + Button.getter() + ".json");
+        reader = new StreamReader(Application.dataPath + "/SaveData/savedata.json" + Button.getter() + ".json");
         datastr = reader.ReadToEnd();
-    reahttps://outlook.office.com/people/der.Close();
+        reahttps://outlook.office.com/people/der.Close();
 
         return JsonUtility.FromJson<SaveData>(datastr);
         return saveData;
@@ -65,11 +65,11 @@ public class savedata01 : MonoBehaviour
     public void PushSaveButton02()//èââÒ
     {
         SaveData saveData = new SaveData();
-        saveData.player_Name = "Taku";
-        saveData.player_level = 10;
-        saveData.player_Body = "IronArmor";
-        saveData.player_Hand = "IronSword";
-        saveData.player_Head = "IronHelmet";
+        saveData.player_Name        = "Taku";
+        saveData.player_level       = 10;
+        saveData.player_Body        = "IronArmor";
+        saveData.player_Hand        = "IronSword";
+            saveData.player_Head    = "IronHelmet";
         Save(saveData);
     }
 
