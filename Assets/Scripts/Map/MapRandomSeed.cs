@@ -8,7 +8,8 @@ using UnityEngine;
 
 public class MapRandomSeed : MonoBehaviourPunCallbacks, IPunObservable
 {
-    
+
+    [SerializeField] public static int staticSeed;
     public int seedNum;     //シード値
     public int seedFrag;
 
@@ -24,6 +25,8 @@ public class MapRandomSeed : MonoBehaviourPunCallbacks, IPunObservable
     {
         seedNum = Random.Range(0, 100); //シード値を乱数でセットする
         print("乱数セットの時点で" + seedNum);
+        staticSeed = seedNum;
+        
     }
 
     
@@ -33,10 +36,12 @@ public class MapRandomSeed : MonoBehaviourPunCallbacks, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext(seedNum);
+            stream.SendNext(staticSeed);
         }
         else
         {
             seedNum = (int)stream.ReceiveNext();
+            staticSeed = (int)stream.ReceiveNext();
         }
     }
 }

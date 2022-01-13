@@ -10,7 +10,7 @@ public class DungeonGate : MonoBehaviour
         // Õ“Ë‚µ‚½‘Šè‚ÉPlayerƒ^ƒO‚ª•t‚¢‚Ä‚¢‚é‚Æ‚«
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("Dungeon");
+            SceneManager.LoadScene("Map");
         }
     }
 
