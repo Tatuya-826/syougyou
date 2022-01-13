@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class MatchmakingView : MonoBehaviourPunCallbacks
 {
+    public static string pass;
     [SerializeField]
     private TMP_InputField passwordInputField = default;
     [SerializeField]
@@ -50,10 +51,12 @@ public class MatchmakingView : MonoBehaviourPunCallbacks
         roomOptions.IsVisible = false;
 
         // パスワードと同じ名前のルームに参加する（ルームが存在しなければ作成してから参加する）
-        PhotonNetwork.JoinOrCreateRoom(passwordInputField.text, roomOptions, TypedLobby.Default);
+        //PhotonNetwork.JoinOrCreateRoom(passwordInputField.text, roomOptions, TypedLobby.Default);
 
-        var inText = passwordInputField.text;
-        print(passwordInputField.text);
+        pass = passwordInputField.text;
+        print(pass);
+
+        SceneManager.LoadScene("robi-");
     }
 
     public override void OnJoinedRoom()
@@ -62,7 +65,7 @@ public class MatchmakingView : MonoBehaviourPunCallbacks
         //gameObject.SetActive(false);
 
         //ゲームシーンへ移動する
-        SceneManager.LoadScene("robi-");
+        //SceneManager.LoadScene("robi-");
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)

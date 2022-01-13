@@ -23,7 +23,7 @@ public class MapRandomSeed : MonoBehaviourPunCallbacks, IPunObservable
     //シードをセットする。
         void seedSetting()
     {
-        seedNum = Random.Range(0, 100); //シード値を乱数でセットする
+        seedNum = Random.Range(0, 124); //シード値を乱数でセットする
         print("乱数セットの時点で" + seedNum);
         staticSeed = seedNum;
         
