@@ -57,11 +57,12 @@ public class myItemList : MonoBehaviour
             if (myItem[i].Name == null)//null‚ð’T‚µ‚Ä
             {
                 myItem[i] = new Item() { Name = pickName, Type = pickType, Seino = pickSeino, wType = pickwType, Prog = pickProg };
-                Debug.Log(myItem[i].Name);
+                /*Debug.Log(myItem[i].Name);
                 Debug.Log(myItem[i].Type);
                 Debug.Log(myItem[i].Seino);
                 Debug.Log(myItem[i].wType);
                 Debug.Log(myItem[i].Prog);
+                */
                 return 1;
             }
         }
