@@ -8,7 +8,6 @@ using UnityEngine;
 //ålŒö‚ÌˆÚ“®ƒvƒƒOƒ‰ƒ€
 public class NetMoveScript02 : MonoBehaviourPunCallbacks, IPunObservable
 {
-
     private UnityEngine.AI.NavMeshAgent agent;
 
     private RaycastHit hit;
