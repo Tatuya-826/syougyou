@@ -5,7 +5,7 @@ using UnityEngine;
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class NetConnect : MonoBehaviourPunCallbacks
 {
-    CameraScript cameraScript;//カメラスクリプトをロード
+   // CameraScript cameraScript;//カメラスクリプトをロード
     private void Start()
     {
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
@@ -30,7 +30,7 @@ public class NetConnect : MonoBehaviourPunCallbacks
         GameObject respawnPoint;
         mainCamera = GameObject.Find("Main Camera");
         respawnPoint = GameObject.Find("RespawnPoint");
-        cameraScript = mainCamera.GetComponent<CameraScript>();
+        //cameraScript = mainCamera.GetComponent<CameraScript>();
 
         //座標の格納
         var rPosition = new Vector3(respawnPoint.transform.position.x,
@@ -40,7 +40,7 @@ public class NetConnect : MonoBehaviourPunCallbacks
         //アーサーくん配置
         PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
         print("ネットワークに接続し、オブジェクトを生成");
-        cameraScript.player = GameObject.Find("NetArthur");
+        //cameraScript.player = GameObject.Find("NetArthur");
         /////////////////////////////////////////////////////////////////////////
         ///
 
@@ -59,12 +59,12 @@ public class NetConnect : MonoBehaviourPunCallbacks
         
         mainCamera = GameObject.Find("Main Camera");
         respawnPoint = GameObject.Find("RespawnPoint");
-        cameraScript = mainCamera.GetComponent<CameraScript>();
+       // cameraScript = mainCamera.GetComponent<CameraScript>();
         
 
         //配置
         //PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
-        cameraScript.player = GameObject.Find("NetArthur");
+        //cameraScript.player = GameObject.Find("NetArthur");
 
         /////////////////////////////////////////////////////////////////////////
 

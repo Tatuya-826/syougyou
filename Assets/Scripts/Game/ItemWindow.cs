@@ -75,7 +75,7 @@ public class ItemWindow : MonoBehaviour
 
         for (int i = 0; i < WeaponButtonNo; i++)
         {
-            Debug.Log("でば" + i);
+            //Debug.Log("でば" + i);
             //プレハブからボタンを生成
             GameObject listButton = Instantiate(ButtonPrefab) as GameObject;
             RectTransform buttonRectTransform = listButton.GetComponent<RectTransform>();
@@ -117,6 +117,7 @@ public class ItemWindow : MonoBehaviour
             choiseWeapon = index;
         else
             choiseArmor = index;
+        choiseItem = index;
 
     }
 
@@ -144,14 +145,24 @@ public class ItemWindow : MonoBehaviour
         WeaponButtonSet();
     }
 
-    public void trashButton()
+    public void trashButtonSet()
     {
         trashbuttonObject.SetActive(true);
     }
 
+    public void trashButtonYes()
+    {
+        ItemList.TrashItem(choiseItem);
+        trashbuttonObject.SetActive(false);
+    }
 
+    public void trashButtonNo()
+    {
+        trashbuttonObject.SetActive(false);
 
-   public void EndChange()
+    }
+
+    public void EndChange()
     {
         this.gameObject.SetActive(false); ;//ここに完了ボタンを推した時の処理
     }

@@ -67,7 +67,50 @@ public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
     MapRandomSeed seedScript;
 
 
-    
+    void Start()
+    {
+        mapStart = 1;
+
+        //seedObject = GameObject.Find("seedObject");
+        //seedScript = seedObject.GetComponent<MapRandomSeed>();
+
+        //seedSetting();
+
+
+        //Random.InitState(seed);
+        //Random.InitState(seedScript.seedNum);
+        Random.InitState(MapRandomSeed.staticSeed);
+
+        ResetMapData();
+
+        CreateSpaceData();
+
+        CreateDangeon();
+
+        RandomSpawn();          // �L�����N�^�[�̃����_������
+
+        RandomSpawn2();         // �K�i
+
+        EnmSpawner01();         // �G�̃X�|�i�[1
+        EnmSpawner02();         // �G�̃X�|�i�[2
+        EnmSpawner03();         // �G�̃X�|�i�[3
+        EnmSpawner04();         // �G�̃X�|�i�[4
+        EnmSpawner05();         // �G�̃X�|�i�[5
+        EnmSpawner06();         // �G�̃X�|�i�[6
+        EnmSpawner07();         // �G�̃X�|�i�[7
+        EnmSpawner08();         // �G�̃X�|�i�[8
+        EnmSpawner09();         // �G�̃X�|�i�[9
+        EnmSpawner10();         // �G�̃X�|�i�[10
+        EnmSpawner11();         // �G�̃X�|�i�[11
+        EnmSpawner12();         // �G�̃X�|�i�[12
+        EnmSpawner13();         // �G�̃X�|�i�[13
+        EnmSpawner14();         // �G�̃X�|�i�[14
+        EnmSpawner15();         // �G�̃X�|�i�[15
+
+        mapStart = 0;
+
+    }
+
 
     void Update()
     {
@@ -75,8 +118,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
         {
 
             mapStart = 1;
-
-
 
             //seedObject = GameObject.Find("seedObject");
             //seedScript = seedObject.GetComponent<MapRandomSeed>();
@@ -115,11 +156,6 @@ public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
             EnmSpawner15();         // �G�̃X�|�i�[15
 
             mapStart = 0;
-
-
-
-
-            print("�L�[����M���m�F");
         }
 
         if (Input.GetKeyDown(KeyCode.C))
@@ -130,6 +166,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
 
     }
     
+
 
     void seedSetting()
     {

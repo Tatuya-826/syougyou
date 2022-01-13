@@ -42,8 +42,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 326b7940152a77f429381c9909057c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackTrigger: 0
   HP: 11000
+  dropItemObj: {fileID: 0}
+  CSVreadObject: {fileID: 0}
 --- !u!1 &4798285354451543290
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,8 +27,8 @@ public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
         print(HP);
         Atk = CSVread.atkGetter(id);
         dropid = CSVread.dropGetter(id);
-        Debug.Log(Atk);
-        Debug.Log("d "+dropid);
+        //Debug.Log(Atk);
+        //Debug.Log("d "+dropid);
     }
 
     public void sethp(int HP)
@@ -38,7 +38,7 @@ public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
 
     public int gethp()
     {
-       print(HP);
+       //print(HP);
        return HP;
     }
     
@@ -60,7 +60,7 @@ public class EnemyStatus : MonoBehaviourPunCallbacks, IPunObservable
     public int getDrop()
     {
 
-        Debug.Log("d2 "+dropid);
+       // Debug.Log("d2 "+dropid);
         return dropid;
     }
 
