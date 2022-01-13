@@ -14,6 +14,7 @@ public class StartupGame : MonoBehaviourPunCallbacks
         var roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4;
         roomOptions.IsVisible = false;
+        print("ルーム入室");
         PhotonNetwork.JoinOrCreateRoom(MatchmakingView.pass, roomOptions, TypedLobby.Default);
 
         
@@ -24,14 +25,19 @@ public class StartupGame : MonoBehaviourPunCallbacks
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            SceneManager.LoadScene("Map");
+            PhotonNetwork.LeaveRoom();
+            //SceneManager.LoadScene("Map");
         }
     }
 
+    public override void OnLeftRoom()
+    {
+        SceneManager.LoadScene("Map");
+    }
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
     {
-        print("再接続完了");
+        print("接続完了");
         /////////////////////////////////////////////////////////////////////////
         //リスポーンポイントの座標を取得し、その場所にアーサーくんを配位する
         GameObject mainCamera;

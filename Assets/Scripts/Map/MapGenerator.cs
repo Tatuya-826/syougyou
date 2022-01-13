@@ -67,7 +67,7 @@ public class MapGenerator : MonoBehaviourPunCallbacks//, IPunObservable
     MapRandomSeed seedScript;
 
 
-    void Start()
+    void Awake()
     {
         mapStart = 1;
 

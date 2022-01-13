@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/robi-/robi-.unity
     guid: f4dc1ab3904ee8f48b48dafc16486967
   - enabled: 1
+    path: Assets/Scenes/Map 2.unity
+    guid: 3dd7bd994d899664ba232c726ec402d6
+  - enabled: 1
     path: Assets/Scenes/Map.unity
     guid: 6e9915ba0e817e348931f4a9b8d96fbb
   - enabled: 1

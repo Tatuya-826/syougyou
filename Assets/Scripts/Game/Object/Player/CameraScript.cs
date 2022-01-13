@@ -22,8 +22,10 @@ public class CameraScript : MonoBehaviourPunCallbacks//, IPunObservable
         }
         */
 
+
     }
 
     
+
 }
 
