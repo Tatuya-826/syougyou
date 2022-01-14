@@ -31,6 +31,9 @@ public class StartupGame : MonoBehaviourPunCallbacks
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
+            print(MapRandomSeed.Floor);
+            MapRandomSeed.staticSeed++;
+            MapRandomSeed.Floor++;
             PhotonNetwork.LeaveRoom();
             PhotonNetwork.LeaveLobby();
             //SceneManager.LoadScene("Map");
@@ -39,7 +42,29 @@ public class StartupGame : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        SceneManager.LoadScene("Map");
+
+        if (MapRandomSeed.Floor == 1)
+        {
+            SceneManager.LoadScene("Map");
+        }
+
+        if (MapRandomSeed.Floor == 2)
+        {
+            SceneManager.LoadScene("Map2");
+        }
+
+        if (MapRandomSeed.Floor == 3)
+        {
+            SceneManager.LoadScene("BossRoom");
+        }
+
+        if (MapRandomSeed.Floor == 4)
+        {
+            MapRandomSeed.Floor = 0;
+            SceneManager.LoadScene("robi-");
+        }
+
+        //SceneManager.LoadScene("Map");
     }
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()

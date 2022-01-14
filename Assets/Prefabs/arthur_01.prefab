@@ -3427,6 +3427,7 @@ GameObject:
   - component: {fileID: 1476440627272118353}
   - component: {fileID: 1476440627272118358}
   - component: {fileID: 1476440627272118359}
+  - component: {fileID: 2369328918292457460}
   m_Layer: 0
   m_Name: arthur_01
   m_TagString: Player
@@ -3536,6 +3537,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &2369328918292457460
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057742967402821045}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 3.62
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.63, z: 0}
 --- !u!1 &5057742967402821047
 GameObject:
   m_ObjectHideFlags: 0
