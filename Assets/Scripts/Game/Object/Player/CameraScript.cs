@@ -4,18 +4,18 @@ using UnityEngine;
 //カメラが主人公に追従するためのプログラム
 public class CameraScript : MonoBehaviour//, IPunObservable
 {
-    [SerializeField] private GameObject player;   //プレイヤー情報格納用
+    [SerializeField] private Transform player;   //プレイヤー情報格納用
     [SerializeField] private Vector3 offset;    //カメラとプレイヤの距離
 
     void Start()
     {
-        player = transform.parent.gameObject;
+        player = transform.parent.transform;
         player.gameObject.GetComponent<Transform>();
     }
     void Update()
     {
 
-        transform.position = player.transform.position + offset;
+        transform.position = player.position + offset;
         Transform myTransform = this.transform;
 
         // ワールド座標を基準に、回転を取得
