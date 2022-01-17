@@ -53,7 +53,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
                 photonView.RPC(nameof(MouseClick), RpcTarget.All);//マウスクリックの同期RPC
             }
 
-            if (AttackTime <= 0)
+            if (AttackTime < 0)
             {
                 attackFrag = false;
                 actionFrag = true;
@@ -82,6 +82,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
                 actionFrag = false;
                 AttackHaniObject.SetActive(true);
                 moveScript.ClickGround();
+                AttackTime = AttackZizokuTime;
             }
 
             else if (clickGameObject.gameObject.tag == "Ground")
@@ -102,6 +103,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (attackFrag)
         {
+            Debug.Log("kougeki");
             AttackHanteiObject.SetActive(true);
             animator.SetTrigger("AttackMotion");
             moveScript.NavStop();
