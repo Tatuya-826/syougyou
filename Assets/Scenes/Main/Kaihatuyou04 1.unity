@@ -1446,7 +1446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1398444591776177653, guid: d90f73b3ad0ab9c47852aaf68d52dc6b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.42
       objectReference: {fileID: 0}
     - target: {fileID: 1398444591776177653, guid: d90f73b3ad0ab9c47852aaf68d52dc6b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3217,17 +3217,9 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1612096042, guid: f97c8f29344d41241b7a74ad8571620c, type: 3}
-      propertyPath: offset.x
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1612096042, guid: f97c8f29344d41241b7a74ad8571620c, type: 3}
-      propertyPath: offset.z
-      value: 0.33
-      objectReference: {fileID: 0}
     - target: {fileID: 335879758959811028, guid: f97c8f29344d41241b7a74ad8571620c, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 335879758959811028, guid: f97c8f29344d41241b7a74ad8571620c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3272,6 +3264,10 @@ PrefabInstance:
     - target: {fileID: 335879758959904244, guid: f97c8f29344d41241b7a74ad8571620c, type: 3}
       propertyPath: m_Name
       value: NetArthur
+      objectReference: {fileID: 0}
+    - target: {fileID: 335879758959904244, guid: f97c8f29344d41241b7a74ad8571620c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f97c8f29344d41241b7a74ad8571620c, type: 3}
@@ -4533,7 +4529,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 1612096044}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -6076,11 +6072,6 @@ Transform:
   m_Father: {fileID: 184690125}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &1612096044 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1612096044, guid: f97c8f29344d41241b7a74ad8571620c, type: 3}
-  m_PrefabInstance: {fileID: 753151461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1627947407
 GameObject:
   m_ObjectHideFlags: 0
@@ -6522,6 +6513,10 @@ PrefabInstance:
     - target: {fileID: 5057742967402821045, guid: ac90701fdb4e5d548bc92b520937ed4e, type: 3}
       propertyPath: m_Name
       value: arthur_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057742967402821045, guid: ac90701fdb4e5d548bc92b520937ed4e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac90701fdb4e5d548bc92b520937ed4e, type: 3}
@@ -7954,7 +7949,7 @@ Transform:
   m_LocalScale: {x: 0.9103641, y: 0.649194, z: 0.052234}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2040543673
 MonoBehaviour:
