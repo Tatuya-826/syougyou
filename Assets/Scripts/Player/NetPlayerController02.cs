@@ -21,6 +21,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
     Animator animator;              //自分のアニメーター
                                     // public GameObject bukiObject;   //武器オブジェクトの格納するもの
                                     // Start is called before the first frame update
+
     void Start()
     {
         playerSpawn = 1;//1プレイヤーが沸いたフラグ
