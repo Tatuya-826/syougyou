@@ -38,6 +38,16 @@ public class StartupGame : MonoBehaviourPunCallbacks
             PhotonNetwork.LeaveLobby();
             //SceneManager.LoadScene("Map");
         }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            print(MapRandomSeed.Floor);
+            MapRandomSeed.staticSeed++;
+            MapRandomSeed.Floor = 4;
+            PhotonNetwork.LeaveRoom();
+            PhotonNetwork.LeaveLobby();
+            //SceneManager.LoadScene("Map");
+        }
     }
 
     public override void OnLeftRoom()
