@@ -7,7 +7,7 @@ public class CameraScript : MonoBehaviour//, IPunObservable
     [SerializeField] private Transform player;   //プレイヤー情報格納用
     [SerializeField] private Vector3 offset;    //カメラとプレイヤの距離
 
-    void Start()
+    void PlayerShutoku()//プレイヤーの情報を取得する
     {
         player = transform.parent.transform;
         player.gameObject.GetComponent<Transform>();
