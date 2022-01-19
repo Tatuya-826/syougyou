@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour//, IPunObservable
 {
     [SerializeField] private Transform player;   //プレイヤー情報格納用
-    [SerializeField] private Vector3 offset;    //カメラとプレイヤの距離
+    [SerializeField] private Vector3 offset=new Vector3(0f,30f,0f);    //カメラとプレイヤの距離
 
     void PlayerShutoku()//プレイヤーの情報を取得する
     {
