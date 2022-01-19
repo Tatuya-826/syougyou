@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class DungeonGate : MonoBehaviourPunCallbacks
 {
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider col)
     {
         // Õ“Ë‚µ‚½‘Šè‚ÉPlayerƒ^ƒO‚ª•t‚¢‚Ä‚¢‚é‚Æ‚«
-        if (collision.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player")
         {
             print("‚ ‚½‚Á‚½");
             MapRandomSeed.staticSeed++;
@@ -67,6 +67,5 @@ public class DungeonGate : MonoBehaviourPunCallbacks
             SceneManager.LoadScene("robi-");
         }
 
-        //SceneManager.LoadScene("Map");
     }
 }
