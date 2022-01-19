@@ -26,7 +26,6 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
     {
         playerSpawn = 1;//1プレイヤーが沸いたフラグ
         moveScript = this.gameObject.GetComponent<NetMoveScript02>();
-        // animator = bukiObject.GetComponent<Animator>();
         animator = this.GetComponent<Animator>();
         AttackTime = 0f;
 
@@ -46,11 +45,9 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
         {
             animator.SetFloat("Speed", moveScript.NavMagnitude());
 
-
                 if (Input.GetMouseButton(1)&&actionFrag)
             {
-                //MouseClick();
-                photonView.RPC(nameof(MouseClick), RpcTarget.All);//マウスクリックの同期RPC
+                photonView.RPC(nameof(MouseClick), RpcTarget.All);//マウスクリックの同期 RPC
             }
 
             if (AttackTime < 0)

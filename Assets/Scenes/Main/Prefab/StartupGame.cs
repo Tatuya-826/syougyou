@@ -6,10 +6,24 @@ using UnityEngine.SceneManagement;
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class StartupGame : MonoBehaviourPunCallbacks
 {
+
+    GameObject mainCamObj;
+    Camera cam;
+
     CameraScript cameraScript;//カメラスクリプトをロード
     private void Start()
     {
-        //シーン切り替え後 ルームに再度入りなおす。
+        // 自身が管理者かどうかを判定する
+        if (photonView.IsMine)
+        {
+            // 所有者を取得する
+            Player owner = photonView.Owner;
+        }
+
+        //カメラの取得
+        mainCamObj = GameObject.FindGameObjectWithTag("MainCamera");
+        cam = mainCamObj.GetComponent<Camera>();
+
         //PhotonNetwork.LeaveRoom();
         var roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4;
@@ -18,12 +32,12 @@ public class StartupGame : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinOrCreateRoom(MatchmakingView.pass, roomOptions, TypedLobby.Default);
     }
 
+
     public override void OnConnectedToMaster()
     {
         var roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4;
         roomOptions.IsVisible = false;
-        print("ルーム入室");
         PhotonNetwork.JoinOrCreateRoom(MatchmakingView.pass, roomOptions, TypedLobby.Default);
     }
 
@@ -73,8 +87,7 @@ public class StartupGame : MonoBehaviourPunCallbacks
             MapRandomSeed.Floor = 0;
             SceneManager.LoadScene("robi-");
         }
-
-        //SceneManager.LoadScene("Map");
+        
     }
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
@@ -96,8 +109,16 @@ public class StartupGame : MonoBehaviourPunCallbacks
         //アーサーくん配置
         PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
 
+        //カメラを子にいれる
+        if (photonView.IsMine)
+        {
+            GameObject parentObject = GameObject.FindGameObjectWithTag("Player");
+            cam.transform.parent = parentObject.transform;
+        }
+
         //cameraScript.player = GameObject.Find("NetArthur");
     }
+    
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
