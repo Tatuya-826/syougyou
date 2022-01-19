@@ -13,6 +13,13 @@ public class StartupGame : MonoBehaviourPunCallbacks
     CameraScript cameraScript;//カメラスクリプトをロード
     private void Start()
     {
+        // 自身が管理者かどうかを判定する
+        if (photonView.IsMine)
+        {
+            // 所有者を取得する
+            Player owner = photonView.Owner;
+        }
+
         //カメラの取得
         mainCamObj = GameObject.FindGameObjectWithTag("MainCamera");
         cam = mainCamObj.GetComponent<Camera>();
@@ -101,8 +108,13 @@ public class StartupGame : MonoBehaviourPunCallbacks
 
         //アーサーくん配置
         PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
-        GameObject parentObject = GameObject.FindGameObjectWithTag("Player");
-        cam.transform.parent = parentObject.transform;
+
+        //カメラを子にいれる
+        if (photonView.IsMine)
+        {
+            GameObject parentObject = GameObject.FindGameObjectWithTag("Player");
+            cam.transform.parent = parentObject.transform;
+        }
 
         //cameraScript.player = GameObject.Find("NetArthur");
     }
