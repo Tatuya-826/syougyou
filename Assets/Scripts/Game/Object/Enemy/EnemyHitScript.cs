@@ -55,7 +55,7 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
             HP-=col.GetComponent<AttackPower> ().AtkPower;
             enemyStatus.sethp(HP);
 
-            
+            enemyDestroy();
             photonView.RPC("enemyDestroy", RpcTarget.All);//同期RPC
          }
     }
@@ -65,7 +65,7 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (HP <= 0)
         {
-            
+            Destroy(oyaObject);
 
             GameObject drophin = Instantiate<GameObject>(dropItemObj, transform.position + Vector3.up, Quaternion.identity);
             dropInfo drophantei= drophin.GetComponent<dropInfo>();
@@ -79,8 +79,6 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
             drophantei.dropSirabe(type, Name, atk, wType, Prog);
 
             print("デストロイ");
-            Destroy(oyaObject);
-
         }
     }
     
