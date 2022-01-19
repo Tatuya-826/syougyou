@@ -4,17 +4,29 @@ using UnityEngine;
 //カメラが主人公に追従するためのプログラム
 public class CameraScript : MonoBehaviour//, IPunObservable
 {
+    public static CameraScript instance;
+
     [SerializeField] private Transform player;   //プレイヤー情報格納用
     [SerializeField] private Vector3 offset=new Vector3(0f,30f,0f);    //カメラとプレイヤの距離
 
-    void PlayerShutoku()//プレイヤーの情報を取得する
+
+    public void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
+    public void PlayerShutoku()//プレイヤーの情報を取得する
+    {
+        print("プレイヤー取得の関数");
         player = transform.parent.transform;
         player.gameObject.GetComponent<Transform>();
     }
+
     void Update()
     {
-
         transform.position = player.position + offset;
         Transform myTransform = this.transform;
 
@@ -24,11 +36,6 @@ public class CameraScript : MonoBehaviour//, IPunObservable
         worldAngle.y = 0.0f; // ワールド座標を基準に、y軸を軸にした回転を10度に変更
         worldAngle.z = 0.0f; // ワールド座標を基準に、z軸を軸にした回転を10度に変更
         myTransform.eulerAngles = worldAngle; // 回転角度を設定
-
-
     }
-
-    
-
 }
 

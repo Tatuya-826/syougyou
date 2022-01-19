@@ -50,6 +50,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
         {
             GameObject parentObject = GameObject.FindGameObjectWithTag("Player");
             cam.transform.parent = parentObject.transform;
+            CameraScript.instance.PlayerShutoku();
         }
     }
 
