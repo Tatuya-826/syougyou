@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
 {
+    GameObject mainCamObj;
+    Camera cam;
+    CameraScript cameraScript;//カメラスクリプトをロード
+
     [SerializeField] bool attackFrag = false;
     [SerializeField] bool actionFrag = true;
 
@@ -24,6 +28,10 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
 
     void Start()
     {
+        //カメラの取得
+        mainCamObj = GameObject.FindGameObjectWithTag("MainCamera");
+        cam = mainCamObj.GetComponent<Camera>();
+
         playerSpawn = 1;//1プレイヤーが沸いたフラグ
         moveScript = this.gameObject.GetComponent<NetMoveScript02>();
         animator = this.GetComponent<Animator>();
@@ -35,6 +43,13 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
             // 所有者を取得する
             Player owner = photonView.Owner;
             // 所有者のプレイヤー名とIDをコンソールに出力する
+        }
+
+        //カメラを子にいれる
+        if (photonView.IsMine)
+        {
+            GameObject parentObject = GameObject.FindGameObjectWithTag("Player");
+            cam.transform.parent = parentObject.transform;
         }
     }
 
