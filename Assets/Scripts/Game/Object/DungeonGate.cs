@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class DungeonGate : MonoBehaviourPunCallbacks
 {
 
-    void OnTriggerEnter(Collision collision)
+    void OnTriggerEnter(Collider col)
 
     {
         print("‚ ‚½‚Á‚½");
