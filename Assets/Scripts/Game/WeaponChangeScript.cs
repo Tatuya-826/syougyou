@@ -10,6 +10,8 @@ public class WeaponChangeScript : MonoBehaviour
     public int WeaponButtonNo;
     public int ArmorButtonNo;
 
+    int WorA = -1;
+
     int choiseWeapon;
     int choiseArmor;
 
@@ -38,6 +40,7 @@ public class WeaponChangeScript : MonoBehaviour
 
     public void WeaponChange()
     {
+        WorA = 0;
         //子オブジェクトを一つずつ取得
         foreach (Transform child in list.transform)
         {
@@ -62,6 +65,7 @@ public class WeaponChangeScript : MonoBehaviour
 
     public void ArmorChange()
     {
+        WorA = 1;
         //子オブジェクトを一つずつ取得
         foreach (Transform child in list.transform)
         {
@@ -130,14 +134,23 @@ public class WeaponChangeScript : MonoBehaviour
         Debug.Log(PlayerNowWeapon.PlayerEquipment.ArmorDef);
     }
 
-    void WeaponTrash()
+    public void WeaponTrash()
     {
+        if (WorA == 0)
+        {
+            CSVread.WeaponCSVTrash(choiseWeapon);
+        }
+        if (WorA == 1)
+        {
+            CSVread.ArmorCSVTrash(choiseArmor);
+        }
         ;//装備を捨てる処理
     }
 
-    void EndChange()
+    public void EndChange()
     {
-        ;//ここに完了ボタンを推した時の処理
+        this.gameObject.SetActive(false); ;//ここに完了ボタンを推した時の処理
+
     }
 
 }

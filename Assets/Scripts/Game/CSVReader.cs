@@ -155,4 +155,16 @@ public class CSVReader : MonoBehaviour
         swArmor.Close();
 
     }
+
+    public void WeaponCSVTrash(int index)
+    {
+        WeaponCSVDatas.RemoveAt(index);
+        return;
+    }
+
+    public void ArmorCSVTrash(int index)
+    {
+        ArmorCSVDatas.RemoveAt(index);
+        return;
+    }
 }
