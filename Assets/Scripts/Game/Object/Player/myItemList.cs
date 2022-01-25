@@ -40,9 +40,9 @@ public class myItemList : MonoBehaviour
             myItem[i] = new Item() { Name = null, Type = null, Seino = 0, wType = null, Prog = null };
         }
 
-        SetItem("Ç≈ÇŒÇ¡Ç≠ÇªÅ[Ç«", "W", 20000,"ÇªÅ`Ç«","0Ç∆1");
+        SetItem("åıÇÃåï", "W", 20000,"åï","ã‡ëÆ");
 
-        SetItem("Ç≈ÇŒÇ¡Ç≠Ç†Å[Ç‹Å[", "A", 1341,"Ç†Å`Ç‹Å`","0Ç∆1");
+        SetItem("çzêŒÇÃäZ", "A", 1000,"äZ","çzêŒ");
 
         //DestroyItem(2);
         //Debug.Log(myItem[0].Name);
@@ -61,8 +61,7 @@ public class myItemList : MonoBehaviour
                 Debug.Log(myItem[i].Type);
                 Debug.Log(myItem[i].Seino);
                 Debug.Log(myItem[i].wType);
-                Debug.Log(myItem[i].Prog);
-                */
+                Debug.Log(myItem[i].Prog);*/
                 return 1;
             }
         }

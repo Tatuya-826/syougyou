@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
 {
+    GameObject mainCamObj;
+    Camera cam;
+    CameraScript cameraScript;//カメラスクリプトをロード
+
     [SerializeField] bool attackFrag = false;
     [SerializeField] bool actionFrag = true;
 
@@ -21,11 +25,15 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
     Animator animator;              //自分のアニメーター
                                     // public GameObject bukiObject;   //武器オブジェクトの格納するもの
                                     // Start is called before the first frame update
+
     void Start()
     {
+        //カメラの取得
+        mainCamObj = GameObject.FindGameObjectWithTag("MainCamera");
+        cam = mainCamObj.GetComponent<Camera>();
+
         playerSpawn = 1;//1プレイヤーが沸いたフラグ
         moveScript = this.gameObject.GetComponent<NetMoveScript02>();
-        // animator = bukiObject.GetComponent<Animator>();
         animator = this.GetComponent<Animator>();
         AttackTime = 0f;
 
@@ -36,6 +44,14 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
             Player owner = photonView.Owner;
             // 所有者のプレイヤー名とIDをコンソールに出力する
         }
+
+        //カメラを子にいれる
+        if (photonView.IsMine)
+        {
+            GameObject parentObject = GameObject.FindGameObjectWithTag("Player");
+            cam.transform.parent = parentObject.transform;
+            CameraScript.instance.PlayerShutoku();
+        }
     }
 
     // Update is called once per frame
@@ -45,14 +61,12 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
         {
             animator.SetFloat("Speed", moveScript.NavMagnitude());
 
-
                 if (Input.GetMouseButton(1)&&actionFrag)
             {
-                //MouseClick();
-                photonView.RPC(nameof(MouseClick), RpcTarget.All);//マウスクリックの同期RPC
+                photonView.RPC(nameof(MouseClick), RpcTarget.All);//マウスクリックの同期 RPC
             }
 
-            if (AttackTime <= 0)
+            if (AttackTime < 0)
             {
                 attackFrag = false;
                 actionFrag = true;
@@ -81,6 +95,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
                 actionFrag = false;
                 AttackHaniObject.SetActive(true);
                 moveScript.ClickGround();
+                AttackTime = AttackZizokuTime;
             }
 
             else if (clickGameObject.gameObject.tag == "Ground")
@@ -101,6 +116,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (attackFrag)
         {
+            Debug.Log("kougeki");
             AttackHanteiObject.SetActive(true);
             animator.SetTrigger("AttackMotion");
             moveScript.NavStop();

@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class MapRandomSeed : MonoBehaviourPunCallbacks, IPunObservable
 {
-
+    public static int Floor = 0;
     [SerializeField] public static int staticSeed;
     public int seedNum;     //シード値
     public int seedFrag;

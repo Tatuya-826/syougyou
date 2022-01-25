@@ -35,11 +35,6 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
 
     void Update()
     {
-        //print(HP);
-        //photonView.RPC("OnTriggerEnter", RpcTarget.All);//同期RPC
-        //PhotonView photonView = PhotonView.Get(this);
-        //photonView.RPC("enemyDestroy", RpcTarget.All);//同期RPC
-        //enemyDestroy();
         if (Input.GetKey(KeyCode.K))//デバック用Kキーで全員死ぬ
             {
             HP = enemyStatus.gethp();
@@ -60,6 +55,7 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
             HP-=col.GetComponent<AttackPower> ().AtkPower;
             enemyStatus.sethp(HP);
 
+            enemyDestroy();
             photonView.RPC("enemyDestroy", RpcTarget.All);//同期RPC
          }
     }
@@ -69,6 +65,7 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (HP <= 0)
         {
+            Destroy(oyaObject);
 
             GameObject drophin = Instantiate<GameObject>(dropItemObj, transform.position + Vector3.up, Quaternion.identity);
             dropInfo drophantei= drophin.GetComponent<dropInfo>();
@@ -82,8 +79,13 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
             drophantei.dropSirabe(type, Name, atk, wType, Prog);
 
             print("デストロイ");
-            Destroy(oyaObject);
         }
+    }
+    
+    void modelDestroy()
+    {
+        print("デストロイ");
+        Destroy(oyaObject);
     }
 
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

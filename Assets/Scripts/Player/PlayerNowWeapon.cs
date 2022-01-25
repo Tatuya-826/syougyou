@@ -7,13 +7,13 @@ public class PlayerNowWeapon : MonoBehaviour
     public readonly static PlayerNowWeapon PlayerEquipment = new PlayerNowWeapon();
 
     public int WeaponID=0;
-    public string WeaponName = "–³Œ•";
+    public string WeaponName = "‹â‚ÌŒ•";
     public int WeaponAtk=459;
     public string WeaponType = "Œ•";
     public string WeaponProg = "–³";
 
     public int ArmorID = 0;
-    public string ArmorName = "–³ŠZ";
+    public string ArmorName = "|‚ÌŠZ";
     public int ArmorDef=1059;
     public string ArmorType="ŠZ";
     public string ArmorProg = "–³";
