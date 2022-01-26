@@ -30,6 +30,7 @@ public class WeaponChangeScript : MonoBehaviour
         list = GameObject.Find("WeaponList");
         CSVreadObject = GameObject.Find("csvRead");
         CSVread = CSVreadObject.GetComponent<CSVReader>();
+        WorA = -1;
     }
 
     // Update is called once per frame
