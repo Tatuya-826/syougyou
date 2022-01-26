@@ -857,7 +857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &183426925
 Transform:
   m_ObjectHideFlags: 0
@@ -4698,6 +4698,38 @@ PrefabInstance:
       propertyPath: cube
       value: 
       objectReference: {fileID: 335879758959904244, guid: f97c8f29344d41241b7a74ad8571620c, type: 3}
+    - target: {fileID: 3426645604829532619, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
+      propertyPath: road
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426645604829532619, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
+      propertyPath: roadWidth
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426645604829532619, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
+      propertyPath: RoomCountMax
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426645604829532619, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
+      propertyPath: RoomCountMin
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426645604829532619, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
+      propertyPath: roomMaxWidth
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426645604829532619, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
+      propertyPath: roomMinWidth
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426645604829532619, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
+      propertyPath: roomMaxHeight
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426645604829532619, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
+      propertyPath: roomMinHeight
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 3426645604829532628, guid: addf9d636658aa54ea2545a8559bd34a, type: 3}
       propertyPath: m_RootOrder
       value: 21
