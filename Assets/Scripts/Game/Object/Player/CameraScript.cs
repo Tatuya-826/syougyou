@@ -7,7 +7,7 @@ public class CameraScript : MonoBehaviour//, IPunObservable
     public static CameraScript instance;
 
     [SerializeField] private Transform player;   //プレイヤー情報格納用
-    [SerializeField] private Vector3 offset=new Vector3(0f,30f,0f);    //カメラとプレイヤの距離
+    [SerializeField] private Vector3 offset=new Vector3(0f,40f,0f);    //カメラとプレイヤの距離
 
 
     public void Awake()
@@ -32,7 +32,7 @@ public class CameraScript : MonoBehaviour//, IPunObservable
 
         // ワールド座標を基準に、回転を取得
         Vector3 worldAngle = myTransform.eulerAngles;
-        worldAngle.x = 90.0f; // ワールド座標を基準に、x軸を軸にした回転を10度に変更
+        worldAngle.x = 80.0f; // ワールド座標を基準に、x軸を軸にした回転を10度に変更
         worldAngle.y = 0.0f; // ワールド座標を基準に、y軸を軸にした回転を10度に変更
         worldAngle.z = 0.0f; // ワールド座標を基準に、z軸を軸にした回転を10度に変更
         myTransform.eulerAngles = worldAngle; // 回転角度を設定

@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class DungeonGate : MonoBehaviourPunCallbacks
 {
+
     void OnTriggerEnter(Collider col)
+
     {
+        print("‚ ‚½‚Á‚½");
         // Õ“Ë‚µ‚½‘Šè‚ÉPlayerƒ^ƒO‚ª•t‚¢‚Ä‚¢‚é‚Æ‚«
         if (col.gameObject.tag == "Player")
         {
