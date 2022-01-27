@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
 {
-    GameObject mainCamObj;
     Camera cam;
     CameraScript cameraScript;//カメラスクリプトをロード
+    GameObject mainCamObj;
 
     [SerializeField] bool attackFrag = false;
     [SerializeField] bool actionFrag = true;
@@ -90,7 +90,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
             clickGameObject = hit.collider.gameObject;
             if (clickGameObject.gameObject.tag == "Enemy")
             {
-                //Debug.Log("teki");
+                Debug.Log("teki");
                 attackFrag = true;
                 actionFrag = false;
                 AttackHaniObject.SetActive(true);
@@ -100,7 +100,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
 
             else if (clickGameObject.gameObject.tag == "Ground")
             {
-                //Debug.Log("yuka");
+                Debug.Log("yuka");
                 attackFrag = false;
                 AttackHaniObject.SetActive(false);
                 moveScript.ClickGround();
@@ -114,6 +114,8 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
     [PunRPC]
     public void Attack()
     {
+        Debug.Log("kougekisitai");
+
         if (attackFrag)
         {
             Debug.Log("kougeki");

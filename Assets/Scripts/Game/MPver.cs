@@ -29,6 +29,7 @@ public class MPver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float nowMp = PlayerStatus.Status.getmp();
+        mpSlider.value = nowMp;
     }
 }
