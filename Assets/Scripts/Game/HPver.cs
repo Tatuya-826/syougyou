@@ -29,6 +29,7 @@ public class HPver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float nowHp = PlayerStatus.Status.gethp(); ;
+        hpSlider.value = nowHp;
     }
 }
