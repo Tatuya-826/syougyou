@@ -8,20 +8,21 @@ public class ItemBoxScript : MonoBehaviourPunCallbacks
 {
     public GameObject ItemWindow;
 
-    void OnTriggerEnter(Collider col)
+    public void Start()
     {
         if (photonView.IsMine)
         {
-            // 所有者を取得する
             Player owner = photonView.Owner;
+        }
+    }
 
+    public void OnTriggerEnter(Collider col)
+    {
             print("あたった");
             // 衝突した相手にPlayerタグが付いているとき
             if (col.gameObject.tag == "Player")
             {
                 ItemWindow.gameObject.SetActive(true);
             }
-        }
-        
     }
 }
