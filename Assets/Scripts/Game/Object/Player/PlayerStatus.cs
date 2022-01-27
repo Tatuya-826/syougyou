@@ -16,8 +16,15 @@ public class PlayerStatus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
+    }
+
+    public void reset()
+    {
         HP = MAXHP;
         MP = MAXMP;
+        Debug.Log("HP=" + HP);
     }
     
     public void sethp(int HP)

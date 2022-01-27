@@ -710,6 +710,7 @@ GameObject:
   m_Component:
   - component: {fileID: 444330974}
   - component: {fileID: 444330975}
+  - component: {fileID: 444330976}
   m_Layer: 5
   m_Name: HP
   m_TagString: Untagged
@@ -784,10 +785,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.71
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &444330976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444330973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea5caaa45cdb2a4419692f3efbb4fa32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &521514459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3077,8 +3090,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1378161851}
   - component: {fileID: 1378161852}
+  - component: {fileID: 1378161853}
   m_Layer: 5
-  m_Name: HP
+  m_Name: MP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3167,6 +3181,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1378161853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378161850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb5db142bace4b4c82272ca3d88616a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1471104935
 GameObject:
   m_ObjectHideFlags: 0
@@ -4598,7 +4624,7 @@ Canvas:
   m_GameObject: {fileID: 1965092388}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1770423530}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
