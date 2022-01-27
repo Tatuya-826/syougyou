@@ -9637,6 +9637,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 442858967935904038, guid: 6919d783a4fda2643adbd11c8e16e337, type: 3}
+      propertyPath: HP
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 442858968943653490, guid: 6919d783a4fda2643adbd11c8e16e337, type: 3}
       propertyPath: m_Name
       value: RedDragon
