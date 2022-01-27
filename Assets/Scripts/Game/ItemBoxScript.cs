@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
-public class ItemBoxScript : MonoBehaviour
+public class ItemBoxScript : MonoBehaviourPunCallbacks
 {
     public GameObject ItemWindow;
 
     void OnTriggerEnter(Collider col)
     {
-        print("あたった");
-        // 衝突した相手にPlayerタグが付いているとき
-        if (col.gameObject.tag == "Player")
+        if (photonView.IsMine)
         {
-            ItemWindow.gameObject.SetActive(true);
+            // 所有者を取得する
+            Player owner = photonView.Owner;
+
+            print("あたった");
+            // 衝突した相手にPlayerタグが付いているとき
+            if (col.gameObject.tag == "Player")
+            {
+                ItemWindow.gameObject.SetActive(true);
+            }
         }
+        
     }
 }
