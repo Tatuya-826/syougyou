@@ -17,7 +17,7 @@ public class AttackPower : MonoBehaviour
 
     void AttackPowerKeisan()
     {
-        AtkPower = playerStatus.getAtk();
+        AtkPower = PlayerNowWeapon.PlayerEquipment.WeaponAtk;
         //Debug.Log(AtkPower);
     }
 }
