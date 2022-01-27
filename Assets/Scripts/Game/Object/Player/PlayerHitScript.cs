@@ -19,11 +19,14 @@ public class PlayerHitScript : MonoBehaviour
         //Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "EnemyAttack" )
         {
+            
+
             HP = PlayerStatus.Status.gethp();
-            HP-= col.GetComponent<Damage>().hitDamage;
+            Debug.Log("HP="+HP);
+            HP -= col.GetComponent<Damage>().hitDamage;
             PlayerStatus.Status.sethp(HP);
 
-            Debug.Log(HP);
+            Debug.Log("HP="+HP);
             if (HP <= 0)
                 oyaObject.SetActive(false); ;
 
