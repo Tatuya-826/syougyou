@@ -7,7 +7,7 @@ public class CameraScript : MonoBehaviour//, IPunObservable
     public static CameraScript instance;
 
     [SerializeField] private Transform player;   //プレイヤー情報格納用
-    [SerializeField] private Vector3 offset=new Vector3(0f,20f,0f);    //カメラとプレイヤの距離
+    [SerializeField] private Vector3 offset=new Vector3(0f,10f,0f);    //カメラとプレイヤの距離
 
 
     public void Awake()
