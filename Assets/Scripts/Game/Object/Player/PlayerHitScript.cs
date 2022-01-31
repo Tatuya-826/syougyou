@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHitScript : MonoBehaviour
 {
@@ -27,9 +28,11 @@ public class PlayerHitScript : MonoBehaviour
             PlayerStatus.Status.sethp(HP);
 
             Debug.Log("HP="+HP);
-            if (HP <= 0)
+            if (HP <= 0)        //HP‚ª0‚É‚È‚Á‚½ˆ—
+            {
                 oyaObject.SetActive(false); ;
-
+                SceneManager.LoadScene("robi-");
+            }
         }
 
     }
