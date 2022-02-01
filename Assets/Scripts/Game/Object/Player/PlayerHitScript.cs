@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHitScript : MonoBehaviour
 {
     public int HP ;
     GameObject oyaObject;
-    PlayerStatus playerStatus;
+    //PlayerStatus playerStatus;
     //ÉvÉåÉCÉÑÅ[ÇÃìñÇΩÇËîªíËèàóù
     void Start()
     {
         oyaObject = transform.parent.gameObject;
-        playerStatus = oyaObject.GetComponent<PlayerStatus>();
+        //playerStatus = oyaObject.GetComponent<PlayerStatus>();
     }
 
     void OnTriggerEnter(Collider col)
@@ -19,14 +20,19 @@ public class PlayerHitScript : MonoBehaviour
         //Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "EnemyAttack" )
         {
-            HP=playerStatus.gethp();
-            HP-= col.GetComponent<Damage>().hitDamage;
-            playerStatus.sethp(HP);
+            
 
-            Debug.Log(HP);
-            if (HP <= 0)
+            HP = PlayerStatus.Status.gethp();
+            Debug.Log("HP="+HP);
+            HP -= col.GetComponent<Damage>().hitDamage;
+            PlayerStatus.Status.sethp(HP);
+
+            Debug.Log("HP="+HP);
+            if (HP <= 0)        //HPÇ™0Ç…Ç»Ç¡ÇΩèàóù
+            {
                 oyaObject.SetActive(false); ;
-
+                SceneManager.LoadScene("robi-");
+            }
         }
 
     }

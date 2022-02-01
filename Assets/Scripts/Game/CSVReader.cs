@@ -55,7 +55,7 @@ public class CSVReader : MonoBehaviour
 
         // csvDatas[行][列]を指定して値を自由に取り出せる
         //Debug.Log(WeaponCSVDatas[1][0]);
-        SaveItem("A", "よろいん", 1111, "よろいｓ", "よろいぞく");
+        //SaveItem("A", "よろいん", 1111, "よろいｓ", "よろいぞく");
     }
 
     public string WeaponNameGetter(int index)
@@ -154,5 +154,17 @@ public class CSVReader : MonoBehaviour
         }
         swArmor.Close();
 
+    }
+
+    public void WeaponCSVTrash(int index)
+    {
+        WeaponCSVDatas.RemoveAt(index);
+        return;
+    }
+
+    public void ArmorCSVTrash(int index)
+    {
+        ArmorCSVDatas.RemoveAt(index);
+        return;
     }
 }

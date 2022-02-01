@@ -121,7 +121,12 @@ public class myItemList : MonoBehaviour
         return;
     }
 
-    public void BoxIreru()
+    public void LostItem()
+    {
+
+    }
+
+        public void BoxIreru()
     {
         ;
     }
