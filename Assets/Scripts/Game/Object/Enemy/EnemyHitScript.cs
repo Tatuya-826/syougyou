@@ -67,6 +67,8 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
         {
             Destroy(oyaObject);
 
+            Debug.Log(dropid);
+
             GameObject drophin = Instantiate<GameObject>(dropItemObj, transform.position + Vector3.up, Quaternion.identity);
             dropInfo drophantei= drophin.GetComponent<dropInfo>();
 

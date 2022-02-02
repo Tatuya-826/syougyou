@@ -119,7 +119,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
             clickGameObject = hit.collider.gameObject;
             if (clickGameObject.gameObject.tag == "Enemy")
             {
-                Debug.Log("teki");
+                //Debug.Log("teki");
                 attackFrag = true;
                 actionFrag = false;
                 AttackHaniObject.SetActive(true);
@@ -129,7 +129,7 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
 
             else if (clickGameObject.gameObject.tag == "Ground")
             {
-                Debug.Log("yuka");
+                //Debug.Log("yuka");
                 attackFrag = false;
                 AttackHaniObject.SetActive(false);
                 moveScript.ClickGround();
