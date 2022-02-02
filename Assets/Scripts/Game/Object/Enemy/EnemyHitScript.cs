@@ -55,7 +55,7 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
             HP-=col.GetComponent<AttackPower> ().AtkPower;
             enemyStatus.sethp(HP);
 
-            enemyDestroy();
+            //enemyDestroy();
 
             if(HP < 0)
             {
