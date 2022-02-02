@@ -26,8 +26,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.7063717
-  m_Height: 1.4127434
+  m_Radius: 1.26
+  m_Height: 1.79
   m_Direction: 1
   m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!114 &4798285354945188731
@@ -310,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 4798285355617495097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4798285354451543289}
   - {fileID: 4798285355384698690}
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb661170321c0504bb143ddd3c434652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
+  id: 3
   CSVreadObject: {fileID: 0}
 --- !u!114 &8201190414728664254
 MonoBehaviour:
