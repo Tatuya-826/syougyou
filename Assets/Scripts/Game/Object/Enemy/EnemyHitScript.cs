@@ -56,15 +56,19 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
             enemyStatus.sethp(HP);
 
             enemyDestroy();
-            photonView.RPC("enemyDestroy", RpcTarget.All);//同期RPC
+
+            if(HP < 0)
+            {
+                photonView.RPC("enemyDestroy", RpcTarget.All);//同期RPC
+            }
          }
     }
 
     [PunRPC]
     void enemyDestroy()
     {
-        if (HP <= 0)
-        {
+        //if (HP <= 0)
+        //{
             Destroy(oyaObject);
 
             Debug.Log(dropid);
@@ -81,7 +85,7 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
             drophantei.dropSirabe(type, Name, atk, wType, Prog);
 
             print("デストロイ");
-        }
+        //}
     }
     
     void modelDestroy()
