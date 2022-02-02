@@ -7,7 +7,7 @@ public class PlayerStatus : MonoBehaviour
 
     public readonly static PlayerStatus Status = new PlayerStatus();
 
-    public int MAXHP = 500;
+    public int MAXHP = 200;
     public int HP;
     public int MAXMP = 100;
     public int MP;
