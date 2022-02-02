@@ -31,7 +31,7 @@ public class PlayerHitScript : MonoBehaviour
             if (HP <= 0)        //HP‚ª0‚É‚È‚Á‚½ˆ—
             {
                 oyaObject.SetActive(false); ;
-                //SceneManager.LoadScene("robi-");
+                SceneManager.LoadScene("robi-");
             }
         }
 
