@@ -68,12 +68,12 @@ MonoBehaviour:
   Enmspawner06: {fileID: 7323523867501768070, guid: f3020d42695498c45b4c43097b9d8f59, type: 3}
   Enmspawner07: {fileID: 522456472242956770, guid: 6790678c41880e640ada6cca84d4ab2b, type: 3}
   Enmspawner08: {fileID: 522456472242956770, guid: 6790678c41880e640ada6cca84d4ab2b, type: 3}
-  Enmspawner09: {fileID: 522456472242956770, guid: 6790678c41880e640ada6cca84d4ab2b, type: 3}
-  Enmspawner10: {fileID: 522456472242956770, guid: 6790678c41880e640ada6cca84d4ab2b, type: 3}
+  Enmspawner09: {fileID: 7323523867501768070, guid: e52c4a8fdeb9f634ca66b5b038bc5556, type: 3}
+  Enmspawner10: {fileID: 7323523867501768070, guid: e52c4a8fdeb9f634ca66b5b038bc5556, type: 3}
   Enmspawner11: {fileID: 7323523867501768070, guid: e52c4a8fdeb9f634ca66b5b038bc5556, type: 3}
-  Enmspawner12: {fileID: 7323523867501768070, guid: e52c4a8fdeb9f634ca66b5b038bc5556, type: 3}
-  Enmspawner13: {fileID: 7323523867501768070, guid: e52c4a8fdeb9f634ca66b5b038bc5556, type: 3}
-  Enmspawner14: {fileID: 7323523867501768070, guid: e52c4a8fdeb9f634ca66b5b038bc5556, type: 3}
+  Enmspawner12: {fileID: 522456472242956770, guid: 5253f9338aff8f543a9510882f18164f, type: 3}
+  Enmspawner13: {fileID: 522456472242956770, guid: 5253f9338aff8f543a9510882f18164f, type: 3}
+  Enmspawner14: {fileID: 522456472242956770, guid: 5253f9338aff8f543a9510882f18164f, type: 3}
   Enmspawner15: {fileID: 4798285355617495097, guid: 24e60fca3a1c1d54eb8a2cf8354f95de, type: 3}
   seedNum: 0
   seed: 0
