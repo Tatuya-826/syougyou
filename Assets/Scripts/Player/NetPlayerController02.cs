@@ -31,6 +31,9 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
         //カメラの取得
         mainCamObj = GameObject.FindGameObjectWithTag("MainCamera");
         cam = mainCamObj.GetComponent<Camera>();
+        
+
+
 
         playerSpawn = 1;//1プレイヤーが沸いたフラグ
         moveScript = this.gameObject.GetComponent<NetMoveScript02>();
@@ -48,13 +51,35 @@ public class NetPlayerController02 : MonoBehaviourPunCallbacks, IPunObservable
         //カメラを子にいれる
         if (photonView.IsMine)
         {
+            gameObject.name = "p1";
+
+            Transform myTransform = this.transform;
+            Vector3 pos = myTransform.position;
+
+            var rPosition = new Vector3(pos.x,pos.y,pos.z);
+
             GameObject parentObject = GameObject.FindGameObjectWithTag("Player");
             cam.transform.parent = parentObject.transform;
             CameraScript.instance.PlayerShutoku();
 
+            //レッド
             //インスタンティエイト　オーラー
             //ペアレントオブジェ ファインドタグ オーラ
             //オーラの座標はプレイヤーにする
+
+            GameObject RAuraObject = GameObject.FindGameObjectWithTag("RAura");
+            RAuraObject.transform.parent = this.transform;
+            
+
+        }
+        else
+        {
+            GameObject clone = GameObject.Find("NetArthur(Clone)");
+
+            GameObject parentObject = GameObject.FindGameObjectWithTag("Player");
+
+            GameObject GAuraObject = GameObject.FindGameObjectWithTag("GAura");
+            GAuraObject.transform.parent = this.transform;
         }
     }
 
