@@ -3331,6 +3331,18 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1612096040, guid: f97c8f29344d41241b7a74ad8571620c, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 1612096040, guid: f97c8f29344d41241b7a74ad8571620c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612096041, guid: f97c8f29344d41241b7a74ad8571620c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.01
+      objectReference: {fileID: 0}
     - target: {fileID: 335879758959811028, guid: f97c8f29344d41241b7a74ad8571620c, type: 3}
       propertyPath: m_RootOrder
       value: 6
