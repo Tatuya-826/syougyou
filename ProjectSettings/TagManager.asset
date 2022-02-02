@@ -9,6 +9,9 @@ TagManager:
   - EnemyAttack
   - PlayerAttack
   - ItemList
+  - RAura
+  - GAura
+  - Aura
   layers:
   - Default
   - TransparentFX

@@ -3,7 +3,7 @@ using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class enemyRespawn : MonoBehaviourPunCallbacks
+public class macchoRespawn : MonoBehaviourPunCallbacks
 {
     public override void OnJoinedRoom()
     {
@@ -14,10 +14,10 @@ public class enemyRespawn : MonoBehaviourPunCallbacks
 
         Vector3 pos = myTransform.position;
         //ç¿ïWÇÃäiî[
-        var rPosition = new Vector3(pos.x,pos.y,pos.z);
+        var rPosition = new Vector3(pos.x, pos.y, pos.z);
 
         //îzíu
-        PhotonNetwork.Instantiate("Kinkyori", rPosition, Quaternion.identity);
+        PhotonNetwork.Instantiate("maccho", rPosition, Quaternion.identity);
 
         //cameraScript.player = GameObject.Find("NetArthur");
     }

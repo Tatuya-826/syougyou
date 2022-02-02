@@ -111,17 +111,7 @@ public class StartupGame : MonoBehaviourPunCallbacks
 
         //アーサーくん配置
         PhotonNetwork.Instantiate("NetArthur", rPosition, Quaternion.identity);
-
-        //カメラを子にいれる
-        /*
-        if (photonView.IsMine)
-        {
-            GameObject parentObject = GameObject.FindGameObjectWithTag("Player");
-            cam.transform.parent = parentObject.transform;
-        }
-        */
-
-        //cameraScript.player = GameObject.Find("NetArthur");
+        
     }
     
 
