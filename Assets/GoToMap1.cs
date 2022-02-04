@@ -3,7 +3,7 @@ using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DungeonGate : MonoBehaviourPunCallbacks
+public class GoToMap1 : MonoBehaviourPunCallbacks
 {
 
     void OnTriggerEnter(Collider col)
@@ -14,6 +14,7 @@ public class DungeonGate : MonoBehaviourPunCallbacks
         if (col.gameObject.tag == "Player")
         {
             print("‚ ‚½‚Á‚½");
+            SceneManager.LoadScene("Map");
             MapRandomSeed.staticSeed++;
             MapRandomSeed.Floor++;
             PhotonNetwork.LeaveRoom();
