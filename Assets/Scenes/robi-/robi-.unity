@@ -3480,6 +3480,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7951627197080524848, guid: 01bc164e72e7f2544bde019bd9fa20a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8895948445785628848, guid: 01bc164e72e7f2544bde019bd9fa20a6, type: 3}
       propertyPath: m_Name
       value: DungeonGate

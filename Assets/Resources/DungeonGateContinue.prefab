@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7468134878729575992}
   - component: {fileID: 8171358452778739510}
   - component: {fileID: 8341330806212889440}
+  - component: {fileID: 8100421904139224088}
+  - component: {fileID: 7190024178995712810}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Ground
@@ -90,7 +92,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5654882392196793657}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2827ccb2296268b46bab600ab0949473, type: 3}
   m_Name: 
@@ -108,6 +110,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7718665, y: 5.468271, z: 2.9520748}
   m_Center: {x: -0.028702183, y: 1.0743253, z: -0.13149226}
+--- !u!114 &8100421904139224088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5654882392196793657}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f2412688dcb1b40803a1e796c795ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7190024178995712810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5654882392196793657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21cba03e7a73b840877453ed8e4ac29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6595855114042395084
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6595855114042395084}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.27, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5.773672, y: 25, z: 25}
   m_Children: []
   m_Father: {fileID: 6087235959040368651}
@@ -216,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7951627197080524848}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.26, z: 0}
+  m_LocalPosition: {x: 0, y: -1.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6087235959040368651}
@@ -1493,7 +1519,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.98879445, b: 0, a: 0.67058825}
+        key0: {r: 1, g: 0.027121084, b: 0, a: 0.67058825}
         key1: {r: 0.31764707, g: 0.31764707, b: 0.31764707, a: 0.03529412}
         key2: {r: 1, g: 0.30676448, b: 0.10131059, a: 1}
         key3: {r: 1, g: 0.40980536, b: 0, a: 0}
@@ -5029,7 +5055,7 @@ GameObject:
   - component: {fileID: 6087235959040368651}
   - component: {fileID: 2466415946498226112}
   m_Layer: 0
-  m_Name: DungeonGate
+  m_Name: DungeonGateContinue
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

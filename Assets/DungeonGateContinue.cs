@@ -3,7 +3,7 @@ using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DungeonGate : MonoBehaviourPunCallbacks
+public class DungeonGateContinue : MonoBehaviourPunCallbacks
 {
 
     void OnTriggerEnter(Collider col)
@@ -15,7 +15,7 @@ public class DungeonGate : MonoBehaviourPunCallbacks
         {
             print("‚ ‚½‚Á‚½");
             MapRandomSeed.staticSeed++;
-            MapRandomSeed.Floor++;
+            MapRandomSeed.Floor = 1;
             PhotonNetwork.LeaveRoom();
             PhotonNetwork.LeaveLobby();
             //SceneManager.LoadScene("Map");
@@ -42,10 +42,6 @@ public class DungeonGate : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinOrCreateRoom(MatchmakingView.pass, roomOptions, TypedLobby.Default);
     }
 
-    private void Update()
-    {
-    }
-
     public override void OnLeftRoom()
     {
 
@@ -66,8 +62,7 @@ public class DungeonGate : MonoBehaviourPunCallbacks
 
         if (MapRandomSeed.Floor == 4)
         {
-            MapRandomSeed.Floor = 0;
-            SceneManager.LoadScene("robi-");
+            SceneManager.LoadScene("Map");
         }
     }
 }
