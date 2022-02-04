@@ -35,6 +35,6 @@ public class EnemyCSVReader : MonoBehaviour
 
     public int dropGetter(int index)
     {
-        return 1; //int.Parse(EnemyCSVDatas[index][4]);
+        return int.Parse(EnemyCSVDatas[index][4]);
     }
 }
