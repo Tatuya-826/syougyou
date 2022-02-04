@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class mainkirikae : MonoBehaviour
+public class mainKirikae : MonoBehaviour
 {
     public GameObject mainPanel;
     public GameObject subPanel;

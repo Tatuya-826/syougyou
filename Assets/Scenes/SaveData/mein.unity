@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -290,7 +290,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1209576098}
-        m_TargetAssemblyTypeName: mainkirikae, Assembly-CSharp
+        m_TargetAssemblyTypeName: mainKirikae, Assembly-CSharp
         m_MethodName: SubView
         m_Mode: 1
         m_Arguments:
@@ -607,7 +607,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1499319181}
   m_HandleRect: {fileID: 1499319180}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1773,7 +1773,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00033132505, y: -0.000011444092}
+  m_AnchoredPosition: {x: -0.00023650778, y: -0.000011444092}
   m_SizeDelta: {x: -0.00036621, y: 595.3683}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1052577677
@@ -2403,7 +2403,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1209576098}
-        m_TargetAssemblyTypeName: mainkirikae, Assembly-CSharp
+        m_TargetAssemblyTypeName: mainKirikae, Assembly-CSharp
         m_MethodName: MainView
         m_Mode: 1
         m_Arguments:
@@ -2623,12 +2623,20 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8340382440867489572, guid: 19fdcfa2f15c67f4b92bfca5f4b5f10f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8340382440912407138, guid: 19fdcfa2f15c67f4b92bfca5f4b5f10f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8340382440912407138, guid: 19fdcfa2f15c67f4b92bfca5f4b5f10f, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340382440912407138, guid: 19fdcfa2f15c67f4b92bfca5f4b5f10f, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8340382441728723577, guid: 19fdcfa2f15c67f4b92bfca5f4b5f10f, type: 3}
@@ -2739,13 +2747,17 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8340382442087439694, guid: 19fdcfa2f15c67f4b92bfca5f4b5f10f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8340382442137405826, guid: 19fdcfa2f15c67f4b92bfca5f4b5f10f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -159.5623
+      value: -159.56238
       objectReference: {fileID: 0}
     - target: {fileID: 8340382442137405826, guid: 19fdcfa2f15c67f4b92bfca5f4b5f10f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 125.289505
+      value: 125.28954
       objectReference: {fileID: 0}
     - target: {fileID: 8340382442653745386, guid: 19fdcfa2f15c67f4b92bfca5f4b5f10f, type: 3}
       propertyPath: m_AnchorMax.y

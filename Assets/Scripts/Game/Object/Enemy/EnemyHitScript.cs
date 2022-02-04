@@ -71,9 +71,11 @@ public class EnemyHitScript : MonoBehaviourPunCallbacks, IPunObservable
         //{
             Destroy(oyaObject);
 
-            Debug.Log(dropid);
+            Debug.Log("id"+dropid);
+        Debug.Log(CSVreadObject);
+        Debug.Log(CSVread);
 
-            GameObject drophin = Instantiate<GameObject>(dropItemObj, transform.position + Vector3.up, Quaternion.identity);
+        GameObject drophin = Instantiate<GameObject>(dropItemObj, transform.position + Vector3.up, Quaternion.identity);
             dropInfo drophantei= drophin.GetComponent<dropInfo>();
 
             type = CSVread.typeGetter(dropid);

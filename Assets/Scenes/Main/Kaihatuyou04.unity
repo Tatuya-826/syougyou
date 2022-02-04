@@ -26096,18 +26096,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6262772783211017949, guid: 947da8fa64acccc44adb004b769f7df0, type: 3}
   m_PrefabInstance: {fileID: 6262772783647962621}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1779745571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779745568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7facc088cfb3264ba979b05ee98b480, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1807269769
 GameObject:
   m_ObjectHideFlags: 0
@@ -51706,10 +51694,6 @@ PrefabInstance:
     - target: {fileID: 6262772783211017949, guid: 947da8fa64acccc44adb004b769f7df0, type: 3}
       propertyPath: m_Name
       value: EmyCSVRead
-      objectReference: {fileID: 0}
-    - target: {fileID: 6262772783211017949, guid: 947da8fa64acccc44adb004b769f7df0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6262772783211017951, guid: 947da8fa64acccc44adb004b769f7df0, type: 3}
       propertyPath: m_RootOrder
